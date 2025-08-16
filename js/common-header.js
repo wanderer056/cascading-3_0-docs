@@ -28,7 +28,7 @@ function injectHeader() {
     const header = `
 <div id="header">
   <div class="container">
-    <div class="branding">
+    <div class="branding" onclick="window.location.href='index.html'" style="cursor: pointer;">
       <h1>🚀 Cascading 3.0 Documentation</h1>
       <p>✨ Rehosted because the original site vanished and the Wayback Machine was driving me nuts! 🔍</p>
     </div>
