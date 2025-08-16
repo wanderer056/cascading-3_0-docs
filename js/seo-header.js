@@ -25,6 +25,9 @@ function injectSEOHeader() {
     // --- Inject SEO meta tags ---
     injectSEOMetaTags(currentPage);
     
+    // --- Inject canonical URL ---
+    injectCanonicalURL();
+    
     // --- Inject structured data ---
     injectStructuredData(currentPage);
 
@@ -156,6 +159,36 @@ function injectSEOMetaTags(pageInfo) {
     if (document.title !== pageInfo.title) {
         document.title = pageInfo.title;
     }
+}
+
+// Inject canonical URL
+function injectCanonicalURL() {
+    // Remove any existing canonical links
+    const existingCanonical = document.querySelector('link[rel="canonical"]');
+    if (existingCanonical) {
+        existingCanonical.remove();
+    }
+    
+    // Get current URL and clean it up
+    let currentURL = window.location.href;
+    
+    // Remove trailing .html for cleaner URLs
+    if (currentURL.endsWith('.html')) {
+        currentURL = currentURL.replace('.html', '');
+    }
+    
+    // Remove trailing slash for homepage
+    if (currentURL.endsWith('/')) {
+        currentURL = currentURL.slice(0, -1);
+    }
+    
+    // Create and inject canonical link
+    const canonicalLink = document.createElement('link');
+    canonicalLink.rel = 'canonical';
+    canonicalLink.href = currentURL;
+    document.head.appendChild(canonicalLink);
+    
+    console.log('Canonical URL set to:', currentURL);
 }
 
 // Inject structured data (JSON-LD)

@@ -7,127 +7,127 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch01-introduction.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch01-introduction</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch02-diving-in.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch02-diving-in</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch03-basic-concepts.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch03-basic-concepts</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch04-tuple-fields.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch04-tuple-fields</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch05-pipe-assemblies.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch05-pipe-assemblies</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch06-flows.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch06-flows</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch07-cascades.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch07-cascades</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch08-configuring.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch08-configuring</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch09-local.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch09-local</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch10-hadoop-common.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch10-hadoop-common</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch11-hadoop-mapreduce.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch11-hadoop-mapreduce</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch12-hadoop-tez.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch12-hadoop-tez</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch13-using-operations.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch13-using-operations</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch14-custom-taps-schemes.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch14-custom-taps-schemes</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch15-advanced.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch15-advanced</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch16-operations.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch16-operations</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch17-subassemblies.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch17-subassemblies</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch18-best-practices.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch18-best-practices</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch19-extending-cascading.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch19-extending-cascading</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch20-cookbook.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch20-cookbook</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cascading.sumantapaudel.com.np/ch21-query-process-planner.html</loc>
+    <loc>https://cascading.sumantapaudel.com.np/ch21-query-process-planner</loc>
     <lastmod>2024-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
