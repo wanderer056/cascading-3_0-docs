@@ -7,10 +7,10 @@ function injectHeader() {
         document.head.appendChild(link);
     }
 
-    if (!document.querySelector('link[href="/pagefind/pagefind-ui.css"]')) {
+    if (!document.querySelector('link[href="pagefind/pagefind-ui.css"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
-        link.href = '/pagefind/pagefind-ui.css';
+        link.href = 'pagefind/pagefind-ui.css';
         document.head.appendChild(link);
     }
 
@@ -32,9 +32,9 @@ function injectHeader() {
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
 
     // --- Load Pagefind JS dynamically ---
-    if (!document.querySelector('script[src="/pagefind/pagefind-ui.js"]')) {
+    if (!document.querySelector('script[src="pagefind/pagefind-ui.js"]')) {
         const script = document.createElement('script');
-        script.src = '/pagefind/pagefind-ui.js';
+        script.src = 'pagefind/pagefind-ui.js';
         script.onload = () => {
             if (window.PagefindUI) {
                 new PagefindUI({ element: "#search", showSubResults: true });
