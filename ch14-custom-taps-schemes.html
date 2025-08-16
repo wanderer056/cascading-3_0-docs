@@ -1,0 +1,1116 @@
+<html lang="en">
+<head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=FC38Hc5A" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://docs.cascading.org:80/cascading/3.0/userguide/ch14-custom-taps-schemes.html","20200208223041","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1581201041");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=p7PEIJWi" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="Asciidoctor 1.5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cascading 3.0 User Guide - Custom Taps and Schemes</title>
+  <script type="text/javascript" src="https://web.archive.org/web/20200208223041js_/http://use.typekit.net/dob3ybp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+      <style>
+        @import url(https://web.archive.org/web/20200208223041cs_/http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.css);
+/* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="https://web.archive.org/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; border: 0; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+/*ol, ul { list-style: none; }*/
+
+table { border-collapse: collapse; border-spacing: 0; margin-bottom: 1.33333em;}
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+
+/* ========================================================================== HTML5 display definitions ========================================================================== */
+/** Correct `block` display not defined in IE 8/9. */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+
+/** Correct `inline-block` display not defined in IE 8/9. */
+audio, canvas, video { display: inline-block; }
+
+/** Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+audio:not([controls]) { display: none; height: 0; }
+
+/** Address styling not present in IE 8/9. */
+[hidden] { display: none; }
+
+/* ========================================================================== Base ========================================================================== */
+/*body { margin: 0; color: #444; font-size: 14px; line-height: 150%; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; background: #f1efea url(https://web.archive.org/web/20200208223041im_/http://www.cascading.org/files/2012/05/background.png) repeat top center fixed; }*/
+body {background: none !important; margin: 0; color: #4d4d4d; font: 16px/28px "proxima-nova", Arial, Helvetica, Sans-serif !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: none; background: #fff; min-width:1034px;}
+
+/* ========================================================================== Links ========================================================================== */
+a, a:link, a:visited, a:active { color: #4183C4; text-decoration: none; }
+
+a:hover { color: #1F546C; text-decoration: underline; }
+
+/** Address `outline` inconsistency between Chrome and other browsers. */
+a:focus { outline: thin dotted; }
+
+/** Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover { outline: 0; }
+
+/* ========================================================================== Typography ========================================================================== */
+/** Address variable `h1` font-size and margin within `section` and `article` contexts in Firefox 4+, Safari 5, and Chrome. */
+h1 { font-size:2em; margin: 0.67em 0 !important;}
+
+/** Address styling not present in IE 8/9, Safari 5, and Chrome. */
+abbr[title] { border-bottom: 1px dotted; }
+
+/** Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+b, strong { font-weight: bold; }
+
+/** Address styling not present in Safari 5 and Chrome. */
+dfn { font-style: italic; }
+
+/** Address styling not present in IE 8/9. */
+mark { background: #ff0; color: #000; }
+
+/** Correct font family set oddly in Safari 5 and Chrome. */
+code, kbd, pre, samp, .classname, .methodname { font-family: monospace, serif; font-size: 1em; }
+
+/** Improve readability of pre-formatted text in all browsers. */
+pre { white-space: pre-wrap; }
+
+/** Set consistent quote types. */
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/** Address inconsistent and variable font size in all browsers. */
+small { font-size: 80%; }
+
+/** Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+/* ========================================================================== Embedded content ========================================================================== */
+/** Remove border when inside `a` element in IE 8/9. */
+img { border: 0; }
+
+/** Correct overflow displayed oddly in IE 9. */
+svg:not(:root) { overflow: hidden; }
+
+/* ========================================================================== Figures ========================================================================== */
+/** Address margin not present in IE 8/9 and Safari 5. */
+figure { margin: 0; }
+
+/* ========================================================================== Forms ========================================================================== */
+/** Define consistent border, margin, and padding. */
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+
+/** 1. Correct `color` not being inherited in IE 8/9. 2. Remove padding so people aren't caught out if they zero out fieldsets. */
+legend { border: 0; /* 1 */ padding: 0; /* 2 */ }
+
+/** 1. Correct font family not being inherited in all browsers. 2. Correct font size not being inherited in all browsers. 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. */
+button, input, select, textarea { font-family: inherit; /* 1 */ font-size: 100%; /* 2 */ margin: 0; /* 3 */ }
+
+/** Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+button, input { line-height: normal; }
+
+/** Address inconsistent `text-transform` inheritance for `button` and `select`. All other form control elements do not inherit `text-transform` values. Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+. Correct `select` style inheritance in Firefox 4+ and Opera. */
+button, select { text-transform: none; }
+
+/** 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 2. Correct inability to style clickable `input` types in iOS. 3. Improve usability and consistency of cursor style between image-type `input` and others. */
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; /* 2 */ cursor: pointer; /* 3 */ }
+
+/** Re-set default cursor for disabled elements. */
+button[disabled], html input[disabled] { cursor: default; }
+
+/** Remove inner padding and search cancel button in Safari 5 and Chrome on OS X. */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/** Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/** 1. Remove default vertical scrollbar in IE 8/9. 2. Improve readability and alignment in all browsers. */
+textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
+
+/* ========================================================================== Tables ========================================================================== */
+/** Remove most spacing between table cells. */
+table { border-collapse: collapse; border-spacing: 0; }
+
+td, th {border:1px solid #ddd;padding:2px 10px;}
+
+a:hover { cursor: pointer; }
+
+a:focus { outline: none; }
+
+img, object, embed { max-width: 100%; height: auto; }
+
+object, embed { height: 100%; }
+
+img { -ms-interpolation-mode: bicubic; }
+
+#map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
+
+.left { float: left !important; }
+
+.right { float: right !important; }
+
+.text-left { text-align: left !important; }
+
+.text-right { text-align: right !important; }
+
+.text-center { text-align: center !important; }
+
+.text-justify { text-align: justify !important; }
+
+.hide { display: none; }
+
+
+img { display: inline-block; vertical-align: middle; }
+
+textarea { height: auto; min-height: 50px; }
+
+select { width: 100%; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1.23333em; line-height: 1.6; }
+
+.subheader, .admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .ulist > .title, .olist > .title, .dlist > .title, .qlist > .title, .tableblock > caption { line-height: 1.4; color: #777777; font-weight: 300; margin-top: 0.2em; margin-bottom: 0.5em; }
+
+/* Typography resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; direction: ltr; }
+
+/* Default Link Styles */
+a { color: #4183c4; text-decoration: none; line-height: inherit; }
+
+a:hover, a:focus { color: #4183c4; }
+
+a img { border: none; }
+
+/* Default paragraph styles */
+p { margin-bottom: 1em; text-rendering: optimizeLegibility; line-height:130%;}
+
+p aside { font-size: 0.93333em; line-height: 1.35; font-style: italic; }
+
+/* Default header styles */
+h1, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: helvetica, arial, freesans, clean, sans-serif; font-weight: bold; font-style: normal; color: #333333; text-rendering: optimizeLegibility; margin-top: 0.2em; margin-bottom: 0.5em; line-height: 1.2em; }
+
+h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: gray; line-height: 0; }
+
+h2 {color: #003977;font-weight:normal;font-size:1.6em; border-bottom:1px solid #DDD;font-weight:bold;margin-bottom:0.5em;}
+
+h2.rule {border-top: 1px solid #CCCCCC;padding-top: 30px;}
+
+h4 { font-size: 0.66667em; }
+
+h5 { font-size: 1em; }
+
+h6 { font-size: 1em; }
+
+hr { border: solid #DDD; border-width: 1px 0 0; clear: both; margin: 1.33333em 0 1.26667em; height: 0; }
+
+/* Helpful Typography Defaults */
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: bold; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+code, .classname, .methodname, .code { font-family: Monaco, "DejaVu Sans Mono", "Courier New", monospace; font-weight: normal; color: #666666; word-wrap: break-word;}
+
+/* Unordered Lists */
+ul li ul, ul li ol { margin-left: 1.33333em; margin-bottom: 0; font-size: 1em; /* Override nested font-size change */ }
+
+ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
+
+ul.square { list-style-type: square; }
+
+ul.circle { list-style-type: circle; }
+
+ul.disc { list-style-type: disc; }
+
+ul.no-bullet { list-style: none; }
+
+/* Ordered Lists */
+ol li ul, ol li ol { margin-left: 1.33333em; margin-bottom: 0; }
+
+/* Definition Lists */
+dl { margin-bottom:1.33333em; }
+
+dl dt { margin-bottom: 0.33333em; font-weight: bold; }
+
+dl dd { margin-bottom: 1.33333em; }
+
+/* Abbreviations */
+abbr, acronym { text-transform: uppercase; font-size: 90%; color: #333333; border-bottom: 1px dotted #dddddd; cursor: help; }
+
+abbr { text-transform: none; }
+
+/* Blockquotes */
+blockquote { margin: 0 0 1em; padding: 0; border-left: none; }
+
+blockquote cite { display: block; font-size: 0.86667em; color: #666666; }
+
+blockquote cite:before { content: "\2014 \0020"; }
+
+blockquote cite a, blockquote cite a:visited { color: #666666; }
+
+blockquote, blockquote p { line-height: 1.4; color: #666666; }
+
+/* Microformats */
+.vcard { display: inline-block; margin: 0 0 1.33333em 0; border: 1px solid #dddddd; padding: 0.66667em 0.8em; }
+
+.vcard li { margin: 0; display: block; }
+
+.vcard .fn { font-weight: bold; font-size: 1em; }
+
+.vevent .summary { font-weight: bold; }
+
+.vevent abbr { cursor: auto; text-decoration: none; font-weight: bold; border: none; padding: 0 0.06667em; }
+
+@media only screen and (min-width: 768px) { h1, h2, h3,.sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
+  h3, .sidebarblock > .content > .title { font-size: 1.2em; }
+  h4 { font-size: 1em; } }
+/* Print styles.  Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
+*/
+.print-only { display: none !important; }
+
+@media print { * { background: transparent !important; color: #000 !important; /* Black prints faster: h5bp.com/s */ box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border-left: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; /* h5bp.com/t */ }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3, #toctitle, .sidebarblock > .content > .title { orphans: 3; widows: 3; }
+  h2, h3, #toctitle, .sidebarblock > .content > .title { page-break-after: avoid; }
+  .hide-on-print { display: none !important; }
+  .print-only { display: block !important; }
+  .hide-for-print { display: none !important; }
+  .show-for-print { display: inherit !important; } }
+/* Tables */
+
+code , .code{ font-size: 0.86667em; padding: 0 5px 2px 5px; white-space: nowrap; background-color: transparent; border: 1px solid #dddddd; -webkit-border-radius: 3px; border-radius: 3px; text-shadow: none; }
+
+kbd.keyseq { color: #666666; }
+
+kbd:not(.keyseq) { display: inline-block; color: #333333; font-size: 0.8em; line-height: 1.4; background-color: #F7F7F7; border: 1px solid #ccc; -webkit-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; margin: -0.15em 0.15em 0 0.15em; padding: 0.2em 0.6em 0.2em 0.5em; vertical-align: middle; white-space: nowrap; }
+
+kbd kbd:first-child { margin-left: 0; }
+
+kbd kbd:last-child { margin-right: 0; }
+
+.menuseq, .menu { color: #1a1a1a; }
+
+#header, #footnotes, #footer { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; /* max-width: 66.66667em */ *zoom: 1; position: relative; padding-left: 1em; padding-right: 1em; }
+
+#content, #footer { margin:0 100px 0 350px; max-width: 960px; }
+
+#header { margin-bottom: 2.66667em;}
+
+#header > h1 { margin: 0 auto; margin-left: 350px; padding-top: 15px; padding-bottom: 20px; width: 960px; color: #FFF;}
+
+#header span { color: #666666; }
+
+#header #revnumber { margin: 0 auto; margin-left: 350px; width: 960px; display: block; color: #FFF; }
+
+#header br { display: none; }
+
+#header br + span { padding-left: 3px; }
+
+#header br + span:before { content: "\2013 \0020"; }
+
+#header br + span.author { padding-left: 0; }
+
+#header br + span.author:before { content: ", "; }
+
+#toc { border-bottom: 0 solid #dddddd; padding-bottom: 1.33333em; }
+
+#toc > ul, #toc > ol { margin-left: 0.26667em; }
+
+#toc ul.sectlevel0 > li > a, #toc ol.sectlevel0 > li > a { font-style: italic; }
+
+#toc ul.sectlevel0 ul.sectlevel1, #toc ol.sectlevel0 ol.sectlevel1 { margin-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+
+#toc ul, #toc ol { list-style-type: none; }
+
+.sectlevel1 li {line-height:120%;padding:4px 0;}
+
+#toctitle { color: #777777; }
+
+ol.sectlevel1 {padding:0;}
+
+.toc { margin-top: 40px; margin-left: 30px; }
+#toc.toc2 { position: absolute; overflow: auto; left: 0; top: 155px; padding: 1em; width: 18em; border: 1px solid #DDD; z-index: 1000; }
+#toc.toc2 #toctitle { margin-top: 0; }
+#toc.toc2 ul ul, #toc.toc2 ol ol { margin-left: 0; padding-left: 1.33333em; }
+#toc.toc2 ul.sectlevel0 ul.sectlevel1, #toc.toc2 ol.sectlevel0 ol.sectlevel1 { padding-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+body.toc2.toc-right { padding-left: 0; padding-right: 20em; }
+body.toc2.toc-right #toc.toc2 { border-right: 0; border-left: 1px solid #dddddd; left: auto; right: 0; } 
+.footer { max-width: 100%; background-color: #000; padding: 1.33333em; }
+
+.footer-text { color: #888888; line-height: 1.26; max-width: 960px;margin: 0 auto; text-align: center;}
+
+.sect1 { padding-bottom: 1.33333em; }
+
+.sect1 + .sect1 { border-top: 0 solid #dddddd; }
+
+#content h1 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { position: absolute; width: 1em; margin-left: -1em; display: block; text-decoration: none; visibility: hidden; text-align: center; font-weight: normal; }
+
+#content h1 > a.anchor:before, h3 > a.anchor:before, #toctitle > a.anchor:before, .sidebarblock > .content > .title > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before { content: '\00A7'; font-size: .85em; vertical-align: text-top; display: block; margin-top: 0.05em; }
+
+#content h1:hover > a.anchor, #content h1 > a.anchor:hover, h3:hover > a.anchor, #toctitle:hover > a.anchor, .sidebarblock > .content > .title:hover > a.anchor, h3 > a.anchor:hover, #toctitle > a.anchor:hover, .sidebarblock > .content > .title > a.anchor:hover, h4:hover > a.anchor, h4 > a.anchor:hover, h5:hover > a.anchor, h5 > a.anchor:hover, h6:hover > a.anchor, h6 > a.anchor:hover { visibility: visible; }
+
+#content h1 > a.link, h3 > a.link, #toctitle > a.link, .sidebarblock > .content > .title > a.link, h4 > a.link, h5 > a.link, h6 > a.link { color: #333333; text-decoration: none; }
+
+#content h1 > a.link:hover, h3 > a.link:hover, #toctitle > a.link:hover, .sidebarblock > .content > .title > a.link:hover, h4 > a.link:hover, h5 > a.link:hover, h6 > a.link:hover { color: #262626; }
+
+.admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .ulist > .title, .olist > .title, .dlist > .title, .qlist > .title { text-align: left; font-weight: bold; }
+
+.tableblock > caption { text-align: left; font-weight: bold; white-space: nowrap; overflow: visible; max-width: 0; }
+
+table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
+
+.admonitionblock > table { border: 0; background: none; width: 100%;}
+
+.admonitionblock > table td.icon { text-align: center; width: 80px; }
+
+.admonitionblock > table td.icon img { max-width: none; }
+
+.admonitionblock > table td.icon .title { font-weight: bold; text-transform: uppercase; }
+
+.admonitionblock > table td.content { padding-left: 1.2em; padding-right: 1.33333em; border-left: 1px solid #dddddd; color: #666666; }
+
+.admonitionblock > table td.content > .paragraph:last-child > p { margin-bottom: 0; }
+
+.exampleblock > .content { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.33333em; padding: 1.33333em; background: white; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.exampleblock > .content > :first-child { margin-top: 0; }
+
+.exampleblock > .content > :last-child { margin-bottom: 0; }
+
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6, .exampleblock > .content p { color: #333333; }
+
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6 { line-height: 1; margin-bottom: 0.66667em; }
+
+.exampleblock > .content h1.subheader, .exampleblock > .content h2.subheader, .exampleblock > .content h3.subheader, .exampleblock > .content .subheader#toctitle, .sidebarblock.exampleblock > .content > .subheader.title, .exampleblock > .content h4.subheader, .exampleblock > .content h5.subheader, .exampleblock > .content h6.subheader { line-height: 1.4; }
+
+.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
+
+.exampleblock.result > .content { -webkit-box-shadow: 0 1px 8px #eaeaea; box-shadow: 0 1px 8px #eaeaea; }
+
+.sidebarblock { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.33333em; padding: 1.33333em; background: white; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.sidebarblock > :first-child { margin-top: 0; }
+
+.sidebarblock > :last-child { margin-bottom: 0; }
+
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6, .sidebarblock p { color: #333333; }
+
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6 { line-height: 1; margin-bottom: 0.66667em; }
+
+.sidebarblock h1.subheader, .sidebarblock h2.subheader, .sidebarblock h3.subheader, .sidebarblock .subheader#toctitle, .sidebarblock > .content > .subheader.title, .sidebarblock h4.subheader, .sidebarblock h5.subheader, .sidebarblock h6.subheader { line-height: 1.4; }
+
+.sidebarblock > .content > .title { color: #777777; margin-top: 0; line-height: 1.4; border-width: 0 0 1px 0; border-style: solid; border-color: #cacaca; }
+
+.sidebarblock > .content > .paragraph:last-child p { margin-bottom: 0; }
+
+.verseblock { margin-bottom: 1.33333em; }
+
+.literalblock, .listingblock { margin-bottom: 1.33333em; }
+
+.literalblock > .content > pre, .listingblock > .content > pre { background-color: #F8F8F8; color:#4d4d4d; margin: 15px 0; padding: 10px 5px; border-left: 1px solid #298cc3; font: 12px/24px Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace; word-wrap: break-word; line-height: 1.6; }
+
+.literalblock > .content > pre.nowrap, .listingblock > .content > pre.nowrap { overflow-x: auto; white-space: pre; word-wrap: normal; }
+
+.literalblock > .content > pre > code, .listingblock > .content > pre > code { white-space: inherit; color:#4d4d4d; font: 12px/24px Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace; padding: 0; background: none; font-weight: normal; border: none; }
+
+@media only screen { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.69333em; } }
+@media only screen and (min-width: 768px) { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.78em; } }
+@media only screen and (min-width: 1280px) { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.86667em; } }
+.listingblock:hover .xml:before { content: "xml"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .html:before { content: "html"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .ruby:before { content: "ruby"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .asciidoc:before { content: "asciidoc"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .java:before { content: "java"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .javascript:before { content: "javascript"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .css:before { content: "css"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .scss:before { content: "scss"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.quoteblock { margin: 0 0 1em; padding: 0; border-left: none; }
+
+.quoteblock blockquote { margin: 0 0 1em 0; padding: 0 0 0.6em 0; border: 0; }
+
+.quoteblock blockquote > .paragraph:last-child p { margin-bottom: 0; }
+
+.quoteblock .attribution { margin-top: -.25em; padding-bottom: 0.6em; font-size: 0.86667em; color: #666666; }
+
+.quoteblock .attribution br { display: none; }
+
+.quoteblock .attribution cite { display: block; margin-bottom: 0.66667em; }
+
+table thead th, table tfoot th { font-weight: bold; }
+
+table.tableblock.grid-all { border-collapse: collapse; border-spacing: 1px; -webkit-border-radius: 3px; border-radius: 3px; border-top: 1px solid #dddddd; }
+
+table.tableblock.frame-topbot, table.tableblock.frame-none { border-left: 0; border-right: 0; }
+
+table.tableblock.frame-sides, table.tableblock.frame-none { border-top: 0; border-bottom: 0; }
+
+table.tableblock td .paragraph:last-child p, table.tableblock td > p:last-child { margin-bottom: 0; }
+
+th.tableblock.halign-left, td.tableblock.halign-left { text-align: left; }
+
+th.tableblock.halign-right, td.tableblock.halign-right { text-align: right; }
+
+th.tableblock.halign-center, td.tableblock.halign-center { text-align: center; }
+
+th.tableblock.halign-top, td.tableblock.halign-top { vertical-align: top; }
+
+th.tableblock.halign-bottom, td.tableblock.halign-bottom { vertical-align: bottom; }
+
+th.tableblock.halign-middle, td.tableblock.halign-middle { vertical-align: middle; }
+
+p.tableblock.header { color: #222222; font-weight: bold; }
+
+td > div.verse { white-space: pre; }
+
+ol { margin-left: 0.96667em; }
+
+ul li ol { margin-left: 0.7em; }
+
+dl dd { margin-left: 1.125em; }
+
+dl dd:last-child, dl dd:last-child > :last-child { margin-bottom: 0; }
+
+.unstyled dl dt { font-weight: normal; font-style: normal; }
+
+ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .olist, .olist .ulist { margin-bottom: 0.5em; }
+
+ul.unstyled, ol.unnumbered, ul.checklist { list-style-type: none; margin-left: 0.66667em; }
+
+ol.arabic { list-style-type: decimal; }
+
+ol.decimal { list-style-type: decimal-leading-zero; }
+
+ol.loweralpha { list-style-type: lower-alpha; }
+
+ol.upperalpha { list-style-type: upper-alpha; }
+
+ol.lowerroman { list-style-type: lower-roman; }
+
+ol.upperroman { list-style-type: upper-roman; }
+
+ol.lowergreek { list-style-type: lower-greek; }
+
+.hdlist > table, .colist > table { border: 0; background: none; }
+
+.hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
+
+.literalblock + .colist, .listingblock + .colist { margin-top: -0.5em; }
+
+.colist > table tr > td:first-of-type { padding: 0 .8em; line-height: 1; }
+
+.colist > table tr > td:last-of-type { padding: 0.26667em 0; }
+
+td.hdlist1 { vertical-align: top; padding-right: .8em; font-weight: bold; }
+
+.qanda > ol > li > p:first-child { color: #3876b4; }
+
+.thumb, .th { line-height: 0; display: inline-block; border: solid 4px white; -webkit-box-shadow: 0 0 0 1px #dddddd; box-shadow: 0 0 0 1px #dddddd; }
+
+.imageblock { margin-bottom: 1.33333em; }
+
+.imageblock.left, .imageblock[style*="float: left"] { margin: 0.26667em 0.66667em 1.33333em 0; }
+
+.imageblock.right, .imageblock[style*="float: right"] { margin: 0.26667em 0 1.33333em 0.66667em; }
+
+.imageblock > .title { margin-bottom: 0; }
+
+.imageblock.thumb, .imageblock.th { border-width: 6px; }
+
+.imageblock.thumb > .title, .imageblock.th > .title { padding: 0 0.13333em; }
+
+.image.left, .image.right { margin-top: 0.26667em; margin-bottom: 0.26667em; display: inline-block; line-height: 0; }
+
+.image.left { margin-right: 0.66667em; }
+
+.image.right { margin-left: 0.66667em; }
+
+span.footnote, span.footnoteref { vertical-align: super; font-size: 0.93333em; }
+
+span.footnote a, span.footnoteref a { text-decoration: none; }
+
+#footnotes { padding: 0.8em 0.4em; margin-bottom: 1em; }
+
+#footnotes hr { width: 20%; min-width: 6.66667em; margin: -.25em 0 .75em 0; border-width: 1px 0 0 0; }
+
+#footnotes .footnote { line-height: 1.3; font-size: 0.93333em; margin-left: 1.2em; text-indent: -1.2em; margin-bottom: .2em; }
+
+#footnotes .footnote a:first-of-type { font-weight: bold; text-decoration: none; }
+
+#footnotes .footnote:last-of-type { margin-bottom: 0; }
+
+#content #footnotes { margin-top: -0.66667em; }
+
+.gist .file-data > table { border: none; background: #fff; width: 100%; margin-bottom: 0; }
+
+.gist .file-data > table td.line-data { width: 99%; }
+
+.admonitionblock td.icon [class^="icon-"]:before { font-size: 2.5em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); cursor: default; }
+
+.admonitionblock td.icon .icon-note:before { content: "\f05a"; color: #4183c4; color: #2e6295; }
+
+.admonitionblock td.icon .icon-tip:before { content: "\f0eb"; text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8); color: #111; }
+
+.admonitionblock td.icon .icon-warning:before { content: "\f071"; color: #bf6900; }
+
+.admonitionblock td.icon .icon-caution:before { content: "\f06d"; color: #bf3400; }
+
+.admonitionblock td.icon .icon-important:before { content: "\f06a"; color: #bf0000; }
+
+.conum { display: inline-block; color: white !important; background-color: #333333; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 20px; height: 20px; font-size: 12px; font-weight: bold; line-height: 20px; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -2px; letter-spacing: -1px; }
+
+.conum * { color: white !important; }
+
+.conum + b { display: none; }
+
+.conum:after { content: attr(data-value); }
+
+.conum:not([data-value]):empty { display: none; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1em; color: #666666; }
+
+/*h2 { color: #325D72; border-bottom: 1px solid #dddddd; }*/
+
+#content { margin-top: 15px; }
+
+#content h1 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { color: #333333; }
+
+#header, #content, #footnotes { /*max-width: 660px;*/ padding-left: 0; padding-right: 0; }
+
+#content ul li { padding-left: .7em; }
+
+.olist.procedure > ol { counter-reset: li; list-style: none; position: relative; }
+
+.olist.procedure > ol > li { position: relative; padding: 5px 0 5px 55px; margin-bottom: 5px; }
+
+.olist.procedure > ol > li:before { content: counter(li); counter-increment: li; position: absolute; top: 0; left: 0; height: 100%; width: 30px; padding: 0 10px 0 0; color: #999; font-size: 1.46667em; font-weight: bold; line-height: 1.6; text-align: right; border-right: 1px solid #ddd; }
+
+.quoteblock blockquote { padding-left: 1em; }
+
+.sidebarblock > .content > .title { margin-top: -20px; margin-right: -20px; margin-left: -20px; margin-bottom: 20px; padding: 1em; font-size: 0.8em; background: #eaeaea; }
+
+#header { margin-bottom: 0; padding-top: 5px; min-height: 91px; border-top: 1px solid #000; background: #000; }
+
+/* Code for container left justified */
+
+.container { margin:0 100px 0 40px; padding: 0; max-width:1230px;}
+
+.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+.columns { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+
+.branding {background-image: url(https://web.archive.org/web/20200208223041im_/http://www.cascading.org/wp-content/uploads/2012/05/logo1.png); width:256px; height:46px; background-repeat:no-repeat;float: left; cursor: pointer; margin:24.120px 0;}
+
+.header-top {float: right; position: relative; left: 15px;}
+
+.menu-top-header-container { float:left; }
+
+#menu-top-header { margin: 0; }
+
+.header-top li {float:left; display:inline; padding: 0 0 0 10px; }
+
+.header-top li a { color: #298cc3 !important; text-transform: uppercase; }
+
+#menu-item-516 {background: none repeat scroll 0 0 #ED1C24; border-radius: 2px; color: #FFFFFF; display: inline-block;font-size: 10px; font-weight: 600; height: 21px; line-height: 21px; min-width: 85px; text-align: center; margin-left:10px; margin-top:3px; padding:0px 5px 0px 5px;
+}
+#menu-item-516 a { color:#fff !important; }
+
+#nav { float: right; margin: 20px 0 0 0; text-align: right; text-transform: uppercase; font-size: 17px ; line-height: 19px ; font-weight: 600; min-width:660px; }
+
+#nav ul { margin: 0; padding: 0; list-style: none; }
+#nav > .menu-home-container > ul > li { display: inline-block; vertical-align: top; margin: 0 0 0 4%; position: relative; }
+#nav ul li a { color: #fff; }
+#nav ul li a:hover { color: #999; text-decoration: none; }
+#nav .current_page_item a,
+#nav .current-page-ancestor a,
+#nav .current-menu-item a,
+#nav .current-menu-ancestor a { color: #298cc3;  }
+#nav > .menu-home-container > ul > li ul { display: none; position: absolute;  }
+#nav > .menu-home-container > ul > li:hover ul { display: block; }
+#nav ul.sub-menu {    background-color: #ccc; border-radius: 0 0 5px 5px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); text-align: left; min-width:200px; white-space: normal; display:block; padding-top: 10px; margin-top:2px; z-index:99; }
+#nav ul ul.sub-menu li { display: block; }
+#nav ul ul.sub-menu li { border: medium none; }
+#nav ul ul.sub-menu li a { }
+#nav ul ul.sub-menu li a { color: #003977; font-size: 12px; line-height:14px; margin-bottom: 5px; float: none; display: block; line-height: 16px; padding: 2px 0 2px 8px; position: relative; white-space: normal; width: 210px; }
+#nav ul ul.sub-menu li a:hover { color:#fff; }
+
+.header-google{float: left; height: 20px!important; width: 190px; margin-left:10px;position:relative; top:4px; left: 2px;}
+
+input.gsc-input { width: 116px !important; height: 12px !important; font-size:12px !important; border: 1px solid #BBB; padding: 3px 6px; float: left;}
+
+input.gsc-search-button { background: url('https://web.archive.org/web/20200208223041im_/http://cascading.org/wp-content/themes/element/images/gogo.png') no-repeat !important; text-indent: -9999em; border: none !important; width: 40px; margin-left: 4px; border-color: #000000; float: left; }
+
+a, a:link, a:visited, a:active { color: #298EC5; text-decoration:none; }
+
+a:hover { color: #0060B8; text-decoration:underline; }
+
+.note { margin-bottom: 20px; }
+      </style>
+      <link rel="stylesheet" href="https://web.archive.org/web/20200208223041cs_/http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://web.archive.org/web/20200208223041cs_/http://yandex.st/highlightjs/7.3/styles/github.min.css">
+    <script src="https://web.archive.org/web/20200208223041js_/http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-188528-5']);
+    _gaq.push(['_setDomainName', 'cascading.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://web.archive.org/web/20200208223041/https://ssl' : 'https://web.archive.org/web/20200208223041/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body class="book toc2">
+<div id="header">
+  <div class="container">
+    <div class="branding" onclick="location.href='https://web.archive.org/web/20200208223041/http://www.cascading.org';"></div>
+    <div class="header-top">
+      <div class="menu-top-header-container">
+        <ul id="menu-top-header" class="menu">
+          <li id="menu-item-267" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-267"><a href="https://web.archive.org/web/20200208223041/http://forums.cascading.io/">Forums</a></li>
+          <li id="menu-item-265" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-265"><a href="https://web.archive.org/web/20200208223041/http://cascading.io/">Products</a></li>
+          <li id="menu-item-475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/downloads/">Downloads</a></li>
+          <li id="menu-item-266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/sdk/">SDK</a></li>
+          <li id="menu-item-516" class="menu-item-last menu-item menu-item-type-custom menu-item-object-custom menu-item-516"><a target="_blank" href="https://web.archive.org/web/20200208223041/http://driven.cascading.io/">Driven Login</a></li>
+        </ul>
+      </div>
+
+      <div class="header-google">
+        <script>
+          jQuery("gsc-i-id1").keyup(function(e){
+            if(event.keyCode == 13){
+              alert("pressed enter");
+              $("#gsc-b-id1").click();
+            }
+          });
+
+          function OpenInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+          }
+        </script>
+        <div class="gsc-bar">
+          <input onkeydown="if (event.keyCode == 13) OpenInNewTab('http://www.cascading.org/search_gcse-2/?search=' + this.value)" autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" spellcheck="false" style="outline: none;"></div>
+        <div class="gsc-bar">
+          <input type="button" value="Search" class="gsc-search-button" title="search" onclick="OpenInNewTab('https://web.archive.org/web/20200208223041/http://www.cascading.org/search_gcse-2/?search=' + document.getElementById('gsc-i-id1').value)">
+        </div>
+      </div>
+    </div>
+    <nav id="nav">
+      <div class="menu-home-container">
+        <ul id="menu-home" class="nav-menu">
+          <li id="menu-item-430" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-430"><a href="ch14-custom-taps-schemes.html#">Projects</a>
+            <ul class="sub-menu">
+              <li id="menu-item-339" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-339"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/projects/cascading/">Cascading</a></li>
+              <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-362"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/projects/lingual/">Lingual</a></li>
+              <li id="menu-item-381" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-381"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/projects/pattern/">Pattern</a></li>
+              <li id="menu-item-640" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-640"><a href="https://web.archive.org/web/20200208223041/http://docs.cascading.org/projects/scalding">Scalding</a></li>
+              <li id="menu-item-641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-641"><a href="https://web.archive.org/web/20200208223041/http://docs.cascading.org/projects/cascalog">Cascalog</a></li>
+              <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-144"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/load/">Load</a></li>
+              <li id="menu-item-145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-145"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/multitool/">Multitool</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/extensions/">Extensions</a></li>
+          <li id="menu-item-571" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-571"><a href="ch14-custom-taps-schemes.html#">Resources</a>
+            <ul class="sub-menu">
+              <li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-92 current_page_item menu-item-95"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/documentation/">Documentation</a></li>
+              <li id="menu-item-334" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-334"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/documentation/tutorials/">Tutorials</a></li>
+              <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514"><a target="_blank" href="https://web.archive.org/web/20200208223041/http://cascading.io/driven">Driven</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-572"><a href="ch14-custom-taps-schemes.html#">Support</a>
+            <ul class="sub-menu">
+              <li id="menu-item-427" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/support/">Overview</a></li>
+              <li id="menu-item-590" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-590"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/support/compatibility/">Compatibility</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-97" class="menu-item-last menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/news/">News</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+          <span id="revnumber">version 3.0-20160112</span>
+        <div id="toc" class="toc2">
+          <div id="toctitle">Table of Contents</div>
+          <ul class="sectlevel1">
+<li><a href="ch14-custom-taps-schemes.html#custom-taps-schemes">Custom Taps and Schemes</a>
+<ul class="sectlevel2">
+<li><a href="ch14-custom-taps-schemes.html#_introduction">Introduction</a></li>
+<li><a href="ch14-custom-taps-schemes.html#_custom_taps">Custom Taps</a></li>
+<li><a href="ch14-custom-taps-schemes.html#_custom_schemes">Custom Schemes</a></li>
+<li><a href="ch14-custom-taps-schemes.html#_taps_with_file_and_nonfile_resources">Taps with File and Nonfile Resources</a></li>
+<li><a href="ch14-custom-taps-schemes.html#_tap_life_cycle_methods">Tap Life-Cycle Methods</a></li>
+</ul>
+</li>
+</ul>
+        </div>
+</div>
+<div id="content">
+  <h1>Cascading 3.0 User Guide - Custom Taps and Schemes</h1>
+  <div class="sect1">
+<h2 id="custom-taps-schemes"><a class="anchor" href="ch14-custom-taps-schemes.html#custom-taps-schemes"></a>Custom Taps and Schemes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_introduction"><a class="anchor" href="ch14-custom-taps-schemes.html#_introduction"></a>Introduction</h3>
+<div class="paragraph">
+<p>Cascading is designed to be easily configured and enhanced by developers. In
+addition to creating custom Operations, developers can create custom
+<span class="classname">Tap</span> and <span class="classname">Scheme</span> classes that let applications connect
+to external systems or read/write data to proprietary formats.</p>
+</div>
+<div class="paragraph">
+<p>A Tap represents something physical, like a file or a database table.
+Accordingly, Tap implementations are responsible for life-cycle issues around
+the resource they represent, such as tests for resource existence or deletion of
+a resource (e.g., dropping a remote SQL table).</p>
+</div>
+<div class="paragraph">
+<p>A Scheme represents a format or representation&#8201;&#8212;&#8201;such as a text format for a
+file, the columns in a table, etc. Schemes are used to convert between the
+source data&#8217;s native format and a <span class="classname">cascading.tuple.Tuple</span> instance.</p>
+</div>
+<div class="paragraph">
+<p>Creating custom taps and schemes is an involved process and requires knowledge
+of the underlying platform. Not only do Tap and Scheme classes manage the access
+to a resource or the format of the resource, they must also selectively hide
+details of the underlying platform to retain platform  independence.</p>
+</div>
+<div class="paragraph">
+<p>For examples of how to implement a custom Tap and Scheme for different
+platforms, see <a href="https://web.archive.org/web/20200208223041/http://www.cascading.org/extensions/">Cascading Extensions</a>
+for links to source code of similiar extensions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_custom_taps"><a class="anchor" href="ch14-custom-taps-schemes.html#_custom_taps"></a>Custom Taps</h3>
+<div class="paragraph">
+<p>All custom Tap classes must subclass the <span class="classname">cascading.tap.Tap</span> abstract
+class and implement the required methods. The method
+<span class="methodname">getIdentifier()</span> must return a <span class="classname">String</span> that uniquely
+identifies the resource the Tap instance is managing. Any two Tap instances with
+the same fully-qualified identifier value are considered equal.</p>
+</div>
+<div class="paragraph">
+<p>A Tap can set any custom properties the underlying platform requires, via the
+methods <span class="methodname">sourceConfInit()</span> (for when it is used as a <em>source tap</em>)
+and <span class="methodname">sinkConfInit()</span> (for when it is used as a <em>sink tap</em>). These
+two methods may be called more than once with new configuration objects and
+should be idempotent.</p>
+</div>
+<div class="paragraph">
+<p>Tuples are always read (sourced) from the <span class="methodname">openForRead()</span> method via
+a <span class="classname">TupleEntryIterator</span>&#8201;&#8212;&#8201;i.e.,  <span class="methodname">openForRead()</span> is
+always called in the same process that reads  the data. The Tap returns a
+<span class="classname">TupleEntryIterator</span> that is responsible for  iterating across the
+resource, returning a <span class="classname">TupleEntry</span> instance (and <span class="classname">Tuple</span>
+instance) for each "record" in the resource.
+<span class="methodname">TupleEntryIterator.close()</span> is always called when no more entries
+will be read. See <span class="classname">TupleEntrySchemeIterator</span> in the Javadoc for more
+information.</p>
+</div>
+<div class="paragraph">
+<p>On some platforms, <span class="methodname">openForRead()</span> is called with a pre-instantiated
+Input type. Typically this Input type should be used instead of instantiating a
+new instance of the appropriate type.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, when writing (sinking) Tuple data, a Tap is always used to sink data
+from the <span class="methodname">openForWrite()</span> method via the
+<span class="classname">TupleEntryCollector</span>. Here again, <span class="methodname">openForWrite()</span> is
+always called in the process in which data will be written. The Tap returns a
+<span class="classname">TupleEntryCollector</span> that will accept and store any number of
+<span class="classname">TupleEntry</span> or <span class="classname">Tuple</span> instances for each record that is
+processed or created by a given Flow. <span class="methodname">TupleEntryCollector.close()</span>
+is always called when no more entries will be written. See
+<span class="classname">TupleEntrySchemeCollector</span> in the Javadoc for more information.</p>
+</div>
+<div class="paragraph">
+<p>Again, on some platforms, <span class="methodname">openForWrite()</span> will be called with a
+pre-instantiated Output type. Typically this Output type should be used instead
+of instantiating a new instance of the appropriate type.</p>
+</div>
+<div class="paragraph">
+<p>Both the <span class="classname">TupleEntrySchemeIterator</span> and
+<span class="classname">TupleEntrySchemeCollector</span> should be used to hold any state or
+resources necessary to communicate with any remote services. For example, when
+connecting to a SQL database, any JDBC drivers should be created on the
+constructor and cleaned up on <span class="methodname">close()</span>.</p>
+</div>
+<div class="paragraph">
+<p>Note that the Tap is not responsible for reading or writing data to the Input or
+Output type. This is delegated to the <span class="classname">Scheme</span> passed on the
+constructor of the <span class="classname">Tap</span>. Consequently, the <span class="classname">Scheme</span> is
+responsible for configuring the Input and Output types it will be reading and
+writing.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Important:</strong> Consider how a Tap and Scheme implementation that is
+not based on HDFS should behave in the face of a failure. The <span class="classname">Tap</span>
+class has a few methods to help cleanup after a failed Flow.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_custom_schemes"><a class="anchor" href="ch14-custom-taps-schemes.html#_custom_schemes"></a>Custom Schemes</h3>
+<div class="paragraph">
+<p>All custom Scheme classes must subclass the <span class="classname">cascading.scheme.Scheme</span>
+abstract class and implement the required methods.</p>
+</div>
+<div class="paragraph">
+<p>A <span class="classname">Scheme</span> is ultimately responsible for sourcing and sinking Tuples
+of data. Consequently a <span class="classname">Scheme</span> must be programmed to automatically
+present the correct <span class="classname">Fields</span> during sourcing and to accept specific
+<span class="classname">Fields</span> during sinking. Therefore, the constructors on the base
+<span class="classname">Scheme</span> type must be set with the source and sink
+<span class="classname">Fields</span>.</p>
+</div>
+<div class="paragraph">
+<p><span class="classname">TextLine</span> <span class="classname">Scheme</span> configures a Scheme so that it sources
+different Fields than it sinks. On the other hand, the
+<span class="classname">TextDelimited</span> <span class="classname">Scheme</span> forces the source and sink
+<span class="classname">Fields</span> to be the same.</p>
+</div>
+<div class="paragraph">
+<p>The <span class="methodname">retrieveSourceFields()</span> and <span class="methodname">retrieveSinkFields()</span>
+methods, as well as the <span class="classname">TextDelimited</span> class, allow a custom
+<span class="classname">Scheme</span> to fetch source and sink <span class="classname">Fields</span> immediately
+before the Cascading planner is invoked. For example, the <span class="classname">Scheme</span>
+could fetch <span class="classname">Fields</span> from the header of a file. Also, the
+<span class="methodname">presentSourceFields()</span> and <span class="methodname">presentSinkFields()</span>
+methods, as well as the <span class="classname">TextDelimited</span> class, notify the
+<span class="classname">Scheme</span> of the <span class="classname">Fields</span> that the planner expects the
+<span class="classname">Scheme</span> to handle. For example, <span class="classname">Fields</span> could to write
+the field names as a header.</p>
+</div>
+<div class="paragraph">
+<p>A <span class="classname">Scheme</span> can set any custom properties that the underlying platform
+requires, via the <span class="methodname">sourceConfInit()</span> and
+<span class="methodname">sinkConfInit()</span> methods. These methods may be called more than once
+with new configuration objects and should be idempotent.</p>
+</div>
+<div class="paragraph">
+<p>A Scheme is always sourced via the <span class="methodname">source()</span> method. The
+<span class="methodname">sink()</span> method must be called to sink data to the Scheme. The
+sequence of methods for a Scheme is the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <span class="methodname">sourcePrepare()</span> or <span class="methodname">sinkPrepare()</span> method
+is called.</p>
+</li>
+<li>
+<p>The <span class="methodname">source()</span> or <span class="methodname">sink()</span> method is called.</p>
+</li>
+<li>
+<p>After all values have been read or written, the
+<span class="methodname">sourceCleanup()</span> or <span class="methodname">sinkCleanup()</span> method is called.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <span class="methodname">*Prepare()</span> methods allow a Scheme to initialize any state
+necessary&#8201;&#8212;&#8201;for example, to create a new <span class="classname">java.util.regex.Matcher</span>
+instance for use against all record reads. Conversely, the
+<span class="methodname">*Cleanup()</span> methods allow for clearing up any resources. These
+methods are always called in the same process space as their associated
+<span class="methodname">source()</span> and <span class="methodname">sink()</span> calls. In the case of a
+clustered platform, this is usually on the cluster side.</p>
+</div>
+<div class="paragraph">
+<p>Calls to <span class="methodname">*ConfInit()</span> are usually on the client side.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Schemes are also responsible for converting canonical data types to
+supported types for the system that the Scheme is wrapping, and vice versa. See
+the section on <a href="ch04-tuple-fields.html#field-typing">Field Typing</a> for more
+information.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_taps_with_file_and_nonfile_resources"><a class="anchor" href="ch14-custom-taps-schemes.html#_taps_with_file_and_nonfile_resources"></a>Taps with File and Nonfile Resources</h3>
+<div class="paragraph">
+<p>Tap classes that are meant to manage resources that are files should implement
+the <span class="classname">cascading.tap.type.FileType</span> interface. This interface allows a
+a user to directly access a Tap to manipulate the remote filesystem or to
+retrieve child resources (files in subdirectories).</p>
+</div>
+<div class="paragraph">
+<p>Nonfile resources should not be managed by a Tap that implements the
+<span class="classname">cascading.tap.type.FileType</span> interface. For example, a "JDBCTap"
+implementation does not treat tables as directories with child files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tap_life_cycle_methods"><a class="anchor" href="ch14-custom-taps-schemes.html#_tap_life_cycle_methods"></a>Tap Life-Cycle Methods</h3>
+<div class="paragraph">
+<p>The Tap interface has a number of <em>life-cycle</em> methods that allow the underlying
+resource to be managed by the Tap instance.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Existence</dt>
+<dd>
+<p>These methods test for existence or create the resource managed by the Tap.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="methodname">resourceExists()</span> - called frequently; should be idempotent</p>
+</li>
+<li>
+<p><span class="methodname">deleteResource()</span> - only called if <span class="code">SinkMode</span> is
+<span class="classname">SinkMode.REPLACE</span>, or from within Cascading and the resource is
+<em>stale</em>.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Initialization</dt>
+<dd>
+<p>These methods allow for client-side initialization of a remote resource that
+will be shared across parallelized instances on the cluster side. For example,
+creating a database table if it does not exist so that data may be written to it
+from the cluster. Note this is not the same as initializing a JDBC Driver on the
+client side and sharing it with the cluster; Driver initialization must happen
+with <span class="methodname">openForWrite()</span> or <span class="methodname">openForRead()</span>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="methodname">prepareResourceForRead()</span> - initialize any shared remote resource
+for reading</p>
+</li>
+<li>
+<p><span class="methodname">prepareResourceForWrite()</span> - initialize any shared remote
+resource for writing</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Reading and Writing</dt>
+<dd>
+<p>These methods may be called on the client or cluster side. Either method can be
+invoked by Cascading during execution or by a developer wishing direct access to
+the underlying data managed by the Tap instance. One of these methods must be
+called to read or write data.</p>
+<div class="paragraph">
+<p>These methods are described in more detail above.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="methodname">openForRead()</span></p>
+</li>
+<li>
+<p><span class="methodname">openForWrite()</span></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Transactional</dt>
+<dd>
+<p>These methods notify a given Tap instance if the parent Flow was successful or
+if there was a failure. They are called on the client side so that any remote
+shared resources can be cleaned up or any changes written can be
+committed/persisted. They are only invoked if the Tap instance is used as a
+sink.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="methodname">commitResource()</span> - commit the saved values written to the
+resource</p>
+</li>
+<li>
+<p><span class="methodname">rollbackResource()</span> - revert the resource to its original state</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+  <hr>
+<div class="footer">
+  <div class="footer-text">
+      <a href="index.html">Back to Top</a> - Last updated 2016-01-12 05:12:33 UTC
+      <p>© 2007-2015 Concurrent, Inc. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html><!--
+     FILE ARCHIVED ON 22:30:41 Feb 08, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 15:22:58 Aug 15, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.982
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.026
+  esindex: 0.014
+  cdx.remote: 32.885
+  LoadShardBlock: 492.388 (3)
+  PetaboxLoader3.datanode: 1050.273 (4)
+  PetaboxLoader3.resolve: 695.217 (2)
+  load_resource: 1299.884
+-->

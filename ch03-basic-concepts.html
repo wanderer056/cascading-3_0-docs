@@ -1,0 +1,1669 @@
+<html lang="en">
+<head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=FC38Hc5A" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://docs.cascading.org:80/cascading/3.0/userguide/ch03-basic-concepts.html","20200209113310","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1581247990");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=p7PEIJWi" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="Asciidoctor 1.5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cascading 3.0 User Guide - Cascading Basic Concepts</title>
+  <script type="text/javascript" src="https://web.archive.org/web/20200209113310js_/http://use.typekit.net/dob3ybp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+      <style>
+        @import url(https://web.archive.org/web/20200209113310cs_/http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.css);
+/* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="https://web.archive.org/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; border: 0; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+/*ol, ul { list-style: none; }*/
+
+table { border-collapse: collapse; border-spacing: 0; margin-bottom: 1.33333em;}
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+
+/* ========================================================================== HTML5 display definitions ========================================================================== */
+/** Correct `block` display not defined in IE 8/9. */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+
+/** Correct `inline-block` display not defined in IE 8/9. */
+audio, canvas, video { display: inline-block; }
+
+/** Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+audio:not([controls]) { display: none; height: 0; }
+
+/** Address styling not present in IE 8/9. */
+[hidden] { display: none; }
+
+/* ========================================================================== Base ========================================================================== */
+/*body { margin: 0; color: #444; font-size: 14px; line-height: 150%; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; background: #f1efea url(https://web.archive.org/web/20200209113310im_/http://www.cascading.org/files/2012/05/background.png) repeat top center fixed; }*/
+body {background: none !important; margin: 0; color: #4d4d4d; font: 16px/28px "proxima-nova", Arial, Helvetica, Sans-serif !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: none; background: #fff; min-width:1034px;}
+
+/* ========================================================================== Links ========================================================================== */
+a, a:link, a:visited, a:active { color: #4183C4; text-decoration: none; }
+
+a:hover { color: #1F546C; text-decoration: underline; }
+
+/** Address `outline` inconsistency between Chrome and other browsers. */
+a:focus { outline: thin dotted; }
+
+/** Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover { outline: 0; }
+
+/* ========================================================================== Typography ========================================================================== */
+/** Address variable `h1` font-size and margin within `section` and `article` contexts in Firefox 4+, Safari 5, and Chrome. */
+h1 { font-size:2em; margin: 0.67em 0 !important;}
+
+/** Address styling not present in IE 8/9, Safari 5, and Chrome. */
+abbr[title] { border-bottom: 1px dotted; }
+
+/** Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+b, strong { font-weight: bold; }
+
+/** Address styling not present in Safari 5 and Chrome. */
+dfn { font-style: italic; }
+
+/** Address styling not present in IE 8/9. */
+mark { background: #ff0; color: #000; }
+
+/** Correct font family set oddly in Safari 5 and Chrome. */
+code, kbd, pre, samp, .classname, .methodname { font-family: monospace, serif; font-size: 1em; }
+
+/** Improve readability of pre-formatted text in all browsers. */
+pre { white-space: pre-wrap; }
+
+/** Set consistent quote types. */
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/** Address inconsistent and variable font size in all browsers. */
+small { font-size: 80%; }
+
+/** Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+/* ========================================================================== Embedded content ========================================================================== */
+/** Remove border when inside `a` element in IE 8/9. */
+img { border: 0; }
+
+/** Correct overflow displayed oddly in IE 9. */
+svg:not(:root) { overflow: hidden; }
+
+/* ========================================================================== Figures ========================================================================== */
+/** Address margin not present in IE 8/9 and Safari 5. */
+figure { margin: 0; }
+
+/* ========================================================================== Forms ========================================================================== */
+/** Define consistent border, margin, and padding. */
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+
+/** 1. Correct `color` not being inherited in IE 8/9. 2. Remove padding so people aren't caught out if they zero out fieldsets. */
+legend { border: 0; /* 1 */ padding: 0; /* 2 */ }
+
+/** 1. Correct font family not being inherited in all browsers. 2. Correct font size not being inherited in all browsers. 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. */
+button, input, select, textarea { font-family: inherit; /* 1 */ font-size: 100%; /* 2 */ margin: 0; /* 3 */ }
+
+/** Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+button, input { line-height: normal; }
+
+/** Address inconsistent `text-transform` inheritance for `button` and `select`. All other form control elements do not inherit `text-transform` values. Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+. Correct `select` style inheritance in Firefox 4+ and Opera. */
+button, select { text-transform: none; }
+
+/** 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 2. Correct inability to style clickable `input` types in iOS. 3. Improve usability and consistency of cursor style between image-type `input` and others. */
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; /* 2 */ cursor: pointer; /* 3 */ }
+
+/** Re-set default cursor for disabled elements. */
+button[disabled], html input[disabled] { cursor: default; }
+
+/** Remove inner padding and search cancel button in Safari 5 and Chrome on OS X. */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/** Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/** 1. Remove default vertical scrollbar in IE 8/9. 2. Improve readability and alignment in all browsers. */
+textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
+
+/* ========================================================================== Tables ========================================================================== */
+/** Remove most spacing between table cells. */
+table { border-collapse: collapse; border-spacing: 0; }
+
+td, th {border:1px solid #ddd;padding:2px 10px;}
+
+a:hover { cursor: pointer; }
+
+a:focus { outline: none; }
+
+img, object, embed { max-width: 100%; height: auto; }
+
+object, embed { height: 100%; }
+
+img { -ms-interpolation-mode: bicubic; }
+
+#map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
+
+.left { float: left !important; }
+
+.right { float: right !important; }
+
+.text-left { text-align: left !important; }
+
+.text-right { text-align: right !important; }
+
+.text-center { text-align: center !important; }
+
+.text-justify { text-align: justify !important; }
+
+.hide { display: none; }
+
+
+img { display: inline-block; vertical-align: middle; }
+
+textarea { height: auto; min-height: 50px; }
+
+select { width: 100%; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1.23333em; line-height: 1.6; }
+
+.subheader, .admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .ulist > .title, .olist > .title, .dlist > .title, .qlist > .title, .tableblock > caption { line-height: 1.4; color: #777777; font-weight: 300; margin-top: 0.2em; margin-bottom: 0.5em; }
+
+/* Typography resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; direction: ltr; }
+
+/* Default Link Styles */
+a { color: #4183c4; text-decoration: none; line-height: inherit; }
+
+a:hover, a:focus { color: #4183c4; }
+
+a img { border: none; }
+
+/* Default paragraph styles */
+p { margin-bottom: 1em; text-rendering: optimizeLegibility; line-height:130%;}
+
+p aside { font-size: 0.93333em; line-height: 1.35; font-style: italic; }
+
+/* Default header styles */
+h1, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: helvetica, arial, freesans, clean, sans-serif; font-weight: bold; font-style: normal; color: #333333; text-rendering: optimizeLegibility; margin-top: 0.2em; margin-bottom: 0.5em; line-height: 1.2em; }
+
+h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: gray; line-height: 0; }
+
+h2 {color: #003977;font-weight:normal;font-size:1.6em; border-bottom:1px solid #DDD;font-weight:bold;margin-bottom:0.5em;}
+
+h2.rule {border-top: 1px solid #CCCCCC;padding-top: 30px;}
+
+h4 { font-size: 0.66667em; }
+
+h5 { font-size: 1em; }
+
+h6 { font-size: 1em; }
+
+hr { border: solid #DDD; border-width: 1px 0 0; clear: both; margin: 1.33333em 0 1.26667em; height: 0; }
+
+/* Helpful Typography Defaults */
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: bold; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+code, .classname, .methodname, .code { font-family: Monaco, "DejaVu Sans Mono", "Courier New", monospace; font-weight: normal; color: #666666; word-wrap: break-word;}
+
+/* Unordered Lists */
+ul li ul, ul li ol { margin-left: 1.33333em; margin-bottom: 0; font-size: 1em; /* Override nested font-size change */ }
+
+ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
+
+ul.square { list-style-type: square; }
+
+ul.circle { list-style-type: circle; }
+
+ul.disc { list-style-type: disc; }
+
+ul.no-bullet { list-style: none; }
+
+/* Ordered Lists */
+ol li ul, ol li ol { margin-left: 1.33333em; margin-bottom: 0; }
+
+/* Definition Lists */
+dl { margin-bottom:1.33333em; }
+
+dl dt { margin-bottom: 0.33333em; font-weight: bold; }
+
+dl dd { margin-bottom: 1.33333em; }
+
+/* Abbreviations */
+abbr, acronym { text-transform: uppercase; font-size: 90%; color: #333333; border-bottom: 1px dotted #dddddd; cursor: help; }
+
+abbr { text-transform: none; }
+
+/* Blockquotes */
+blockquote { margin: 0 0 1em; padding: 0; border-left: none; }
+
+blockquote cite { display: block; font-size: 0.86667em; color: #666666; }
+
+blockquote cite:before { content: "\2014 \0020"; }
+
+blockquote cite a, blockquote cite a:visited { color: #666666; }
+
+blockquote, blockquote p { line-height: 1.4; color: #666666; }
+
+/* Microformats */
+.vcard { display: inline-block; margin: 0 0 1.33333em 0; border: 1px solid #dddddd; padding: 0.66667em 0.8em; }
+
+.vcard li { margin: 0; display: block; }
+
+.vcard .fn { font-weight: bold; font-size: 1em; }
+
+.vevent .summary { font-weight: bold; }
+
+.vevent abbr { cursor: auto; text-decoration: none; font-weight: bold; border: none; padding: 0 0.06667em; }
+
+@media only screen and (min-width: 768px) { h1, h2, h3,.sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
+  h3, .sidebarblock > .content > .title { font-size: 1.2em; }
+  h4 { font-size: 1em; } }
+/* Print styles.  Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
+*/
+.print-only { display: none !important; }
+
+@media print { * { background: transparent !important; color: #000 !important; /* Black prints faster: h5bp.com/s */ box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border-left: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; /* h5bp.com/t */ }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3, #toctitle, .sidebarblock > .content > .title { orphans: 3; widows: 3; }
+  h2, h3, #toctitle, .sidebarblock > .content > .title { page-break-after: avoid; }
+  .hide-on-print { display: none !important; }
+  .print-only { display: block !important; }
+  .hide-for-print { display: none !important; }
+  .show-for-print { display: inherit !important; } }
+/* Tables */
+
+code , .code{ font-size: 0.86667em; padding: 0 5px 2px 5px; white-space: nowrap; background-color: transparent; border: 1px solid #dddddd; -webkit-border-radius: 3px; border-radius: 3px; text-shadow: none; }
+
+kbd.keyseq { color: #666666; }
+
+kbd:not(.keyseq) { display: inline-block; color: #333333; font-size: 0.8em; line-height: 1.4; background-color: #F7F7F7; border: 1px solid #ccc; -webkit-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; margin: -0.15em 0.15em 0 0.15em; padding: 0.2em 0.6em 0.2em 0.5em; vertical-align: middle; white-space: nowrap; }
+
+kbd kbd:first-child { margin-left: 0; }
+
+kbd kbd:last-child { margin-right: 0; }
+
+.menuseq, .menu { color: #1a1a1a; }
+
+#header, #footnotes, #footer { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; /* max-width: 66.66667em */ *zoom: 1; position: relative; padding-left: 1em; padding-right: 1em; }
+
+#content, #footer { margin:0 100px 0 350px; max-width: 960px; }
+
+#header { margin-bottom: 2.66667em;}
+
+#header > h1 { margin: 0 auto; margin-left: 350px; padding-top: 15px; padding-bottom: 20px; width: 960px; color: #FFF;}
+
+#header span { color: #666666; }
+
+#header #revnumber { margin: 0 auto; margin-left: 350px; width: 960px; display: block; color: #FFF; }
+
+#header br { display: none; }
+
+#header br + span { padding-left: 3px; }
+
+#header br + span:before { content: "\2013 \0020"; }
+
+#header br + span.author { padding-left: 0; }
+
+#header br + span.author:before { content: ", "; }
+
+#toc { border-bottom: 0 solid #dddddd; padding-bottom: 1.33333em; }
+
+#toc > ul, #toc > ol { margin-left: 0.26667em; }
+
+#toc ul.sectlevel0 > li > a, #toc ol.sectlevel0 > li > a { font-style: italic; }
+
+#toc ul.sectlevel0 ul.sectlevel1, #toc ol.sectlevel0 ol.sectlevel1 { margin-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+
+#toc ul, #toc ol { list-style-type: none; }
+
+.sectlevel1 li {line-height:120%;padding:4px 0;}
+
+#toctitle { color: #777777; }
+
+ol.sectlevel1 {padding:0;}
+
+.toc { margin-top: 40px; margin-left: 30px; }
+#toc.toc2 { position: absolute; overflow: auto; left: 0; top: 155px; padding: 1em; width: 18em; border: 1px solid #DDD; z-index: 1000; }
+#toc.toc2 #toctitle { margin-top: 0; }
+#toc.toc2 ul ul, #toc.toc2 ol ol { margin-left: 0; padding-left: 1.33333em; }
+#toc.toc2 ul.sectlevel0 ul.sectlevel1, #toc.toc2 ol.sectlevel0 ol.sectlevel1 { padding-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+body.toc2.toc-right { padding-left: 0; padding-right: 20em; }
+body.toc2.toc-right #toc.toc2 { border-right: 0; border-left: 1px solid #dddddd; left: auto; right: 0; } 
+.footer { max-width: 100%; background-color: #000; padding: 1.33333em; }
+
+.footer-text { color: #888888; line-height: 1.26; max-width: 960px;margin: 0 auto; text-align: center;}
+
+.sect1 { padding-bottom: 1.33333em; }
+
+.sect1 + .sect1 { border-top: 0 solid #dddddd; }
+
+#content h1 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { position: absolute; width: 1em; margin-left: -1em; display: block; text-decoration: none; visibility: hidden; text-align: center; font-weight: normal; }
+
+#content h1 > a.anchor:before, h3 > a.anchor:before, #toctitle > a.anchor:before, .sidebarblock > .content > .title > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before { content: '\00A7'; font-size: .85em; vertical-align: text-top; display: block; margin-top: 0.05em; }
+
+#content h1:hover > a.anchor, #content h1 > a.anchor:hover, h3:hover > a.anchor, #toctitle:hover > a.anchor, .sidebarblock > .content > .title:hover > a.anchor, h3 > a.anchor:hover, #toctitle > a.anchor:hover, .sidebarblock > .content > .title > a.anchor:hover, h4:hover > a.anchor, h4 > a.anchor:hover, h5:hover > a.anchor, h5 > a.anchor:hover, h6:hover > a.anchor, h6 > a.anchor:hover { visibility: visible; }
+
+#content h1 > a.link, h3 > a.link, #toctitle > a.link, .sidebarblock > .content > .title > a.link, h4 > a.link, h5 > a.link, h6 > a.link { color: #333333; text-decoration: none; }
+
+#content h1 > a.link:hover, h3 > a.link:hover, #toctitle > a.link:hover, .sidebarblock > .content > .title > a.link:hover, h4 > a.link:hover, h5 > a.link:hover, h6 > a.link:hover { color: #262626; }
+
+.admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .ulist > .title, .olist > .title, .dlist > .title, .qlist > .title { text-align: left; font-weight: bold; }
+
+.tableblock > caption { text-align: left; font-weight: bold; white-space: nowrap; overflow: visible; max-width: 0; }
+
+table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
+
+.admonitionblock > table { border: 0; background: none; width: 100%;}
+
+.admonitionblock > table td.icon { text-align: center; width: 80px; }
+
+.admonitionblock > table td.icon img { max-width: none; }
+
+.admonitionblock > table td.icon .title { font-weight: bold; text-transform: uppercase; }
+
+.admonitionblock > table td.content { padding-left: 1.2em; padding-right: 1.33333em; border-left: 1px solid #dddddd; color: #666666; }
+
+.admonitionblock > table td.content > .paragraph:last-child > p { margin-bottom: 0; }
+
+.exampleblock > .content { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.33333em; padding: 1.33333em; background: white; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.exampleblock > .content > :first-child { margin-top: 0; }
+
+.exampleblock > .content > :last-child { margin-bottom: 0; }
+
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6, .exampleblock > .content p { color: #333333; }
+
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6 { line-height: 1; margin-bottom: 0.66667em; }
+
+.exampleblock > .content h1.subheader, .exampleblock > .content h2.subheader, .exampleblock > .content h3.subheader, .exampleblock > .content .subheader#toctitle, .sidebarblock.exampleblock > .content > .subheader.title, .exampleblock > .content h4.subheader, .exampleblock > .content h5.subheader, .exampleblock > .content h6.subheader { line-height: 1.4; }
+
+.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
+
+.exampleblock.result > .content { -webkit-box-shadow: 0 1px 8px #eaeaea; box-shadow: 0 1px 8px #eaeaea; }
+
+.sidebarblock { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.33333em; padding: 1.33333em; background: white; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.sidebarblock > :first-child { margin-top: 0; }
+
+.sidebarblock > :last-child { margin-bottom: 0; }
+
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6, .sidebarblock p { color: #333333; }
+
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6 { line-height: 1; margin-bottom: 0.66667em; }
+
+.sidebarblock h1.subheader, .sidebarblock h2.subheader, .sidebarblock h3.subheader, .sidebarblock .subheader#toctitle, .sidebarblock > .content > .subheader.title, .sidebarblock h4.subheader, .sidebarblock h5.subheader, .sidebarblock h6.subheader { line-height: 1.4; }
+
+.sidebarblock > .content > .title { color: #777777; margin-top: 0; line-height: 1.4; border-width: 0 0 1px 0; border-style: solid; border-color: #cacaca; }
+
+.sidebarblock > .content > .paragraph:last-child p { margin-bottom: 0; }
+
+.verseblock { margin-bottom: 1.33333em; }
+
+.literalblock, .listingblock { margin-bottom: 1.33333em; }
+
+.literalblock > .content > pre, .listingblock > .content > pre { background-color: #F8F8F8; color:#4d4d4d; margin: 15px 0; padding: 10px 5px; border-left: 1px solid #298cc3; font: 12px/24px Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace; word-wrap: break-word; line-height: 1.6; }
+
+.literalblock > .content > pre.nowrap, .listingblock > .content > pre.nowrap { overflow-x: auto; white-space: pre; word-wrap: normal; }
+
+.literalblock > .content > pre > code, .listingblock > .content > pre > code { white-space: inherit; color:#4d4d4d; font: 12px/24px Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace; padding: 0; background: none; font-weight: normal; border: none; }
+
+@media only screen { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.69333em; } }
+@media only screen and (min-width: 768px) { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.78em; } }
+@media only screen and (min-width: 1280px) { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.86667em; } }
+.listingblock:hover .xml:before { content: "xml"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .html:before { content: "html"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .ruby:before { content: "ruby"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .asciidoc:before { content: "asciidoc"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .java:before { content: "java"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .javascript:before { content: "javascript"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .css:before { content: "css"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .scss:before { content: "scss"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.quoteblock { margin: 0 0 1em; padding: 0; border-left: none; }
+
+.quoteblock blockquote { margin: 0 0 1em 0; padding: 0 0 0.6em 0; border: 0; }
+
+.quoteblock blockquote > .paragraph:last-child p { margin-bottom: 0; }
+
+.quoteblock .attribution { margin-top: -.25em; padding-bottom: 0.6em; font-size: 0.86667em; color: #666666; }
+
+.quoteblock .attribution br { display: none; }
+
+.quoteblock .attribution cite { display: block; margin-bottom: 0.66667em; }
+
+table thead th, table tfoot th { font-weight: bold; }
+
+table.tableblock.grid-all { border-collapse: collapse; border-spacing: 1px; -webkit-border-radius: 3px; border-radius: 3px; border-top: 1px solid #dddddd; }
+
+table.tableblock.frame-topbot, table.tableblock.frame-none { border-left: 0; border-right: 0; }
+
+table.tableblock.frame-sides, table.tableblock.frame-none { border-top: 0; border-bottom: 0; }
+
+table.tableblock td .paragraph:last-child p, table.tableblock td > p:last-child { margin-bottom: 0; }
+
+th.tableblock.halign-left, td.tableblock.halign-left { text-align: left; }
+
+th.tableblock.halign-right, td.tableblock.halign-right { text-align: right; }
+
+th.tableblock.halign-center, td.tableblock.halign-center { text-align: center; }
+
+th.tableblock.halign-top, td.tableblock.halign-top { vertical-align: top; }
+
+th.tableblock.halign-bottom, td.tableblock.halign-bottom { vertical-align: bottom; }
+
+th.tableblock.halign-middle, td.tableblock.halign-middle { vertical-align: middle; }
+
+p.tableblock.header { color: #222222; font-weight: bold; }
+
+td > div.verse { white-space: pre; }
+
+ol { margin-left: 0.96667em; }
+
+ul li ol { margin-left: 0.7em; }
+
+dl dd { margin-left: 1.125em; }
+
+dl dd:last-child, dl dd:last-child > :last-child { margin-bottom: 0; }
+
+.unstyled dl dt { font-weight: normal; font-style: normal; }
+
+ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .olist, .olist .ulist { margin-bottom: 0.5em; }
+
+ul.unstyled, ol.unnumbered, ul.checklist { list-style-type: none; margin-left: 0.66667em; }
+
+ol.arabic { list-style-type: decimal; }
+
+ol.decimal { list-style-type: decimal-leading-zero; }
+
+ol.loweralpha { list-style-type: lower-alpha; }
+
+ol.upperalpha { list-style-type: upper-alpha; }
+
+ol.lowerroman { list-style-type: lower-roman; }
+
+ol.upperroman { list-style-type: upper-roman; }
+
+ol.lowergreek { list-style-type: lower-greek; }
+
+.hdlist > table, .colist > table { border: 0; background: none; }
+
+.hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
+
+.literalblock + .colist, .listingblock + .colist { margin-top: -0.5em; }
+
+.colist > table tr > td:first-of-type { padding: 0 .8em; line-height: 1; }
+
+.colist > table tr > td:last-of-type { padding: 0.26667em 0; }
+
+td.hdlist1 { vertical-align: top; padding-right: .8em; font-weight: bold; }
+
+.qanda > ol > li > p:first-child { color: #3876b4; }
+
+.thumb, .th { line-height: 0; display: inline-block; border: solid 4px white; -webkit-box-shadow: 0 0 0 1px #dddddd; box-shadow: 0 0 0 1px #dddddd; }
+
+.imageblock { margin-bottom: 1.33333em; }
+
+.imageblock.left, .imageblock[style*="float: left"] { margin: 0.26667em 0.66667em 1.33333em 0; }
+
+.imageblock.right, .imageblock[style*="float: right"] { margin: 0.26667em 0 1.33333em 0.66667em; }
+
+.imageblock > .title { margin-bottom: 0; }
+
+.imageblock.thumb, .imageblock.th { border-width: 6px; }
+
+.imageblock.thumb > .title, .imageblock.th > .title { padding: 0 0.13333em; }
+
+.image.left, .image.right { margin-top: 0.26667em; margin-bottom: 0.26667em; display: inline-block; line-height: 0; }
+
+.image.left { margin-right: 0.66667em; }
+
+.image.right { margin-left: 0.66667em; }
+
+span.footnote, span.footnoteref { vertical-align: super; font-size: 0.93333em; }
+
+span.footnote a, span.footnoteref a { text-decoration: none; }
+
+#footnotes { padding: 0.8em 0.4em; margin-bottom: 1em; }
+
+#footnotes hr { width: 20%; min-width: 6.66667em; margin: -.25em 0 .75em 0; border-width: 1px 0 0 0; }
+
+#footnotes .footnote { line-height: 1.3; font-size: 0.93333em; margin-left: 1.2em; text-indent: -1.2em; margin-bottom: .2em; }
+
+#footnotes .footnote a:first-of-type { font-weight: bold; text-decoration: none; }
+
+#footnotes .footnote:last-of-type { margin-bottom: 0; }
+
+#content #footnotes { margin-top: -0.66667em; }
+
+.gist .file-data > table { border: none; background: #fff; width: 100%; margin-bottom: 0; }
+
+.gist .file-data > table td.line-data { width: 99%; }
+
+.admonitionblock td.icon [class^="icon-"]:before { font-size: 2.5em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); cursor: default; }
+
+.admonitionblock td.icon .icon-note:before { content: "\f05a"; color: #4183c4; color: #2e6295; }
+
+.admonitionblock td.icon .icon-tip:before { content: "\f0eb"; text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8); color: #111; }
+
+.admonitionblock td.icon .icon-warning:before { content: "\f071"; color: #bf6900; }
+
+.admonitionblock td.icon .icon-caution:before { content: "\f06d"; color: #bf3400; }
+
+.admonitionblock td.icon .icon-important:before { content: "\f06a"; color: #bf0000; }
+
+.conum { display: inline-block; color: white !important; background-color: #333333; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 20px; height: 20px; font-size: 12px; font-weight: bold; line-height: 20px; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -2px; letter-spacing: -1px; }
+
+.conum * { color: white !important; }
+
+.conum + b { display: none; }
+
+.conum:after { content: attr(data-value); }
+
+.conum:not([data-value]):empty { display: none; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1em; color: #666666; }
+
+/*h2 { color: #325D72; border-bottom: 1px solid #dddddd; }*/
+
+#content { margin-top: 15px; }
+
+#content h1 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { color: #333333; }
+
+#header, #content, #footnotes { /*max-width: 660px;*/ padding-left: 0; padding-right: 0; }
+
+#content ul li { padding-left: .7em; }
+
+.olist.procedure > ol { counter-reset: li; list-style: none; position: relative; }
+
+.olist.procedure > ol > li { position: relative; padding: 5px 0 5px 55px; margin-bottom: 5px; }
+
+.olist.procedure > ol > li:before { content: counter(li); counter-increment: li; position: absolute; top: 0; left: 0; height: 100%; width: 30px; padding: 0 10px 0 0; color: #999; font-size: 1.46667em; font-weight: bold; line-height: 1.6; text-align: right; border-right: 1px solid #ddd; }
+
+.quoteblock blockquote { padding-left: 1em; }
+
+.sidebarblock > .content > .title { margin-top: -20px; margin-right: -20px; margin-left: -20px; margin-bottom: 20px; padding: 1em; font-size: 0.8em; background: #eaeaea; }
+
+#header { margin-bottom: 0; padding-top: 5px; min-height: 91px; border-top: 1px solid #000; background: #000; }
+
+/* Code for container left justified */
+
+.container { margin:0 100px 0 40px; padding: 0; max-width:1230px;}
+
+.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+.columns { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+
+.branding {background-image: url(https://web.archive.org/web/20200209113310im_/http://www.cascading.org/wp-content/uploads/2012/05/logo1.png); width:256px; height:46px; background-repeat:no-repeat;float: left; cursor: pointer; margin:24.120px 0;}
+
+.header-top {float: right; position: relative; left: 15px;}
+
+.menu-top-header-container { float:left; }
+
+#menu-top-header { margin: 0; }
+
+.header-top li {float:left; display:inline; padding: 0 0 0 10px; }
+
+.header-top li a { color: #298cc3 !important; text-transform: uppercase; }
+
+#menu-item-516 {background: none repeat scroll 0 0 #ED1C24; border-radius: 2px; color: #FFFFFF; display: inline-block;font-size: 10px; font-weight: 600; height: 21px; line-height: 21px; min-width: 85px; text-align: center; margin-left:10px; margin-top:3px; padding:0px 5px 0px 5px;
+}
+#menu-item-516 a { color:#fff !important; }
+
+#nav { float: right; margin: 20px 0 0 0; text-align: right; text-transform: uppercase; font-size: 17px ; line-height: 19px ; font-weight: 600; min-width:660px; }
+
+#nav ul { margin: 0; padding: 0; list-style: none; }
+#nav > .menu-home-container > ul > li { display: inline-block; vertical-align: top; margin: 0 0 0 4%; position: relative; }
+#nav ul li a { color: #fff; }
+#nav ul li a:hover { color: #999; text-decoration: none; }
+#nav .current_page_item a,
+#nav .current-page-ancestor a,
+#nav .current-menu-item a,
+#nav .current-menu-ancestor a { color: #298cc3;  }
+#nav > .menu-home-container > ul > li ul { display: none; position: absolute;  }
+#nav > .menu-home-container > ul > li:hover ul { display: block; }
+#nav ul.sub-menu {    background-color: #ccc; border-radius: 0 0 5px 5px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); text-align: left; min-width:200px; white-space: normal; display:block; padding-top: 10px; margin-top:2px; z-index:99; }
+#nav ul ul.sub-menu li { display: block; }
+#nav ul ul.sub-menu li { border: medium none; }
+#nav ul ul.sub-menu li a { }
+#nav ul ul.sub-menu li a { color: #003977; font-size: 12px; line-height:14px; margin-bottom: 5px; float: none; display: block; line-height: 16px; padding: 2px 0 2px 8px; position: relative; white-space: normal; width: 210px; }
+#nav ul ul.sub-menu li a:hover { color:#fff; }
+
+.header-google{float: left; height: 20px!important; width: 190px; margin-left:10px;position:relative; top:4px; left: 2px;}
+
+input.gsc-input { width: 116px !important; height: 12px !important; font-size:12px !important; border: 1px solid #BBB; padding: 3px 6px; float: left;}
+
+input.gsc-search-button { background: url('https://web.archive.org/web/20200209113310im_/http://cascading.org/wp-content/themes/element/images/gogo.png') no-repeat !important; text-indent: -9999em; border: none !important; width: 40px; margin-left: 4px; border-color: #000000; float: left; }
+
+a, a:link, a:visited, a:active { color: #298EC5; text-decoration:none; }
+
+a:hover { color: #0060B8; text-decoration:underline; }
+
+.note { margin-bottom: 20px; }
+      </style>
+      <link rel="stylesheet" href="https://web.archive.org/web/20200209113310cs_/http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://web.archive.org/web/20200209113310cs_/http://yandex.st/highlightjs/7.3/styles/github.min.css">
+    <script src="https://web.archive.org/web/20200209113310js_/http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-188528-5']);
+    _gaq.push(['_setDomainName', 'cascading.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://web.archive.org/web/20200209113310/https://ssl' : 'https://web.archive.org/web/20200209113310/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body class="book toc2">
+<div id="header">
+  <div class="container">
+    <div class="branding" onclick="location.href='https://web.archive.org/web/20200209113310/http://www.cascading.org';"></div>
+    <div class="header-top">
+      <div class="menu-top-header-container">
+        <ul id="menu-top-header" class="menu">
+          <li id="menu-item-267" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-267"><a href="https://web.archive.org/web/20200209113310/http://forums.cascading.io/">Forums</a></li>
+          <li id="menu-item-265" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-265"><a href="https://web.archive.org/web/20200209113310/http://cascading.io/">Products</a></li>
+          <li id="menu-item-475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/downloads/">Downloads</a></li>
+          <li id="menu-item-266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/sdk/">SDK</a></li>
+          <li id="menu-item-516" class="menu-item-last menu-item menu-item-type-custom menu-item-object-custom menu-item-516"><a target="_blank" href="https://web.archive.org/web/20200209113310/http://driven.cascading.io/">Driven Login</a></li>
+        </ul>
+      </div>
+
+      <div class="header-google">
+        <script>
+          jQuery("gsc-i-id1").keyup(function(e){
+            if(event.keyCode == 13){
+              alert("pressed enter");
+              $("#gsc-b-id1").click();
+            }
+          });
+
+          function OpenInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+          }
+        </script>
+        <div class="gsc-bar">
+          <input onkeydown="if (event.keyCode == 13) OpenInNewTab('http://www.cascading.org/search_gcse-2/?search=' + this.value)" autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" spellcheck="false" style="outline: none;"></div>
+        <div class="gsc-bar">
+          <input type="button" value="Search" class="gsc-search-button" title="search" onclick="OpenInNewTab('https://web.archive.org/web/20200209113310/http://www.cascading.org/search_gcse-2/?search=' + document.getElementById('gsc-i-id1').value)">
+        </div>
+      </div>
+    </div>
+    <nav id="nav">
+      <div class="menu-home-container">
+        <ul id="menu-home" class="nav-menu">
+          <li id="menu-item-430" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-430"><a href="ch03-basic-concepts.html#">Projects</a>
+            <ul class="sub-menu">
+              <li id="menu-item-339" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-339"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/projects/cascading/">Cascading</a></li>
+              <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-362"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/projects/lingual/">Lingual</a></li>
+              <li id="menu-item-381" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-381"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/projects/pattern/">Pattern</a></li>
+              <li id="menu-item-640" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-640"><a href="https://web.archive.org/web/20200209113310/http://docs.cascading.org/projects/scalding">Scalding</a></li>
+              <li id="menu-item-641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-641"><a href="https://web.archive.org/web/20200209113310/http://docs.cascading.org/projects/cascalog">Cascalog</a></li>
+              <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-144"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/load/">Load</a></li>
+              <li id="menu-item-145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-145"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/multitool/">Multitool</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/extensions/">Extensions</a></li>
+          <li id="menu-item-571" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-571"><a href="ch03-basic-concepts.html#">Resources</a>
+            <ul class="sub-menu">
+              <li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-92 current_page_item menu-item-95"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/documentation/">Documentation</a></li>
+              <li id="menu-item-334" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-334"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/documentation/tutorials/">Tutorials</a></li>
+              <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514"><a target="_blank" href="https://web.archive.org/web/20200209113310/http://cascading.io/driven">Driven</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-572"><a href="ch03-basic-concepts.html#">Support</a>
+            <ul class="sub-menu">
+              <li id="menu-item-427" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/support/">Overview</a></li>
+              <li id="menu-item-590" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-590"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/support/compatibility/">Compatibility</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-97" class="menu-item-last menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="https://web.archive.org/web/20200209113310/http://www.cascading.org/news/">News</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+          <span id="revnumber">version 3.0-20160112</span>
+        <div id="toc" class="toc2">
+          <div id="toctitle">Table of Contents</div>
+          <ul class="sectlevel1">
+<li><a href="ch03-basic-concepts.html#_cascading_basic_concepts">Cascading Basic Concepts</a>
+<ul class="sectlevel2">
+<li><a href="ch03-basic-concepts.html#_terminology">Terminology</a></li>
+<li><a href="ch03-basic-concepts.html#_pipe_assemblies">Pipe Assemblies</a></li>
+<li><a href="ch03-basic-concepts.html#_pipes">Pipes</a></li>
+<li><a href="ch03-basic-concepts.html#platforms">Platforms</a></li>
+<li><a href="ch03-basic-concepts.html#source-sink">Sourcing and Sinking Data</a></li>
+<li><a href="ch03-basic-concepts.html#_sink_modes">Sink Modes</a></li>
+<li><a href="ch03-basic-concepts.html#flows">Flows</a></li>
+</ul>
+</li>
+</ul>
+        </div>
+</div>
+<div id="content">
+  <h1>Cascading 3.0 User Guide - Cascading Basic Concepts</h1>
+  <div class="sect1">
+<h2 id="_cascading_basic_concepts"><a class="anchor" href="ch03-basic-concepts.html#_cascading_basic_concepts"></a>Cascading Basic Concepts</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_terminology"><a class="anchor" href="ch03-basic-concepts.html#_terminology"></a>Terminology</h3>
+<div class="paragraph">
+<p>The Cascading processing model loosely is based on a metaphor of
+<a href="https://web.archive.org/web/20200209113310/http://en.wikipedia.org/wiki/Pipeline_(software)">"pipes and filters"</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Cascading API allows the developer to assemble pipes into pipelines (or pipe
+assemblies) that split, merge, group, or join streams of data while applying
+operations to each data record or groups of records (called a tuple).</p>
+</div>
+<div class="paragraph">
+<p>Pipe assemblies are specified independently of the data source they are to
+process. So before a pipe assembly can be executed, it must be bound to <em>taps</em>,
+i.e., data sources and sinks. The result of binding one or more pipe assemblies
+to taps is a <em>flow</em>, which is executed on a computer or cluster.</p>
+</div>
+<div class="paragraph">
+<p>Multiple flows can be grouped together and executed as a single unit of work or
+process. In this context, if one flow depends on the output of another, it is
+not executed until all of its data dependencies are satisfied. Such a collection
+of flows is called a <em>cascade</em>.</p>
+</div>
+<div class="paragraph">
+<p>Table 1 provides short descriptions of some elementary  Cascading terms. These
+entities are described in more detail throughout this  chapter.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Basic Cascading Terminology</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pipe</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An element of a branch or pipe assembly, connects to other pipes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Tuple</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data record, like an array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Branch</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple chain of pipes without forks or merges</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pipe Assembly</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interconnected set of pipe branches&#8201;&#8212;&#8201;looks like a
+<a href="https://web.archive.org/web/20200209113310/http://en.wikipedia.org/wiki/Directed_acyclic_graph">DAG</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Tuple Stream</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Series of tuples passing through a pipe branch or assembly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Tap</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data source or data destination for a pipe assembly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Flow</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pipe assemblies and their associated taps that form executable code</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cascade</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An ordered collection of flows</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_pipe_assemblies"><a class="anchor" href="ch03-basic-concepts.html#_pipe_assemblies"></a>Pipe Assemblies</h3>
+<div class="paragraph">
+<p>Pipe assemblies define what work should be done with tuple streams, which are
+read from tap <em>sources</em> and written to tap <em>sinks</em>. The work performed on the
+data stream may include actions such as filtering, transforming, organizing, and
+calculating.</p>
+</div>
+<div class="paragraph">
+<p>Pipe assemblies may use multiple sources and multiple sinks, and may define
+splits, merges, and joins to manipulate the tuple streams.</p>
+</div>
+<div class="sect3">
+<h4 id="_pipe_assembly_workflow"><a class="anchor" href="ch03-basic-concepts.html#_pipe_assembly_workflow"></a>Pipe Assembly Workflow</h4>
+<div class="paragraph">
+<p>Pipe assemblies are created by chaining <span class="classname">cascading.pipe.Pipe</span> classes
+and subclasses together. Chaining is accomplished by passing the previous
+<span class="classname">Pipe</span> instances to the constructor of the next <span class="classname">Pipe</span>
+instance.</p>
+</div>
+<div class="paragraph">
+<p>Example 1 below demonstrates this type of chaining. The specific operations
+performed are not important in the example; the point is to show the general
+flow of the data streams.</p>
+</div>
+<div class="paragraph">
+<p>The code in the example creates two pipes&#8212;&#8203;a "left-hand side" (lhs) and a
+"right-hand side" (rhs)&#8201;&#8212;&#8201;and performs some processing on them both, using the
+<span class="classname">Each</span> pipe.</p>
+</div>
+<div class="paragraph">
+<p>Then the two pipes are joined into one, using the <span class="classname">CoGroup</span> pipe, and
+several operations are performed on the joined pipe using <span class="classname">Every</span> and
+<span class="classname">GroupBy</span>. The diagram after the example provides a visual
+representation of the workflow.</p>
+</div>
+<div id="chaining-pipes" class="exampleblock">
+<div class="title">Example 1. Chaining pipes</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">// the "left hand side" assembly head
+Pipe lhs = new Pipe( "lhs" );
+
+lhs = new Each( lhs, new SomeFunction() );
+lhs = new Each( lhs, new SomeFilter() );
+
+// the "right hand side" assembly head
+Pipe rhs = new Pipe( "rhs" );
+
+rhs = new Each( rhs, new SomeFunction() );
+
+// joins the lhs and rhs
+Pipe join = new CoGroup( lhs, rhs );
+
+join = new Every( join, new SomeAggregator() );
+
+join = new GroupBy( join );
+
+join = new Every( join, new SomeAggregator() );
+
+// the tail of the assembly
+join = new Each( join, new SomeFunction() );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The following diagram is a visual representation of the example
+above.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bD0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIxMjAgMzg5IDM3MSAxMjUiIHdpZHRoPSIzNzFwdCIgaGVpZ2h0PSIxMjVwdCI+PG1ldGFkYXRhIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyI+PGRjOmRhdGU+MjAxMi0wNS0xMiAwMToxNVo8L2RjOmRhdGU+PCEtLSBQcm9kdWNlZCBieSBPbW5pR3JhZmZsZSBQcm9mZXNzaW9uYWwgNS4zLjYgLS0+PC9tZXRhZGF0YT48ZGVmcz48bWFya2VyIG9yaWVudD0iYXV0byIgb3ZlcmZsb3c9InZpc2libGUiIG1hcmtlclVuaXRzPSJzdHJva2VXaWR0aCIgaWQ9IkZpbGxlZEFycm93X01hcmtlciIgdmlld0JveD0iLTEgLTQgMTAgOCIgbWFya2VyV2lkdGg9IjEwIiBtYXJrZXJIZWlnaHQ9IjgiIGNvbG9yPSJibGFjayI+PGc+PHBhdGggZD0iTSA4IDAgTCAwIC0zIEwgMCAzIFoiIGZpbGw9ImN1cnJlbnRDb2xvciIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMSIvPjwvZz48L21hcmtlcj48Zm9udC1mYWNlIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iOCIgdW5pdHMtcGVyLWVtPSIxMDAwIiB1bmRlcmxpbmUtcG9zaXRpb249Ii03NS42ODM1OTQiIHVuZGVybGluZS10aGlja25lc3M9IjQ5LjMxNjQwNiIgc2xvcGU9IjAiIHgtaGVpZ2h0PSI1MzIuMjI2NTYiIGNhcC1oZWlnaHQ9IjcxOS43MjY1NiIgYXNjZW50PSI3NzAuMDE5NTMiIGRlc2NlbnQ9Ii0yMjkuOTgwNDciIGZvbnQtd2VpZ2h0PSJib2xkIj48Zm9udC1mYWNlLXNyYz48Zm9udC1mYWNlLW5hbWUgbmFtZT0iSGVsdmV0aWNhLUJvbGQiLz48L2ZvbnQtZmFjZS1zcmM+PC9mb250LWZhY2U+PGZvbnQtZmFjZSBmb250LWZhbWlseT0iSGVsdmV0aWNhIiBmb250LXNpemU9IjkiIHVuaXRzLXBlci1lbT0iMTAwMCIgdW5kZXJsaW5lLXBvc2l0aW9uPSItNzUuNjgzNTk0IiB1bmRlcmxpbmUtdGhpY2tuZXNzPSI0OS4zMTY0MDYiIHNsb3BlPSIwIiB4LWhlaWdodD0iNTMyLjIyNjU2IiBjYXAtaGVpZ2h0PSI3MTkuNzI2NTYiIGFzY2VudD0iNzcwLjAxOTUzIiBkZXNjZW50PSItMjI5Ljk4MDQ3IiBmb250LXdlaWdodD0iYm9sZCI+PGZvbnQtZmFjZS1zcmM+PGZvbnQtZmFjZS1uYW1lIG5hbWU9IkhlbHZldGljYS1Cb2xkIi8+PC9mb250LWZhY2Utc3JjPjwvZm9udC1mYWNlPjwvZGVmcz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS1vcGFjaXR5PSIxIiBzdHJva2UtZGFzaGFycmF5PSJub25lIiBmaWxsPSJub25lIiBmaWxsLW9wYWNpdHk9IjEiPjx0aXRsZT5GZWF0dXJlczwvdGl0bGU+PGc+PHRpdGxlPnBpcGUgYXNzZW1ibHk8L3RpdGxlPjxsaW5lIHgxPSIxNjQuMDIyOTk1IiB5MT0iNDIxLjA3OTk5IiB4Mj0iMTgxLjcyMTMxIiB5Mj0iNDIwLjk5MDAyIiBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIuNSIvPjxsaW5lIHgxPSIxNjQuMjczNzEiIHkxPSI0ODEuNDA0IiB4Mj0iMTgxLjcyMDk5IiB5Mj0iNDgxLjQwNCIgbWFya2VyLWVuZD0idXJsKCNGaWxsZWRBcnJvd19NYXJrZXIpIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjUiLz48cGF0aCBkPSJNIDEyMi4xOTQ5OSA0MDYuMjg0NDIgTCAxMjIuMTk0OTkgMzkxLjIwMTA1IEwgNDg4LjkwNjk4IDM5MS4yMDEwNSBMIDQ4OC45MDY5OCA0MDYuMjg0NDIgTSA0ODguOTA2OTggNDk2Ljc4NDY3IEwgNDg4LjkwNjk4IDUxMS44NjgwNCBMIDEyMi4xOTQ5OSA1MTEuODY4MDQgTCAxMjIuMTk0OTkgNDk2Ljc4NDY3IiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjUiIHN0cm9rZS1kYXNoYXJyYXk9IjQsNCIvPjxlbGxpcHNlIGN4PSIyMDguMDg1MzYiIGN5PSI0MjAuODU2IiByeD0iMjAuOTE0MzkyIiByeT0iMjEuMTEyMDQiIGZpbGw9IiNmZmFjNzMiLz48ZWxsaXBzZSBjeD0iMjA4LjA4NTM2IiBjeT0iNDIwLjg1NiIgcng9IjIwLjkxNDM5MiIgcnk9IjIxLjExMjA0IiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjUiLz48dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxOTEuMzUzODggNDE1Ljg1NTk5KSIgZmlsbD0iYmxhY2siPjx0c3BhbiBmb250LWZhbWlseT0iSGVsdmV0aWNhIiBmb250LXNpemU9IjgiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuMTY5OTIxODgiIHk9IjgiIHRleHRMZW5ndGg9IjM0LjY2MDE1NiI+Q29Hcm91cDwvdHNwYW4+PC90ZXh0PjxlbGxpcHNlIGN4PSIxNDMuMTA5MzQ0IiBjeT0iNDIwLjg1NiIgcng9IjIwLjkxNDM4NyIgcnk9IjIxLjExMjA0IiBmaWxsPSIjZmZhYzczIi8+PGVsbGlwc2UgY3g9IjE0My4xMDkzNDQiIGN5PSI0MjAuODU2IiByeD0iMjAuOTE0Mzg3IiByeT0iMjEuMTEyMDQiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIuNSIvPjx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMS4zNzc4NyA0MTUuMzU1OTkpIiBmaWxsPSJibGFjayI+PHRzcGFuIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9Ii45NzU4NjYzIiB5PSI5IiB0ZXh0TGVuZ3RoPSIyMS41MTEyMyI+RWFjaDwvdHNwYW4+PC90ZXh0PjxlbGxpcHNlIGN4PSIyNzMuMDYyMzUiIGN5PSI0MjAuODU2IiByeD0iMjAuOTE0Mzg5IiByeT0iMjEuMTEyMDQiIGZpbGw9IiNmZmFjNzMiLz48ZWxsaXBzZSBjeD0iMjczLjA2MjM1IiBjeT0iNDIwLjg1NiIgcng9IjIwLjkxNDM4OSIgcnk9IjIxLjExMjA0IiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjUiLz48dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNjEuMzMwODcgNDE1LjM1NTk5KSIgZmlsbD0iYmxhY2siPjx0c3BhbiBmb250LWZhbWlseT0iSGVsdmV0aWNhIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuMjM5MjU3ODEiIHk9IjkiIHRleHRMZW5ndGg9IjI0LjUyMTQ4NCI+RXZlcnk8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjI5LjI0OTczIiB5MT0iNDIwLjg1NiIgeDI9IjI0Ni42OTc5OCIgeTI9IjQyMC44NTYiIG1hcmtlci1lbmQ9InVybCgjRmlsbGVkQXJyb3dfTWFya2VyKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9Ii41Ii8+PGVsbGlwc2UgY3g9IjMzOC4wMzgzMyIgY3k9IjQyMC44NTYiIHJ4PSIyMC45MTQzODkiIHJ5PSIyMS4xMTIwNCIgZmlsbD0iI2ZmYWM3MyIvPjxlbGxpcHNlIGN4PSIzMzguMDM4MzMiIGN5PSI0MjAuODU2IiByeD0iMjAuOTE0Mzg5IiByeT0iMjEuMTEyMDQiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIuNSIvPjx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDMyMS4zMDY4NSA0MTUuODU1OTkpIiBmaWxsPSJibGFjayI+PHRzcGFuIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iOCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9Ii4zODg2NzE4OCIgeT0iOCIgdGV4dExlbmd0aD0iMzQuMjIyNjU2Ij5Hcm91cEJ5PC90c3Bhbj48L3RleHQ+PGVsbGlwc2UgY3g9IjE0My4xMDkzNDQiIGN5PSI0ODEuNDA0MDIiIHJ4PSIyMC45MTQzODciIHJ5PSIyMS4xMTIwNiIgZmlsbD0iI2ZmYWM3MyIvPjxlbGxpcHNlIGN4PSIxNDMuMTA5MzQ0IiBjeT0iNDgxLjQwNDAyIiByeD0iMjAuOTE0Mzg3IiByeT0iMjEuMTEyMDYiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIuNSIvPjx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMS4zNzc4NyA0NzUuOTA0KSIgZmlsbD0iYmxhY2siPjx0c3BhbiBmb250LWZhbWlseT0iSGVsdmV0aWNhIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuOTc1ODY2MyIgeT0iOSIgdGV4dExlbmd0aD0iMjEuNTExMjMiPkVhY2g8L3RzcGFuPjwvdGV4dD48ZWxsaXBzZSBjeD0iNDAzLjAxNTM4IiBjeT0iNDIwLjg1NiIgcng9IjIwLjkxNDM4OSIgcnk9IjIxLjExMjA0IiBmaWxsPSIjZmZhYzczIi8+PGVsbGlwc2UgY3g9IjQwMy4wMTUzOCIgY3k9IjQyMC44NTYiIHJ4PSIyMC45MTQzODkiIHJ5PSIyMS4xMTIwNCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9Ii41Ii8+PHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzkxLjI4Mzg3IDQxNS4zNTU5OSkiIGZpbGw9ImJsYWNrIj48dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSI5IiBmb250LXdlaWdodD0iYm9sZCIgeD0iLjIzOTI1NzgxIiB5PSI5IiB0ZXh0TGVuZ3RoPSIyNC41MjE0ODQiPkV2ZXJ5PC90c3Bhbj48L3RleHQ+PGxpbmUgeDE9IjM1OS4yMDI3IiB5MT0iNDIwLjg1NiIgeDI9IjM3Ni42NTA5NyIgeTI9IjQyMC44NTYiIG1hcmtlci1lbmQ9InVybCgjRmlsbGVkQXJyb3dfTWFya2VyKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9Ii41Ii8+PGxpbmUgeDE9IjI5NC4yMjY3MiIgeTE9IjQyMC44NTYiIHgyPSIzMTEuNjczOTUiIHkyPSI0MjAuODU2IiBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIuNSIvPjxsaW5lIHgxPSI0MjQuMTc5NzIiIHkxPSI0MjAuODU2IiB4Mj0iNDQxLjYyNzk2IiB5Mj0iNDIwLjg1NiIgbWFya2VyLWVuZD0idXJsKCNGaWxsZWRBcnJvd19NYXJrZXIpIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjUiLz48ZWxsaXBzZSBjeD0iMjA4LjA4NTM2IiBjeT0iNDgxLjQwNDAyIiByeD0iMjAuOTE0MzkyIiByeT0iMjEuMTEyMDYiIGZpbGw9IiNmZmFjNzMiLz48ZWxsaXBzZSBjeD0iMjA4LjA4NTM2IiBjeT0iNDgxLjQwNDAyIiByeD0iMjAuOTE0MzkyIiByeT0iMjEuMTEyMDYiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIuNSIvPjx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5Ni4zNTM4OCA0NzUuOTA0KSIgZmlsbD0iYmxhY2siPjx0c3BhbiBmb250LWZhbWlseT0iSGVsdmV0aWNhIiBmb250LXNpemU9IjkiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuOTc1ODY2MyIgeT0iOSIgdGV4dExlbmd0aD0iMjEuNTExMjMiPkVhY2g8L3RzcGFuPjwvdGV4dD48bGluZSB4MT0iMjA4LjA4NTM0IiB5MT0iNDYwLjA0MiIgeDI9IjIwOC4wODUzNCIgeTI9IjQ0Ny40MTgwMyIgbWFya2VyLWVuZD0idXJsKCNGaWxsZWRBcnJvd19NYXJrZXIpIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iLjUiLz48ZWxsaXBzZSBjeD0iNDY3Ljk5MjM0IiBjeT0iNDIwLjg1NiIgcng9IjIwLjkxNDM4OSIgcnk9IjIxLjExMjA0IiBmaWxsPSIjZmZhYzczIi8+PGVsbGlwc2UgY3g9IjQ2Ny45OTIzNCIgY3k9IjQyMC44NTYiIHJ4PSIyMC45MTQzODkiIHJ5PSIyMS4xMTIwNCIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9Ii41Ii8+PHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDU2LjI2MDg2IDQxNS4zNTU5OSkiIGZpbGw9ImJsYWNrIj48dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSI5IiBmb250LXdlaWdodD0iYm9sZCIgeD0iLjk3NTg2NjMiIHk9IjkiIHRleHRMZW5ndGg9IjIxLjUxMTIzIj5FYWNoPC90c3Bhbj48L3RleHQ+PC9nPjwvZz48L3N2Zz4K" alt="simple-pipe-assembly"></span></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_common_stream_patterns"><a class="anchor" href="ch03-basic-concepts.html#_common_stream_patterns"></a>Common Stream Patterns</h4>
+<div class="paragraph">
+<p>As data moves through the pipe, streams may be separated or combined for various
+purposes. Here are the three basic patterns:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Split</dt>
+<dd>
+<p>A split takes a single stream and sends it down multiple paths&#8201;&#8212;&#8201;that is, it
+feeds a single <span class="classname">Pipe</span> instance into two or more subsequent separate
+<span class="classname">Pipe</span> instances with unique branch names.</p>
+</dd>
+<dt class="hdlist1">Merge</dt>
+<dd>
+<p>A merge combines two or more streams that have identical fields into a single
+stream. This is done by passing two or more <span class="classname">Pipe</span> instances to a
+<span class="classname">Merge</span> or <span class="classname">GroupBy</span> pipe. This is also called a union.</p>
+</dd>
+<dt class="hdlist1">Join</dt>
+<dd>
+<p>A join combines data from two or more streams that have different fields, based
+on common field values (analogous to a SQL join.) This is done by passing two or
+more <span class="classname">Pipe</span> instances to a <span class="classname">HashJoin</span> or
+<span class="classname">CoGroup</span> pipe. The code sequence and diagram above give an example.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_processing"><a class="anchor" href="ch03-basic-concepts.html#_data_processing"></a>Data Processing</h4>
+<div class="paragraph">
+<p>In addition to directing the tuple streams&#8212;&#8203;using splits, merges, and joins&#8201;&#8212;&#8201;pipe assemblies can examine, filter, organize, and transform the tuple data as
+the streams move through the pipe assemblies. To facilitate this, the values in
+the tuple are typically (optionally) given field names, just as database columns
+are given names, so that they may be referenced or selected.</p>
+</div>
+<div class="paragraph">
+<p>The following terminology is used:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Operation</dt>
+<dd>
+<p>Operations (<span class="classname">cascading.operation.Operation</span>) accept an input argument
+Tuple, and output zero or more result tuples. There are a few subtypes of
+operations defined below. Cascading has a number of generic Operations that can
+be used, or developers can create their own custom Operations.</p>
+</dd>
+<dt class="hdlist1">Tuple</dt>
+<dd>
+<p>In Cascading, data is processed as a stream of tuples
+(<span class="classname">cascading.tuple.Tuple</span>), which are composed of fields, much like a
+database record or row. A Tuple is effectively an array of (field) values, where
+each value can be any <span class="classname">java.lang.Object</span> Java type (or <span class="code">byte[]</span>
+array). For information on supporting nonprimitive types, see
+<a href="ch19-extending-cascading.html#custom-types">Custom Types</a>.</p>
+</dd>
+<dt class="hdlist1">Fields</dt>
+<dd>
+<p>Fields (<span class="classname">cascading.tuple.Fields</span>) are used either to declare the
+field names for fields in a Tuple, or reference field values in a Tuple. They
+can be strings (such as "firstname" or "birthdate"), integers (for the field
+position&#8201;&#8212;&#8201;starting at <span class="code">0</span> for the first position or starting at
+<span class="code">-1</span> for the last position), or one of the predefined <em>Fields sets</em>
+(such as <span class="code">Fields.ALL</span>, which selects all values in the Tuple, like an
+asterisk in SQL). See <a href="ch04-tuple-fields.html#field-sets">Field Sets</a> for more
+information.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pipes"><a class="anchor" href="ch03-basic-concepts.html#_pipes"></a>Pipes</h3>
+<div class="paragraph">
+<p>The code for the sample pipe assembly above, <a href="ch03-basic-concepts.html#chaining-pipes">Chaining pipes</a>, consists almost
+entirely of a series of <span class="classname">Pipe</span> constructors. This section describes
+the various <span class="classname">Pipe</span> classes in detail.</p>
+</div>
+<div class="paragraph">
+<p>The base class <span class="classname">cascading.pipe.Pipe</span> and its subclasses are shown in
+the diagram below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjwhLS0KICB+IENvcHlyaWdodCAoYykgMjAwNy0yMDEyIENvbmN1cnJlbnQsIEluYy4gQWxsIFJpZ2h0cyBSZXNlcnZlZC4KICB+CiAgfiBQcm9qZWN0IGFuZCBjb250YWN0IGluZm9ybWF0aW9uOiBodHRwOi8vd3d3LmNvbmN1cnJlbnRpbmMuY29tLwogIC0tPgoKPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgdmlld0JveD0iMzM3IDk2IDQ4MyAzNDEiIHdpZHRoPSI0ODNwdCIgaGVpZ2h0PSIzNDFwdCI+CiAgPG1ldGFkYXRhIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyI+CiAgICA8ZGM6ZGF0ZT4yMDEyLTA0LTAyIDE2OjIyWjwvZGM6ZGF0ZT4KICAgIDwhLS0gUHJvZHVjZWQgYnkgT21uaUdyYWZmbGUgUHJvZmVzc2lvbmFsIDUuMy42IC0tPgogIDwvbWV0YWRhdGE+CiAgPGRlZnM+CiAgICA8Zm9udC1mYWNlIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iMTAiIHVuaXRzLXBlci1lbT0iMTAwMCIgdW5kZXJsaW5lLXBvc2l0aW9uPSItNzUuNjgzNTk0IgogICAgICAgICAgICAgICB1bmRlcmxpbmUtdGhpY2tuZXNzPSI0OS4zMTY0MDYiIHNsb3BlPSIwIiB4LWhlaWdodD0iNTMyLjIyNjU2IiBjYXAtaGVpZ2h0PSI3MTkuNzI2NTYiIGFzY2VudD0iNzcwLjAxOTUzIgogICAgICAgICAgICAgICBkZXNjZW50PSItMjI5Ljk4MDQ3IiBmb250LXdlaWdodD0iYm9sZCI+CiAgICAgIDxmb250LWZhY2Utc3JjPgogICAgICAgIDxmb250LWZhY2UtbmFtZSBuYW1lPSJIZWx2ZXRpY2EtQm9sZCIvPgogICAgICA8L2ZvbnQtZmFjZS1zcmM+CiAgICA8L2ZvbnQtZmFjZT4KICAgIDxtYXJrZXIgb3JpZW50PSJhdXRvIiBvdmVyZmxvdz0idmlzaWJsZSIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIiBpZD0iRmlsbGVkQXJyb3dfTWFya2VyIiB2aWV3Qm94PSItMSAtNCAxMCA4IgogICAgICAgICAgICBtYXJrZXJXaWR0aD0iMTAiIG1hcmtlckhlaWdodD0iOCIgY29sb3I9ImJsYWNrIj4KICAgICAgPGc+CiAgICAgICAgPHBhdGggZD0iTSA4IDAgTCAwIC0zIEwgMCAzIFoiIGZpbGw9ImN1cnJlbnRDb2xvciIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8L2c+CiAgICA8L21hcmtlcj4KICAgIDxtYXJrZXIgb3JpZW50PSJhdXRvIiBvdmVyZmxvdz0idmlzaWJsZSIgbWFya2VyVW5pdHM9InN0cm9rZVdpZHRoIiBpZD0iU3RpY2tBcnJvd19NYXJrZXIiIHZpZXdCb3g9Ii0xIC00IDEwIDgiCiAgICAgICAgICAgIG1hcmtlcldpZHRoPSIxMCIgbWFya2VySGVpZ2h0PSI4IiBjb2xvcj0iYmxhY2siPgogICAgICA8Zz4KICAgICAgICA8cGF0aCBkPSJNIDggMCBMIDAgMCBNIDAgLTMgTCA4IDAgTCAwIDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPC9nPgogICAgPC9tYXJrZXI+CiAgPC9kZWZzPgogIDxnIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLW9wYWNpdHk9IjEiIHN0cm9rZS1kYXNoYXJyYXk9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMSI+CiAgICA8dGl0bGU+TW9kZWw8L3RpdGxlPgogICAgPHJlY3QgZmlsbD0id2hpdGUiIHdpZHRoPSIxNDY2IiBoZWlnaHQ9IjU3NiIvPgogICAgPGc+CiAgICAgIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICAgICAgPGNpcmNsZSBjeD0iNjQ4LjU1MDYiIGN5PSIyMjEuMzU1OTciIHI9IjI4LjgwMDA2NiIgZmlsbD0iI2ZmYWM3MyIvPgogICAgICA8Y2lyY2xlIGN4PSI2NDguNTUwNiIgY3k9IjIyMS4zNTU5NyIgcj0iMjguODAwMDY2IiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDYyNy41MTA2MiAyMTUuMzU1OTcpIiBmaWxsPSJibGFjayI+CiAgICAgICAgPHRzcGFuIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuMzM3NDAyMzQiIHk9IjEwIiB0ZXh0TGVuZ3RoPSI0My4zMjUxOTUiPgogICAgICAgICAgQ29Hcm91cAogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPGNpcmNsZSBjeD0iNDc0LjEzMzMiIGN5PSI0MDUuOTU2MDkiIHI9IjI4LjgwMDA2MiIgZmlsbD0iI2U4YzcxZCIvPgogICAgICA8Y2lyY2xlIGN4PSI0NzQuMTMzMyIgY3k9IjQwNS45NTYwOSIgcj0iMjguODAwMDYyIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ1Mi4wOTMzMiAzOTkuOTU2MTIpIiBmaWxsPSJibGFjayI+CiAgICAgICAgPHRzcGFuIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuNDk3NTU4NiIgeT0iMTAiIHRleHRMZW5ndGg9IjQ1LjAwNDg4MyI+CiAgICAgICAgICBJbm5lckpvaW4KICAgICAgICA8L3RzcGFuPgogICAgICA8L3RleHQ+CiAgICAgIDxjaXJjbGUgY3g9IjU0NC4yMjQzIiBjeT0iNDA1Ljk1NjA5IiByPSIyOC44MDAwNzIiIGZpbGw9IiNlOGM3MWQiLz4KICAgICAgPGNpcmNsZSBjeD0iNTQ0LjIyNDMiIGN5PSI0MDUuOTU2MDkiIHI9IjI4LjgwMDA3MiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgICAgICAgIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MjEuMTg0MzMgMzk5Ljk1NjEyKSIgZmlsbD0iYmxhY2siPgogICAgICAgIDx0c3BhbiBmb250LWZhbWlseT0iSGVsdmV0aWNhIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iYm9sZCIgeD0iLjM4NjcxODc1IiB5PSIxMCIgdGV4dExlbmd0aD0iNDcuMjI2NTYyIj4KICAgICAgICAgIE91dGVySm9pbgogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPGNpcmNsZSBjeD0iNjE0LjcxNDM2IiBjeT0iNDA1Ljk1NjA5IiByPSIyOC44MDAwNzIiIGZpbGw9IiNlOGM3MWQiLz4KICAgICAgPGNpcmNsZSBjeD0iNjE0LjcxNDM2IiBjeT0iNDA1Ljk1NjA5IiByPSIyOC44MDAwNzIiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTk1LjY3NDM4IDM5OS45NTYxMikiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9Ii4wNTY2NDA2MjUiIHk9IjEwIiB0ZXh0TGVuZ3RoPSIzOC44ODY3MTkiPgogICAgICAgICAgTGVmdEpvaW4KICAgICAgICA8L3RzcGFuPgogICAgICA8L3RleHQ+CiAgICAgIDxjaXJjbGUgY3g9IjY4NC40MDYzNyIgY3k9IjQwNS45NTYwOSIgcj0iMjguODAwMDcyIiBmaWxsPSIjZThjNzFkIi8+CiAgICAgIDxjaXJjbGUgY3g9IjY4NC40MDYzNyIgY3k9IjQwNS45NTYwOSIgcj0iMjguODAwMDcyIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDY2MS4zNjY0IDM5OS45NTYxMikiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9Ii40NDgyNDIyIiB5PSIxMCIgdGV4dExlbmd0aD0iNDYuMTAzNTE2Ij4KICAgICAgICAgIFJpZ2h0Sm9pbgogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPGNpcmNsZSBjeD0iNjE0LjcxNDM2IiBjeT0iMzEwLjI1NzA4IiByPSIyOC44MDAwNzIiIGZpbGw9IiNlOGM3MWQiLz4KICAgICAgPGNpcmNsZSBjeD0iNjE0LjcxNDM2IiBjeT0iMzEwLjI1NzA4IiByPSIyOC44MDAwNzIiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTk2LjY3NDM4IDMwNC4yNTcxMSkiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9IjMuMDM1MTE2MiIgeT0iMTAiIHRleHRMZW5ndGg9IjMwLjAwOTc2NiI+CiAgICAgICAgICBKb2luZXIKICAgICAgICA8L3RzcGFuPgogICAgICA8L3RleHQ+CiAgICAgIDxwYXRoCiAgICAgICAgZD0iTSA0NzQuMTMzMyAzNzcuMTU2MDcgTCA0NzQuMTMzMyAzNjUuMjU2MDcgTCA0NzQuMTMzMyAzNTguMjU2MDcgTCA2MTQuNzE0MzYgMzU4LjI1NjA3IEwgNjE0LjcxNDM2IDM1MC45NTcxIEwgNjE0LjcxNDM2IDM0OC45NTcxIgogICAgICAgIG1hcmtlci1lbmQ9InVybCgjRmlsbGVkQXJyb3dfTWFya2VyKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8cGF0aAogICAgICAgIGQ9Ik0gNTQ0LjIyNDMgMzc3LjE1NjA3IEwgNTQ0LjIyNDMgMzY1LjI1NjA3IEwgNTQ0LjIyNDMgMzU4LjI1NjA3IEwgNjE0LjcxNDM2IDM1OC4yNTYwNyBMIDYxNC43MTQzNiAzNTAuOTU3MSBMIDYxNC43MTQzNiAzNDguOTU3MSIKICAgICAgICBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHBhdGggZD0iTSA2MTQuNzE0MzYgMzc3LjE1NjA3IEwgNjE0LjcxNDM2IDM2NS4yNTYwNyBMIDYxNC43MTQzNiAzNTAuOTU3MSBMIDYxNC43MTQzNiAzNDguOTU3MSIKICAgICAgICAgICAgbWFya2VyLWVuZD0idXJsKCNGaWxsZWRBcnJvd19NYXJrZXIpIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgICAgIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8cGF0aAogICAgICAgIGQ9Ik0gNjg0LjQwNjM3IDM3Ny4xNTYwNyBMIDY4NC40MDYzNyAzNjUuMjU2MDcgTCA2ODQuNDA2MzcgMzU4LjI1NjA3IEwgNjE0LjcxNDM2IDM1OC4yNTYwNyBMIDYxNC43MTQzNiAzNTAuOTU3MSBMIDYxNC43MTQzNiAzNDguOTU3MSIKICAgICAgICBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPGNpcmNsZSBjeD0iNzU0LjQ5NzMiIGN5PSI0MDUuOTU2MDkiIHI9IjI4LjgwMDA3MiIgZmlsbD0iI2U4YzcxZCIvPgogICAgICA8Y2lyY2xlIGN4PSI3NTQuNDk3MyIgY3k9IjQwNS45NTYwOSIgcj0iMjguODAwMDcyIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDczMC40NTczNCAzOTkuOTU2MTIpIiBmaWxsPSJibGFjayI+CiAgICAgICAgPHRzcGFuIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuMDUxNzU3ODEyIiB5PSIxMCIgdGV4dExlbmd0aD0iNDguODk2NDg0Ij4KICAgICAgICAgIE1peGVkSm9pbgogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPHBhdGgKICAgICAgICBkPSJNIDc1NC40OTczIDM3Ny4xNTYwNyBMIDc1NC40OTczIDM2NS4yNTYwNyBMIDc1NC40OTczIDM1OC4yNTYwNyBMIDYxNC43MTQzNiAzNTguMjU2MDcgTCA2MTQuNzE0MzYgMzUwLjk1NzEgTCA2MTQuNzE0MzYgMzQ4Ljk1NzEiCiAgICAgICAgbWFya2VyLWVuZD0idXJsKCNGaWxsZWRBcnJvd19NYXJrZXIpIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDxwYXRoCiAgICAgICAgZD0iTSA2NDguNTUwNiAyNTAuMTU2IEwgNjQ4LjU1MDYgMjYyLjA1NiBMIDY0OC41NTA2IDI2Ni4wNTYgTCA2MTQuNzE0MzYgMjY2LjA1NiBMIDYxNC43MTQzNiAyNjkuNTU3MDcgTCA2MTQuNzE0MzYgMjcxLjU1NzA3IgogICAgICAgIG1hcmtlci1lbmQ9InVybCgjU3RpY2tBcnJvd19NYXJrZXIpIiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtZGFzaGFycmF5PSI0LDQiLz4KICAgICAgPGNpcmNsZSBjeD0iNTA4LjIxMDEiIGN5PSIyMjEuMzU1OTciIHI9IjI4LjgwMDA0NyIgZmlsbD0iI2ZmYWM3MyIvPgogICAgICA8Y2lyY2xlIGN4PSI1MDguMjEwMSIgY3k9IjIyMS4zNTU5NyIgcj0iMjguODAwMDQ3IiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ4Ny4xNzAxNCAyMTUuMzU1OTcpIiBmaWxsPSJibGFjayI+CiAgICAgICAgPHRzcGFuIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSIuMTEwODM5ODQ0IiB5PSIxMCIgdGV4dExlbmd0aD0iNDIuNzc4MzIiPgogICAgICAgICAgR3JvdXBCeQogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPHBhdGgKICAgICAgICBkPSJNIDUwOC4yMTAxIDE5Mi41NTU5NSBMIDUwOC4yMTAxIDE4MC42NTU5NiBMIDUwOC4yMTAxIDE4MC42NTU5NiBMIDU3OC44MDkzMyAxODAuNjU1OTYgTCA1NzguODA5MzMgMTY4LjQ0NjE1IEwgNTc4LjgwOTMzIDE2Ni40NDYxNSIKICAgICAgICBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHBhdGgKICAgICAgICBkPSJNIDY0OC41NTA2IDE5Mi41NTU5NSBMIDY0OC41NTA2IDE4MC42NTU5NiBMIDY0OC41NTA2IDE4MC42NTU5NiBMIDU3OC44MDkzMyAxODAuNjU1OTYgTCA1NzguODA5MzMgMTY4LjQ0NjE1IEwgNTc4LjgwOTMzIDE2Ni40NDYxNSIKICAgICAgICBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPGNpcmNsZSBjeD0iNTc4LjgwOTMzIiBjeT0iMTI3Ljc0NjEzIiByPSIyOC44MDAwNjQiIGZpbGw9IiNmZmFjNzMiLz4KICAgICAgPGNpcmNsZSBjeD0iNTc4LjgwOTMzIiBjeT0iMTI3Ljc0NjEzIiByPSIyOC44MDAwNjQiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTYwLjc2OTM1IDEyMS43NDYxNCkiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9IjcuNDgwOTE3IiB5PSIxMCIgdGV4dExlbmd0aD0iMjEuMTE4MTY0Ij4KICAgICAgICAgIFBpcGUKICAgICAgICA8L3RzcGFuPgogICAgICA8L3RleHQ+CiAgICAgIDxjaXJjbGUgY3g9IjQzOC4wMzk4OSIgY3k9IjIyMS4zNTU5NyIgcj0iMjguODAwMDU1IiBmaWxsPSIjZmZhYzczIi8+CiAgICAgIDxjaXJjbGUgY3g9IjQzOC4wMzk4OSIgY3k9IjIyMS4zNTU5NyIgcj0iMjguODAwMDU1IiBzdHJva2U9ImJsYWNrIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiCiAgICAgICAgICAgICAgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgICAgIDx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxOS45OTk5IDIxNS4zNTU5NykiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9IjMuMzEzNDM2NSIgeT0iMTAiIHRleHRMZW5ndGg9IjI5LjQ1MzEyNSI+CiAgICAgICAgICBNZXJnZQogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPGNpcmNsZSBjeD0iNzE4LjcyMDgzIiBjeT0iMjIxLjM1NTk3IiByPSIyOC44MDAwNjYiIGZpbGw9IiNmZmFjNzMiLz4KICAgICAgPGNpcmNsZSBjeD0iNzE4LjcyMDgzIiBjeT0iMjIxLjM1NTk3IiByPSIyOC44MDAwNjYiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAwLjY4MDg1IDIxNS4zNTU5NykiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9IjQuNDE2OTUyMSIgeT0iMTAiIHRleHRMZW5ndGg9IjI3LjI0NjA5NCI+CiAgICAgICAgICBFdmVyeQogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPHBhdGgKICAgICAgICBkPSJNIDQzOC4wMzk4OSAxOTIuNTU1OTUgTCA0MzguMDM5ODkgMTgwLjY1NTk2IEwgNDM4LjAzOTg5IDE4MC42NTU5NiBMIDU3OC44MDkzMyAxODAuNjU1OTYgTCA1NzguODA5MzMgMTY4LjQ0NjE1IEwgNTc4LjgwOTMzIDE2Ni40NDYxNSIKICAgICAgICBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHBhdGgKICAgICAgICBkPSJNIDcxOC43MjA4MyAxOTIuNTU1OTUgTCA3MTguNzIwODMgMTgwLjY1NTk2IEwgNzE4LjcyMDgzIDE4MC42NTU5NiBMIDU3OC44MDkzMyAxODAuNjU1OTYgTCA1NzguODA5MzMgMTY4LjQ0NjE1IEwgNTc4LjgwOTMzIDE2Ni40NDYxNSIKICAgICAgICBtYXJrZXItZW5kPSJ1cmwoI0ZpbGxlZEFycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPGNpcmNsZSBjeD0iNzg4Ljg5MTA1IiBjeT0iMjIxLjM1NTk3IiByPSIyOC44MDAwNjYiIGZpbGw9IiNmZmFjNzMiLz4KICAgICAgPGNpcmNsZSBjeD0iNzg4Ljg5MTA1IiBjeT0iMjIxLjM1NTk3IiByPSIyOC44MDAwNjYiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzY1Ljg1MTA3IDIwOS4zNTU5NykiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9IjE0LjU1NjY0MSIgeT0iMTAiIHRleHRMZW5ndGg9IjE4Ljg4NjcxOSI+CiAgICAgICAgICBTdWIKICAgICAgICA8L3RzcGFuPgogICAgICAgIDx0c3BhbiBmb250LWZhbWlseT0iSGVsdmV0aWNhIiBmb250LXNpemU9IjEwIiBmb250LXdlaWdodD0iYm9sZCIgeD0iLjM3Njk1MzEyIiB5PSIyMiIgdGV4dExlbmd0aD0iNDcuMjQ2MDk0Ij4KICAgICAgICAgIEFzc2VtYmx5CiAgICAgICAgPC90c3Bhbj4KICAgICAgPC90ZXh0PgogICAgICA8cGF0aAogICAgICAgIGQ9Ik0gNzg4Ljg5MTA1IDE5Mi41NTU5NSBMIDc4OC44OTEwNSAxODAuNjU1OTYgTCA3ODguODkxMDUgMTgwLjY1NTk2IEwgNTc4LjgwOTMzIDE4MC42NTU5NiBMIDU3OC44MDkzMyAxNjguNDQ2MTUgTCA1NzguODA5MzMgMTY2LjQ0NjE1IgogICAgICAgIG1hcmtlci1lbmQ9InVybCgjRmlsbGVkQXJyb3dfTWFya2VyKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8Y2lyY2xlIGN4PSI1NzguMzgwMzciIGN5PSIyMjEuMzU1OTciIHI9IjI4LjgwMDA2NiIgZmlsbD0iI2ZmYWM3MyIvPgogICAgICA8Y2lyY2xlIGN4PSI1NzguMzgwMzciIGN5PSIyMjEuMzU1OTciIHI9IjI4LjgwMDA2NiIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgICAgICAgIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1NjAuMzQwNCAyMTUuMzU1OTcpIiBmaWxsPSJibGFjayI+CiAgICAgICAgPHRzcGFuIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtc2l6ZT0iMTAiIGZvbnQtd2VpZ2h0PSJib2xkIiB4PSI3Ljc2MTY3ODciIHk9IjEwIiB0ZXh0TGVuZ3RoPSIyMC41NTY2NDEiPgogICAgICAgICAgSm9pbgogICAgICAgIDwvdHNwYW4+CiAgICAgIDwvdGV4dD4KICAgICAgPGNpcmNsZSBjeD0iMzY3Ljg2OTY2IiBjeT0iMjIxLjM1NTk3IiByPSIyOC44MDAwNTUiIGZpbGw9IiNmZmFjNzMiLz4KICAgICAgPGNpcmNsZSBjeD0iMzY3Ljg2OTY2IiBjeT0iMjIxLjM1NTk3IiByPSIyOC44MDAwNTUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzQ5LjgyOTY4IDIxNS4zNTU5NykiIGZpbGw9ImJsYWNrIj4KICAgICAgICA8dHNwYW4gZm9udC1mYW1pbHk9IkhlbHZldGljYSIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9ImJvbGQiIHg9IjYuMDg5MzE1NCIgeT0iMTAiIHRleHRMZW5ndGg9IjIzLjkwMTM2NyI+CiAgICAgICAgICBFYWNoCiAgICAgICAgPC90c3Bhbj4KICAgICAgPC90ZXh0PgogICAgICA8cGF0aAogICAgICAgIGQ9Ik0gMzY3Ljg2OTY2IDE5Mi41NTU5NSBMIDM2Ny44Njk2NiAxODAuNjU1OTYgTCAzNjcuODY5NjYgMTgwLjY1NTk2IEwgNTc4LjgwOTMzIDE4MC42NTU5NiBMIDU3OC44MDkzMyAxNjguNDQ2MTUgTCA1NzguODA5MzMgMTY2LjQ0NjE1IgogICAgICAgIG1hcmtlci1lbmQ9InVybCgjRmlsbGVkQXJyb3dfTWFya2VyKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8cGF0aCBkPSJNIDU3OC4zODAzNyAxOTIuNTU1OTUgTCA1NzguMzgwMzcgMTgwLjY1NTk2IEwgNTc4LjgwOTMzIDE2OC40NDYxNSBMIDU3OC44MDkzMyAxNjYuNDQ2MTUiCiAgICAgICAgICAgIG1hcmtlci1lbmQ9InVybCgjRmlsbGVkQXJyb3dfTWFya2VyKSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIgogICAgICAgICAgICBzdHJva2Utd2lkdGg9IjEiLz4KICAgICAgPHBhdGgKICAgICAgICBkPSJNIDU3OC4zODAzNyAyNTAuMTU2IEwgNTc4LjM4MDM3IDI2Mi4wNTYgTCA1NzguMzgwMzcgMjY2LjA1NiBMIDYxNC43MTQzNiAyNjYuMDU2IEwgNjE0LjcxNDM2IDI2OS41NTcwNyBMIDYxNC43MTQzNiAyNzEuNTU3MDciCiAgICAgICAgbWFya2VyLWVuZD0idXJsKCNTdGlja0Fycm93X01hcmtlcikiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIKICAgICAgICBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjQsNCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==" alt="pipes"></span></p>
+</div>
+<div class="sect3">
+<h4 id="_types_of_pipes"><a class="anchor" href="ch03-basic-concepts.html#_types_of_pipes"></a>Types of Pipes</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">Each</span></dt>
+<dd>
+<p>These pipes analyze, transform, or filter data based on the contents of tuples.
+The <span class="classname">Each</span> pipe operates on individual tuples in the stream, applying
+functions or filters such as conditionally replacing certain field values,
+removing tuples that have values outside a target range, etc.</p>
+<div class="paragraph">
+<p>You can also use <span class="classname">Each</span> to split or branch a stream, simply by
+routing the output of an <span class="classname">Each</span> into a different pipe or sink.</p>
+</div>
+<div class="paragraph">
+<p>As with other types of pipe, you can use <span class="classname">Each</span> to specify a list of
+fields to output. Specifying an output list removes unwanted fields from a
+stream.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">Merge</span></dt>
+<dd>
+<p>Just as <span class="classname">Each</span> can be used to split one stream into two,
+<span class="classname">Merge</span> can be used to combine two or more streams having the same
+fields into one stream.</p>
+<div class="paragraph">
+<p>A <span class="classname">Merge</span> accepts two or more streams that have identical fields, and
+emits a single stream of tuples (in arbitrary order) that contains all the
+tuples from all the specified input streams. Thus a Merge is just a mingling of
+all the tuples from the input streams, as if shuffling multiple card decks into
+one.</p>
+</div>
+<div class="paragraph">
+<p>Use <span class="classname">Merge</span> when no grouping is required (i.e., no aggregator or
+buffer operations will be performed). Subsequently <span class="classname">Merge</span> is much
+faster than <span class="classname">GroupBy</span> (see below) for merging.</p>
+</div>
+<div class="paragraph">
+<p>To combine streams that have different fields, based on one or more common
+values, use <span class="classname">CoGroup</span> or <span class="classname">HashJoin</span>.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">GroupBy</span></dt>
+<dd>
+<p><span class="classname">GroupBy</span> groups the tuples of a stream based on common values in a
+specified field.</p>
+<div class="paragraph">
+<p>If passed multiple streams as inputs, it performs a merge before the grouping.
+As with <span class="classname">Merge</span>, a <span class="classname">GroupBy</span> requires that multiple input
+streams share the same field structure.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of grouping is typically to prepare a stream for processing by the
+<span class="classname">Every</span> pipe, which performs aggregator and buffer operations on the
+groups, such as counting, totaling, or averaging values within that group.</p>
+</div>
+<div class="paragraph">
+<p>It should be clear that "grouping" here essentially means sorting all the tuples
+into groups based on the value of a particular field. However, within a given
+group, the tuples are in arbitrary order unless you specify a secondary sort
+key. For most purposes, a secondary sort is not required and only increases the
+execution time.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">Every</span></dt>
+<dd>
+<p>The <span class="classname">Every</span> pipe operates on a tuple stream that has been grouped (by
+<span class="classname">GroupBy</span> or <span class="classname">CoGroup</span>) on the values of a particular
+field, such as "timestamp" or "zipcode". It&#8217;s used to apply aggregator or buffer
+operations such as counting, totaling, or averaging field values within each
+group. Thus the <span class="classname">Every</span> class is only for use on the output of
+<span class="classname">GroupBy</span> or <span class="classname">CoGroup</span>, and cannot be used with the output
+of <span class="classname">Each</span>, <span class="classname">Merge</span>, or <span class="classname">HashJoin</span>.</p>
+<div class="paragraph">
+<p>An <span class="classname">Every</span> instance may follow another <span class="classname">Every</span> instance,
+so <span class="classname">Aggregator</span> operations can be chained. This is not true for
+<span class="classname">Buffer</span> operations.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">CoGroup</span></dt>
+<dd>
+<p><span class="classname">CoGroup</span> performs a join on two or more streams, similar to a SQL
+join, and groups the single resulting output stream on the values of specified
+fields. As with SQL, the join can be inner, outer, left, or right. Self-joins
+are permitted, as well as mixed joins (for three or more streams) and custom
+joins. Null fields in the input streams become corresponding null fields in the
+output stream.</p>
+<div class="paragraph">
+<p>The resulting output stream contains fields from all the input streams. If the
+streams contain any field names in common, they must be renamed to avoid
+duplicate field names in the resulting tuples.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">HashJoin</span></dt>
+<dd>
+<p><span class="classname">HashJoin</span> performs a join on two or more streams, similar to a SQL
+join, and emits a single stream in arbitrary order. As with SQL, the join can be
+inner, outer, left, or right. Self-joins are permitted, as well as mixed joins
+(for three or more streams) and custom joins. Null fields in the input streams
+become corresponding null fields in the output stream.</p>
+<div class="paragraph">
+<p>For applications that do not require grouping, <span class="classname">HashJoin</span> provides
+faster execution than <span class="classname">CoGroup</span>, but only within certain prescribed
+cases. It is optimized for joining one or more small streams to no more than one
+large stream. Developers should thoroughly understand the limitations of this
+class, as described below, before attempting to use it.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The following table summarizes the different types of pipes.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Comparison of pipe types</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong><em>Pipe type</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Purpose</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Input</em></strong></th>
+<th class="tableblock halign-left valign-top"><strong><em>Output</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">Pipe</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">instantiate a pipe; create or name a branch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a
+(named) pipe</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">SubAssembly</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create nested subassemblies</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">Each</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apply a filter or function, or branch a stream</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tuple
+stream (grouped or not)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a tuple stream, optionally filtered or transformed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">Merge</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">merge two or more streams with identical fields</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">two or
+more tuple streams</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a tuple stream, unsorted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">GroupBy</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort/group on field values; optionally merge two or
+more streams with identical fields</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">one or more tuple streams with identical
+fields</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a single tuple stream, grouped on key field(s) with optional secondary
+sort</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">Every</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apply aggregator or buffer operation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">grouped tuple
+stream</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a tuple stream plus new fields with operation results</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">CoGroup</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">join 1 or more streams on matching field values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">one
+or more tuple streams</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a single tuple stream, joined on key field(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">HashJoin</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">join 1 or more streams on matching field values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">one
+or more tuple streams</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a tuple stream in arbitrary order</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="platforms"><a class="anchor" href="ch03-basic-concepts.html#platforms"></a>Platforms</h3>
+<div class="paragraph">
+<p>Cascading supports pluggable planners that allow it to execute on differing
+platforms. Planners are invoked by an associated <span class="classname">FlowConnector</span>
+subclass. Currently, only four planners are provided, as described below:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">LocalFlowConnector</span></dt>
+<dd>
+<p>The <span class="classname">cascading.flow.local.LocalFlowConnector</span> provides a "local" mode
+planner for running Cascading completely in memory on the current computer. This
+allows for fast execution of Flows using local files or any other compatible
+custom <span class="classname">Tap</span> and <span class="classname">Scheme</span> classes.</p>
+<div class="paragraph">
+<p>The local mode planner and platform were not designed to scale beyond available
+memory, CPU, or disk on the current machine. Thus any memory-intensive processes
+that use <span class="classname">GroupBy</span>, <span class="classname">CoGroup</span>, or <span class="classname">HashJoin</span>
+are likely to fail when handling moderately large files.</p>
+</div>
+<div class="paragraph">
+<p>Local mode is useful for development, testing, and interactive data exploration
+with sample sets.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">HadoopFlowConnector</span></dt>
+<dd>
+<p>The <span class="classname">cascading.flow.hadoop.HadoopFlowConnector</span> provides a planner
+for running Cascading on an Apache Hadoop 1.x cluster. This allows Cascading to
+execute with extremely large data sets over a cluster of computing nodes.</p>
+<div class="paragraph">
+<p>Note Hadoop 1.x only provides the MapReduce model for distributed computation.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">Hadoop2MR1FlowConnector</span></dt>
+<dd>
+<p>The <span class="classname">cascading.flow.hadoop2.Hadoop2MR1FlowConnector</span> provides a
+planner for running Cascading on an Apache Hadoop 2.x cluster. This class is
+roughly equivalent to the above <span class="classname">HadoopFlowConnector</span> except it uses
+Hadoop 2 specific properties and is compiled with Hadoop 2 API binaries.</p>
+<div class="paragraph">
+<p>The underlying planner and execution run using the default MapReduce Hadoop API.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">Hadoop2TezFlowConnector</span></dt>
+<dd>
+<p>The <span class="classname">cascading.flow.tez.planner.Hadoop2TezFlowConnector</span> provides a
+planner for running Cascading on an Apache Hadoop 2.x cluster with
+<a href="https://web.archive.org/web/20200209113310/http://tez.apache.org/">Apache Tez</a> as an installed YARN application. It is beyond
+the scope of this document to provide Tez installation instructions.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Cascading&#8217;s support for pluggable planners allows a pipe assembly to be executed
+on an arbitrary platform, using platform-specific Tap and Scheme classes that
+hide the platform-related I/O details from the developer. For example, Hadoop
+uses <span class="classname">org.apache.hadoop.mapred.InputFormat</span> to read data, but local
+mode functions smoothly with a <span class="classname">java.io.FileInputStream</span>. This detail
+is hidden from developers unless they are creating custom Tap and Scheme
+classes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-sink"><a class="anchor" href="ch03-basic-concepts.html#source-sink"></a>Sourcing and Sinking Data</h3>
+<div class="paragraph">
+<p>All input data comes in from, and all output data goes out to, some instance of
+a <span class="classname">cascading.tap.Tap</span> and <span class="classname">cascading.scheme.Scheme</span> pair.
+A Tap knows where data is located and how to access it&#8201;&#8212;&#8201;such as a file on the
+local filesystem, on a Hadoop distributed file system, or on Amazon S3. A Scheme
+knows what the data is and how to read or write it&#8201;&#8212;&#8201;such as the column/field
+names and if the file is text or binary.</p>
+</div>
+<div class="paragraph">
+<p>A tap can be read from, which makes it a <em>source</em>, or written to, which makes it
+a <em>sink</em>. Or, more commonly, taps act as both sinks and sources when shared
+between flows (a tap may not be used as both a source and sink in the same
+flow).</p>
+</div>
+<div class="paragraph">
+<p>The platform on which your application is running determines which specific Tap
+and Scheme classes you can use. Details are provided in subsequent chapters.</p>
+</div>
+<div class="sect3">
+<h4 id="common-schemes"><a class="anchor" href="ch03-basic-concepts.html#common-schemes"></a>Common Schemes</h4>
+<div class="paragraph">
+<p>Some Schemes are functionally common across platforms but remain platform
+specific in implementation. To prevent naming collisions, each class has a
+platform-specific package name.</p>
+</div>
+<div class="paragraph">
+<p>Cascading provides two common Scheme types:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">TextLine</span></dt>
+<dd>
+<p><span class="classname">TextLine</span> reads and writes raw text files and returns tuples that,
+by default, contain two fields specific to the platform used. The first field is
+either the byte offset or line number, and the second field is the actual line
+of text. When written to, all Tuple values are converted to Strings delimited
+with the tab character (\t). A TextLine scheme is provided for both the local
+and Hadoop modes.</p>
+<div class="paragraph">
+<p>By default TextLine uses the UTF-8 character set. This can be overridden on the
+appropriate TextLine constructor.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">TextDelimited</span></dt>
+<dd>
+<p><span class="classname">TextDelimited</span> reads and writes character-delimited files in
+standard formats such as CSV (comma-separated values), TSV (tab-separated
+values), and so on. When written to, all Tuple values are converted to
+Strings and joined with the specified character delimiter. This Scheme can
+optionally handle quoted values with custom quote characters. Further,
+TextDelimited can coerce each value to a primitive type when reading a text
+file. A TextDelimited scheme is provided for both the local and Hadoop modes.</p>
+<div class="paragraph">
+<p>By default TextDelimited uses the UTF-8 character set. This can be overridden on
+the appropriate TextDelimited constructor.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect4">
+<h5 id="_platform_specific_implementation_details"><a class="anchor" href="ch03-basic-concepts.html#_platform_specific_implementation_details"></a>Platform-Specific Implementation Details</h5>
+<div class="paragraph">
+<p>Depending on which platform you use (Cascading local, Hadoop MapReduce, or
+Apache Tez), the classes you use to specify schemes will vary. Platform-specific
+details for each standard scheme are shown in Table 2.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. Platform-specific tap scheme classes</caption>
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cascading local platform</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hadoop platform</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Package Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">cascading.scheme.local</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">cascading.scheme.hadoop</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read lines of text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">TextLine</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">TextLine</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Read delimited text (CSV, TSV, etc.)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">TextDelimited</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">TextDelimited</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="common-taps"><a class="anchor" href="ch03-basic-concepts.html#common-taps"></a>Common Taps</h4>
+<div class="paragraph">
+<p>The following sample code creates a new local filesystem Tap that can read and
+write raw text files. Since only one field name is provided, the "num" field
+is discarded, resulting in an input tuple stream with only "line" values.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Creating a new tap</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">Tap tap = new FileTap( new TextLine( new Fields( "line" ) ), path );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Some Taps are functionally common across platforms but remain platform-specific
+in implementation. To prevent naming collisions, each class has a
+platform-specific package name.</p>
+</div>
+<div class="paragraph">
+<p>Cascading provides one common Tap type:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">PartitionTap</span></dt>
+<dd>
+<p>The <span class="classname">cascading.tap.hadoop.PartitionTap</span> and
+<span class="classname">cascading.tap.local.PartitionTap</span> are used to sink tuples into
+directory paths based on the values in the Tuple. More can be read below in
+<a href="ch15-advanced.html#partition-tap">PartitionTap</a>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Utility taps can be used to combine other Tap instances into a single Tap. You
+also might find it useful to subclass under a utility tap when creating
+other-purpose Tap types. Utility taps are platform-independent.</p>
+</div>
+<div class="paragraph">
+<p>There are three utility taps:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">MultiSourceTap</span></dt>
+<dd>
+<p>The <span class="classname">cascading.tap.MultiSourceTap</span> is used to tie multiple tap
+instances into a single tap for use as an input source. The only restriction is
+that all the tap instances passed to a new MultiSourceTap share the same Scheme
+classes (not necessarily the same Scheme instance).</p>
+</dd>
+<dt class="hdlist1"><span class="classname">MultiSinkTap</span></dt>
+<dd>
+<p>The <span class="classname">cascading.tap.MultiSinkTap</span> is used to tie multiple tap
+instances into a single tap for use as output sinks. At runtime, for every Tuple
+output by the pipe assembly, each child tap to the MultiSinkTap will sink the
+Tuple.</p>
+</dd>
+<dt class="hdlist1"><span class="classname">DecoratorTap</span></dt>
+<dd>
+<p>The <span class="classname">cascading.tap.DecoratorTap</span> is a utility helper for wrapping an
+existing Tap with new functionality via a subclass and/or adding "metadata" to a
+Tap instance via the generic <span class="classname">MetaInfo</span> instance field. Furthermore,
+on the Hadoop platform, planner-created intermediate and <span class="classname">Checkpoint</span>
+Taps can be wrapped by a <span class="classname">DecoratorTap</span> implementation by the
+Cascading planner.</p>
+</dd>
+</dl>
+</div>
+<div class="sect4">
+<h5 id="_platform_specific_implementation_details_2"><a class="anchor" href="ch03-basic-concepts.html#_platform_specific_implementation_details_2"></a>Platform-Specific Implementation Details</h5>
+<div class="paragraph">
+<p>Depending on which platform you use (Cascading local or Hadoop), the classes you
+use to specify filesystems varies. Platform-specific details for each standard
+tap type are shown in Table 3.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 4. Platform-specific details for setting filesystem</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Either platform</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cascading local platform</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hadoop platform</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Package Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">cascading.tap</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">cascading.tap.local</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">cascading.tap.hadoop</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Multiple Taps as single source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">MultiSourceTap</span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Multiple Taps as single sink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">MultiSinkTap</span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bin/Partition data into multiple files</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">PartitionTap</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">PartitionTap</span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wrapping a Tap with Metadata / Decorating intra-Flow Taps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">DecoratorTap</span></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To learn more about creating custom <span class="classname">Tap</span> or <span class="classname">Scheme</span>
+implementations, read the chapter on
+<a href="ch14-custom-taps-schemes.html#custom-taps-schemes">Custom Taps and Schemes</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Visit <a href="https://web.archive.org/web/20200209113310/http://cascading.org/extensions/" class="bare">http://cascading.org/extensions/</a> for a list of available
+<span class="classname">Tap</span> or <span class="classname">Scheme</span> implementations.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sink_modes"><a class="anchor" href="ch03-basic-concepts.html#_sink_modes"></a>Sink Modes</h3>
+<div class="exampleblock">
+<div class="title">Example 3. Overwriting an existing resource</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">Tap tap =
+  new FileTap( new TextLine( new Fields( "line" ) ), path, SinkMode.REPLACE );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>All applications created with Cascading read data from one or more sources,
+process it, then write data to one or more sinks. This is done via the various
+<span class="classname">Tap</span> classes, where each class abstracts different types of back-end
+systems that store data as files, tables, blobs, and so on. But in order to sink
+data, some systems require that the resource (e.g., a file) be deleted before
+processing can begin. Other systems may allow for appending or updating of a
+resource (typical with database tables).</p>
+</div>
+<div class="paragraph">
+<p>When creating a new <span class="classname">Tap</span> instance, a
+<span class="classname">cascading.tap.SinkMode</span> may be provided so that the Tap will know
+how to handle any existing resources. Note that not all Taps support all
+<span class="classname">SinkMode</span> values&#8201;&#8212;&#8201;for example, Hadoop does not support appending
+operations (updates) from a MapReduce job.</p>
+</div>
+<div class="paragraph">
+<p>The available SinkModes are:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">SinkMode.KEEP</span></dt>
+<dd>
+<p>This is the default behavior. If the resource exists, attempting to write over
+it fails.</p>
+</dd>
+<dt class="hdlist1"><span class="classname">SinkMode.REPLACE</span></dt>
+<dd>
+<p>This allows Cascading to delete the file immediately after the Flow is
+started.</p>
+</dd>
+<dt class="hdlist1"><span class="classname">SinkMode.UPDATE</span></dt>
+<dd>
+<p>Allows for new tap types that can update or append&#8201;&#8212;&#8201;for example, to update or
+add records in a database. Each tap may implement this functionality in its own
+way. Cascading recognizes this update mode, and if a resource exists, does not
+fail or attempt to delete it.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Note that Cascading itself only uses these labels internally to know when to
+automatically call <span class="methodname">deleteResource()</span> on the <span class="classname">Tap</span> or to
+leave the Tap alone. It is up to the <span class="classname">Tap</span> implementation to actually
+perform a write or update when processing starts. Thus, when
+<span class="methodname">start()</span> or <span class="methodname">complete()</span> is called on a
+<span class="classname">Flow</span>, any sink <span class="classname">Tap</span> labeled
+<span class="classname">SinkMode.REPLACE</span> will have its <span class="methodname">deleteResource()</span>
+method called.</p>
+</div>
+<div class="paragraph">
+<p>Conversely, if a <span class="classname">Flow</span> is in a <span class="classname">Cascade</span> and the
+<span class="classname">Tap</span> is set to <span class="classname">SinkMode.KEEP</span> or
+<span class="classname">SinkMode.REPLACE</span>, <span class="methodname">deleteResource()</span> is called if
+and only if the sink is stale (i.e., older than the source). This allows a
+<span class="classname">Cascade</span> to behave like a compiler build file, only running Flows
+that should be run. For more information, see <a href="ch06-flows.html#skipping-flows">Skipping Flows</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="flows"><a class="anchor" href="ch03-basic-concepts.html#flows"></a>Flows</h3>
+<div class="paragraph">
+<p>When pipe assemblies are bound to source and sink taps, a <span class="classname">Flow</span> is
+created. Flows are executable in the sense that, once they are created, they can
+be started and will execute on the specified platform. If the Hadoop platform is
+specified, the Flow will execute on a Hadoop cluster.</p>
+</div>
+<div class="paragraph">
+<p>A Flow is essentially a data-processing pipeline that reads data from sources,
+processes the data as defined by the pipe assembly, and writes data to the
+sinks. Input source data does not need to exist at the time the Flow is created,
+but it must exist by the time the Flow is executed.</p>
+</div>
+<div class="paragraph">
+<p>The most common pattern is to create a Flow from an existing pipe assembly. But
+there are cases where a MapReduce job (if running on Hadoop MapReduce) has
+already been created, and it makes sense to encapsulate it in a Flow class so
+that it may participate in a <span class="classname">Cascade</span> and be scheduled with other
+<span class="classname">Flow</span> instances.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, <a href="ch06-flows.html#custom-flows">custom Flows</a> can be created so
+that third-party applications can participate in a <span class="classname">Cascade</span>, and
+complex algorithms that result in iterative Flow executions can be encapsulated
+as a single Flow.</p>
+</div>
+<div class="paragraph">
+<p>The chapter on <a href="ch06-flows.html#_flows">Flows</a> provides further detail.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+  <hr>
+<div class="footer">
+  <div class="footer-text">
+      <a href="index.html">Back to Top</a> - Last updated 2016-01-12 05:12:33 UTC
+      <p>© 2007-2015 Concurrent, Inc. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html><!--
+     FILE ARCHIVED ON 11:33:10 Feb 09, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 15:21:53 Aug 15, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.917
+  exclusion.robots: 0.042
+  exclusion.robots.policy: 0.027
+  esindex: 0.015
+  cdx.remote: 34.423
+  LoadShardBlock: 847.298 (3)
+  PetaboxLoader3.datanode: 244.137 (4)
+  PetaboxLoader3.resolve: 1084.038 (3)
+  load_resource: 601.454
+-->

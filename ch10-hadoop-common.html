@@ -1,0 +1,1592 @@
+<html lang="en">
+<head><script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=FC38Hc5A" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://docs.cascading.org:80/cascading/3.0/userguide/ch10-hadoop-common.html","20200209202032","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1581279632");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=p7PEIJWi" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="generator" content="Asciidoctor 1.5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cascading 3.0 User Guide - The Apache Hadoop Platform</title>
+  <script type="text/javascript" src="https://web.archive.org/web/20200209202032js_/http://use.typekit.net/dob3ybp.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+      <style>
+        @import url(https://web.archive.org/web/20200209202032cs_/http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.0/css/font-awesome.css);
+/* Welcome to Compass. In this file you should write your main styles. (or centralize your imports) Import this file using the following HTML or equivalent: <link href="https://web.archive.org/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+html, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; border: 0; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+/*ol, ul { list-style: none; }*/
+
+table { border-collapse: collapse; border-spacing: 0; margin-bottom: 1.33333em;}
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+
+/* ========================================================================== HTML5 display definitions ========================================================================== */
+/** Correct `block` display not defined in IE 8/9. */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
+
+/** Correct `inline-block` display not defined in IE 8/9. */
+audio, canvas, video { display: inline-block; }
+
+/** Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+audio:not([controls]) { display: none; height: 0; }
+
+/** Address styling not present in IE 8/9. */
+[hidden] { display: none; }
+
+/* ========================================================================== Base ========================================================================== */
+/*body { margin: 0; color: #444; font-size: 14px; line-height: 150%; font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; background: #f1efea url(https://web.archive.org/web/20200209202032im_/http://www.cascading.org/files/2012/05/background.png) repeat top center fixed; }*/
+body {background: none !important; margin: 0; color: #4d4d4d; font: 16px/28px "proxima-nova", Arial, Helvetica, Sans-serif !important; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: none; background: #fff; min-width:1034px;}
+
+/* ========================================================================== Links ========================================================================== */
+a, a:link, a:visited, a:active { color: #4183C4; text-decoration: none; }
+
+a:hover { color: #1F546C; text-decoration: underline; }
+
+/** Address `outline` inconsistency between Chrome and other browsers. */
+a:focus { outline: thin dotted; }
+
+/** Improve readability when focused and also mouse hovered in all browsers. */
+a:active, a:hover { outline: 0; }
+
+/* ========================================================================== Typography ========================================================================== */
+/** Address variable `h1` font-size and margin within `section` and `article` contexts in Firefox 4+, Safari 5, and Chrome. */
+h1 { font-size:2em; margin: 0.67em 0 !important;}
+
+/** Address styling not present in IE 8/9, Safari 5, and Chrome. */
+abbr[title] { border-bottom: 1px dotted; }
+
+/** Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome. */
+b, strong { font-weight: bold; }
+
+/** Address styling not present in Safari 5 and Chrome. */
+dfn { font-style: italic; }
+
+/** Address styling not present in IE 8/9. */
+mark { background: #ff0; color: #000; }
+
+/** Correct font family set oddly in Safari 5 and Chrome. */
+code, kbd, pre, samp, .classname, .methodname { font-family: monospace, serif; font-size: 1em; }
+
+/** Improve readability of pre-formatted text in all browsers. */
+pre { white-space: pre-wrap; }
+
+/** Set consistent quote types. */
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/** Address inconsistent and variable font size in all browsers. */
+small { font-size: 80%; }
+
+/** Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+/* ========================================================================== Embedded content ========================================================================== */
+/** Remove border when inside `a` element in IE 8/9. */
+img { border: 0; }
+
+/** Correct overflow displayed oddly in IE 9. */
+svg:not(:root) { overflow: hidden; }
+
+/* ========================================================================== Figures ========================================================================== */
+/** Address margin not present in IE 8/9 and Safari 5. */
+figure { margin: 0; }
+
+/* ========================================================================== Forms ========================================================================== */
+/** Define consistent border, margin, and padding. */
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+
+/** 1. Correct `color` not being inherited in IE 8/9. 2. Remove padding so people aren't caught out if they zero out fieldsets. */
+legend { border: 0; /* 1 */ padding: 0; /* 2 */ }
+
+/** 1. Correct font family not being inherited in all browsers. 2. Correct font size not being inherited in all browsers. 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome. */
+button, input, select, textarea { font-family: inherit; /* 1 */ font-size: 100%; /* 2 */ margin: 0; /* 3 */ }
+
+/** Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+button, input { line-height: normal; }
+
+/** Address inconsistent `text-transform` inheritance for `button` and `select`. All other form control elements do not inherit `text-transform` values. Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+. Correct `select` style inheritance in Firefox 4+ and Opera. */
+button, select { text-transform: none; }
+
+/** 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 2. Correct inability to style clickable `input` types in iOS. 3. Improve usability and consistency of cursor style between image-type `input` and others. */
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; /* 2 */ cursor: pointer; /* 3 */ }
+
+/** Re-set default cursor for disabled elements. */
+button[disabled], html input[disabled] { cursor: default; }
+
+/** Remove inner padding and search cancel button in Safari 5 and Chrome on OS X. */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/** Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/** 1. Remove default vertical scrollbar in IE 8/9. 2. Improve readability and alignment in all browsers. */
+textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
+
+/* ========================================================================== Tables ========================================================================== */
+/** Remove most spacing between table cells. */
+table { border-collapse: collapse; border-spacing: 0; }
+
+td, th {border:1px solid #ddd;padding:2px 10px;}
+
+a:hover { cursor: pointer; }
+
+a:focus { outline: none; }
+
+img, object, embed { max-width: 100%; height: auto; }
+
+object, embed { height: 100%; }
+
+img { -ms-interpolation-mode: bicubic; }
+
+#map_canvas img, #map_canvas embed, #map_canvas object, .map_canvas img, .map_canvas embed, .map_canvas object { max-width: none !important; }
+
+.left { float: left !important; }
+
+.right { float: right !important; }
+
+.text-left { text-align: left !important; }
+
+.text-right { text-align: right !important; }
+
+.text-center { text-align: center !important; }
+
+.text-justify { text-align: justify !important; }
+
+.hide { display: none; }
+
+
+img { display: inline-block; vertical-align: middle; }
+
+textarea { height: auto; min-height: 50px; }
+
+select { width: 100%; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1.23333em; line-height: 1.6; }
+
+.subheader, .admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .ulist > .title, .olist > .title, .dlist > .title, .qlist > .title, .tableblock > caption { line-height: 1.4; color: #777777; font-weight: 300; margin-top: 0.2em; margin-bottom: 0.5em; }
+
+/* Typography resets */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6, pre, form, p, blockquote, th, td { margin: 0; direction: ltr; }
+
+/* Default Link Styles */
+a { color: #4183c4; text-decoration: none; line-height: inherit; }
+
+a:hover, a:focus { color: #4183c4; }
+
+a img { border: none; }
+
+/* Default paragraph styles */
+p { margin-bottom: 1em; text-rendering: optimizeLegibility; line-height:130%;}
+
+p aside { font-size: 0.93333em; line-height: 1.35; font-style: italic; }
+
+/* Default header styles */
+h1, h3, #toctitle, .sidebarblock > .content > .title, h4, h5, h6 { font-family: helvetica, arial, freesans, clean, sans-serif; font-weight: bold; font-style: normal; color: #333333; text-rendering: optimizeLegibility; margin-top: 0.2em; margin-bottom: 0.5em; line-height: 1.2em; }
+
+h1 small, h2 small, h3 small, #toctitle small, .sidebarblock > .content > .title small, h4 small, h5 small, h6 small { font-size: 60%; color: gray; line-height: 0; }
+
+h2 {color: #003977;font-weight:normal;font-size:1.6em; border-bottom:1px solid #DDD;font-weight:bold;margin-bottom:0.5em;}
+
+h2.rule {border-top: 1px solid #CCCCCC;padding-top: 30px;}
+
+h4 { font-size: 0.66667em; }
+
+h5 { font-size: 1em; }
+
+h6 { font-size: 1em; }
+
+hr { border: solid #DDD; border-width: 1px 0 0; clear: both; margin: 1.33333em 0 1.26667em; height: 0; }
+
+/* Helpful Typography Defaults */
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: bold; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+code, .classname, .methodname, .code { font-family: Monaco, "DejaVu Sans Mono", "Courier New", monospace; font-weight: normal; color: #666666; word-wrap: break-word;}
+
+/* Unordered Lists */
+ul li ul, ul li ol { margin-left: 1.33333em; margin-bottom: 0; font-size: 1em; /* Override nested font-size change */ }
+
+ul.square li ul, ul.circle li ul, ul.disc li ul { list-style: inherit; }
+
+ul.square { list-style-type: square; }
+
+ul.circle { list-style-type: circle; }
+
+ul.disc { list-style-type: disc; }
+
+ul.no-bullet { list-style: none; }
+
+/* Ordered Lists */
+ol li ul, ol li ol { margin-left: 1.33333em; margin-bottom: 0; }
+
+/* Definition Lists */
+dl { margin-bottom:1.33333em; }
+
+dl dt { margin-bottom: 0.33333em; font-weight: bold; }
+
+dl dd { margin-bottom: 1.33333em; }
+
+/* Abbreviations */
+abbr, acronym { text-transform: uppercase; font-size: 90%; color: #333333; border-bottom: 1px dotted #dddddd; cursor: help; }
+
+abbr { text-transform: none; }
+
+/* Blockquotes */
+blockquote { margin: 0 0 1em; padding: 0; border-left: none; }
+
+blockquote cite { display: block; font-size: 0.86667em; color: #666666; }
+
+blockquote cite:before { content: "\2014 \0020"; }
+
+blockquote cite a, blockquote cite a:visited { color: #666666; }
+
+blockquote, blockquote p { line-height: 1.4; color: #666666; }
+
+/* Microformats */
+.vcard { display: inline-block; margin: 0 0 1.33333em 0; border: 1px solid #dddddd; padding: 0.66667em 0.8em; }
+
+.vcard li { margin: 0; display: block; }
+
+.vcard .fn { font-weight: bold; font-size: 1em; }
+
+.vevent .summary { font-weight: bold; }
+
+.vevent abbr { cursor: auto; text-decoration: none; font-weight: bold; border: none; padding: 0 0.06667em; }
+
+@media only screen and (min-width: 768px) { h1, h2, h3,.sidebarblock > .content > .title, h4, h5, h6 { line-height: 1.4; }
+  h3, .sidebarblock > .content > .title { font-size: 1.2em; }
+  h4 { font-size: 1em; } }
+/* Print styles.  Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ Credit to Paul Irish and HTML5 Boilerplate (html5boilerplate.com)
+*/
+.print-only { display: none !important; }
+
+@media print { * { background: transparent !important; color: #000 !important; /* Black prints faster: h5bp.com/s */ box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border-left: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; /* h5bp.com/t */ }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3, #toctitle, .sidebarblock > .content > .title { orphans: 3; widows: 3; }
+  h2, h3, #toctitle, .sidebarblock > .content > .title { page-break-after: avoid; }
+  .hide-on-print { display: none !important; }
+  .print-only { display: block !important; }
+  .hide-for-print { display: none !important; }
+  .show-for-print { display: inherit !important; } }
+/* Tables */
+
+code , .code{ font-size: 0.86667em; padding: 0 5px 2px 5px; white-space: nowrap; background-color: transparent; border: 1px solid #dddddd; -webkit-border-radius: 3px; border-radius: 3px; text-shadow: none; }
+
+kbd.keyseq { color: #666666; }
+
+kbd:not(.keyseq) { display: inline-block; color: #333333; font-size: 0.8em; line-height: 1.4; background-color: #F7F7F7; border: 1px solid #ccc; -webkit-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; margin: -0.15em 0.15em 0 0.15em; padding: 0.2em 0.6em 0.2em 0.5em; vertical-align: middle; white-space: nowrap; }
+
+kbd kbd:first-child { margin-left: 0; }
+
+kbd kbd:last-child { margin-right: 0; }
+
+.menuseq, .menu { color: #1a1a1a; }
+
+#header, #footnotes, #footer { width: 100%; margin-left: auto; margin-right: auto; margin-top: 0; margin-bottom: 0; /* max-width: 66.66667em */ *zoom: 1; position: relative; padding-left: 1em; padding-right: 1em; }
+
+#content, #footer { margin:0 100px 0 350px; max-width: 960px; }
+
+#header { margin-bottom: 2.66667em;}
+
+#header > h1 { margin: 0 auto; margin-left: 350px; padding-top: 15px; padding-bottom: 20px; width: 960px; color: #FFF;}
+
+#header span { color: #666666; }
+
+#header #revnumber { margin: 0 auto; margin-left: 350px; width: 960px; display: block; color: #FFF; }
+
+#header br { display: none; }
+
+#header br + span { padding-left: 3px; }
+
+#header br + span:before { content: "\2013 \0020"; }
+
+#header br + span.author { padding-left: 0; }
+
+#header br + span.author:before { content: ", "; }
+
+#toc { border-bottom: 0 solid #dddddd; padding-bottom: 1.33333em; }
+
+#toc > ul, #toc > ol { margin-left: 0.26667em; }
+
+#toc ul.sectlevel0 > li > a, #toc ol.sectlevel0 > li > a { font-style: italic; }
+
+#toc ul.sectlevel0 ul.sectlevel1, #toc ol.sectlevel0 ol.sectlevel1 { margin-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+
+#toc ul, #toc ol { list-style-type: none; }
+
+.sectlevel1 li {line-height:120%;padding:4px 0;}
+
+#toctitle { color: #777777; }
+
+ol.sectlevel1 {padding:0;}
+
+.toc { margin-top: 40px; margin-left: 30px; }
+#toc.toc2 { position: absolute; overflow: auto; left: 0; top: 155px; padding: 1em; width: 18em; border: 1px solid #DDD; z-index: 1000; }
+#toc.toc2 #toctitle { margin-top: 0; }
+#toc.toc2 ul ul, #toc.toc2 ol ol { margin-left: 0; padding-left: 1.33333em; }
+#toc.toc2 ul.sectlevel0 ul.sectlevel1, #toc.toc2 ol.sectlevel0 ol.sectlevel1 { padding-left: 0; margin-top: 0.5em; margin-bottom: 0.5em; }
+body.toc2.toc-right { padding-left: 0; padding-right: 20em; }
+body.toc2.toc-right #toc.toc2 { border-right: 0; border-left: 1px solid #dddddd; left: auto; right: 0; } 
+.footer { max-width: 100%; background-color: #000; padding: 1.33333em; }
+
+.footer-text { color: #888888; line-height: 1.26; max-width: 960px;margin: 0 auto; text-align: center;}
+
+.sect1 { padding-bottom: 1.33333em; }
+
+.sect1 + .sect1 { border-top: 0 solid #dddddd; }
+
+#content h1 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { position: absolute; width: 1em; margin-left: -1em; display: block; text-decoration: none; visibility: hidden; text-align: center; font-weight: normal; }
+
+#content h1 > a.anchor:before, h3 > a.anchor:before, #toctitle > a.anchor:before, .sidebarblock > .content > .title > a.anchor:before, h4 > a.anchor:before, h5 > a.anchor:before, h6 > a.anchor:before { content: '\00A7'; font-size: .85em; vertical-align: text-top; display: block; margin-top: 0.05em; }
+
+#content h1:hover > a.anchor, #content h1 > a.anchor:hover, h3:hover > a.anchor, #toctitle:hover > a.anchor, .sidebarblock > .content > .title:hover > a.anchor, h3 > a.anchor:hover, #toctitle > a.anchor:hover, .sidebarblock > .content > .title > a.anchor:hover, h4:hover > a.anchor, h4 > a.anchor:hover, h5:hover > a.anchor, h5 > a.anchor:hover, h6:hover > a.anchor, h6 > a.anchor:hover { visibility: visible; }
+
+#content h1 > a.link, h3 > a.link, #toctitle > a.link, .sidebarblock > .content > .title > a.link, h4 > a.link, h5 > a.link, h6 > a.link { color: #333333; text-decoration: none; }
+
+#content h1 > a.link:hover, h3 > a.link:hover, #toctitle > a.link:hover, .sidebarblock > .content > .title > a.link:hover, h4 > a.link:hover, h5 > a.link:hover, h6 > a.link:hover { color: #262626; }
+
+.admonitionblock td.content > .title, .exampleblock > .title, .imageblock > .title, .listingblock > .title, .literalblock > .title, .openblock > .title, .paragraph > .title, .quoteblock > .title, .sidebarblock > .title, .tableblock > .title, .verseblock > .title, .ulist > .title, .olist > .title, .dlist > .title, .qlist > .title { text-align: left; font-weight: bold; }
+
+.tableblock > caption { text-align: left; font-weight: bold; white-space: nowrap; overflow: visible; max-width: 0; }
+
+table.tableblock #preamble > .sectionbody > .paragraph:first-of-type p { font-size: inherit; }
+
+.admonitionblock > table { border: 0; background: none; width: 100%;}
+
+.admonitionblock > table td.icon { text-align: center; width: 80px; }
+
+.admonitionblock > table td.icon img { max-width: none; }
+
+.admonitionblock > table td.icon .title { font-weight: bold; text-transform: uppercase; }
+
+.admonitionblock > table td.content { padding-left: 1.2em; padding-right: 1.33333em; border-left: 1px solid #dddddd; color: #666666; }
+
+.admonitionblock > table td.content > .paragraph:last-child > p { margin-bottom: 0; }
+
+.exampleblock > .content { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.33333em; padding: 1.33333em; background: white; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.exampleblock > .content > :first-child { margin-top: 0; }
+
+.exampleblock > .content > :last-child { margin-bottom: 0; }
+
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6, .exampleblock > .content p { color: #333333; }
+
+.exampleblock > .content h1, .exampleblock > .content h2, .exampleblock > .content h3, .exampleblock > .content #toctitle, .sidebarblock.exampleblock > .content > .title, .exampleblock > .content h4, .exampleblock > .content h5, .exampleblock > .content h6 { line-height: 1; margin-bottom: 0.66667em; }
+
+.exampleblock > .content h1.subheader, .exampleblock > .content h2.subheader, .exampleblock > .content h3.subheader, .exampleblock > .content .subheader#toctitle, .sidebarblock.exampleblock > .content > .subheader.title, .exampleblock > .content h4.subheader, .exampleblock > .content h5.subheader, .exampleblock > .content h6.subheader { line-height: 1.4; }
+
+.exampleblock > .content > :last-child > :last-child, .exampleblock > .content .olist > ol > li:last-child > :last-child, .exampleblock > .content .ulist > ul > li:last-child > :last-child, .exampleblock > .content .qlist > ol > li:last-child > :last-child { margin-bottom: 0; }
+
+.exampleblock.result > .content { -webkit-box-shadow: 0 1px 8px #eaeaea; box-shadow: 0 1px 8px #eaeaea; }
+
+.sidebarblock { border-style: solid; border-width: 1px; border-color: #e6e6e6; margin-bottom: 1.33333em; padding: 1.33333em; background: white; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.sidebarblock > :first-child { margin-top: 0; }
+
+.sidebarblock > :last-child { margin-bottom: 0; }
+
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6, .sidebarblock p { color: #333333; }
+
+.sidebarblock h1, .sidebarblock h2, .sidebarblock h3, .sidebarblock #toctitle, .sidebarblock > .content > .title, .sidebarblock h4, .sidebarblock h5, .sidebarblock h6 { line-height: 1; margin-bottom: 0.66667em; }
+
+.sidebarblock h1.subheader, .sidebarblock h2.subheader, .sidebarblock h3.subheader, .sidebarblock .subheader#toctitle, .sidebarblock > .content > .subheader.title, .sidebarblock h4.subheader, .sidebarblock h5.subheader, .sidebarblock h6.subheader { line-height: 1.4; }
+
+.sidebarblock > .content > .title { color: #777777; margin-top: 0; line-height: 1.4; border-width: 0 0 1px 0; border-style: solid; border-color: #cacaca; }
+
+.sidebarblock > .content > .paragraph:last-child p { margin-bottom: 0; }
+
+.verseblock { margin-bottom: 1.33333em; }
+
+.literalblock, .listingblock { margin-bottom: 1.33333em; }
+
+.literalblock > .content > pre, .listingblock > .content > pre { background-color: #F8F8F8; color:#4d4d4d; margin: 15px 0; padding: 10px 5px; border-left: 1px solid #298cc3; font: 12px/24px Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace; word-wrap: break-word; line-height: 1.6; }
+
+.literalblock > .content > pre.nowrap, .listingblock > .content > pre.nowrap { overflow-x: auto; white-space: pre; word-wrap: normal; }
+
+.literalblock > .content > pre > code, .listingblock > .content > pre > code { white-space: inherit; color:#4d4d4d; font: 12px/24px Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace; padding: 0; background: none; font-weight: normal; border: none; }
+
+@media only screen { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.69333em; } }
+@media only screen and (min-width: 768px) { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.78em; } }
+@media only screen and (min-width: 1280px) { .literalblock > .content > pre, .listingblock > .content > pre { font-size: 0.86667em; } }
+.listingblock:hover .xml:before { content: "xml"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .html:before { content: "html"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .ruby:before { content: "ruby"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .asciidoc:before { content: "asciidoc"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .java:before { content: "java"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .javascript:before { content: "javascript"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .css:before { content: "css"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.listingblock:hover .scss:before { content: "scss"; text-transform: uppercase; float: right; font-size: 0.9em; color: #999; }
+
+.quoteblock { margin: 0 0 1em; padding: 0; border-left: none; }
+
+.quoteblock blockquote { margin: 0 0 1em 0; padding: 0 0 0.6em 0; border: 0; }
+
+.quoteblock blockquote > .paragraph:last-child p { margin-bottom: 0; }
+
+.quoteblock .attribution { margin-top: -.25em; padding-bottom: 0.6em; font-size: 0.86667em; color: #666666; }
+
+.quoteblock .attribution br { display: none; }
+
+.quoteblock .attribution cite { display: block; margin-bottom: 0.66667em; }
+
+table thead th, table tfoot th { font-weight: bold; }
+
+table.tableblock.grid-all { border-collapse: collapse; border-spacing: 1px; -webkit-border-radius: 3px; border-radius: 3px; border-top: 1px solid #dddddd; }
+
+table.tableblock.frame-topbot, table.tableblock.frame-none { border-left: 0; border-right: 0; }
+
+table.tableblock.frame-sides, table.tableblock.frame-none { border-top: 0; border-bottom: 0; }
+
+table.tableblock td .paragraph:last-child p, table.tableblock td > p:last-child { margin-bottom: 0; }
+
+th.tableblock.halign-left, td.tableblock.halign-left { text-align: left; }
+
+th.tableblock.halign-right, td.tableblock.halign-right { text-align: right; }
+
+th.tableblock.halign-center, td.tableblock.halign-center { text-align: center; }
+
+th.tableblock.halign-top, td.tableblock.halign-top { vertical-align: top; }
+
+th.tableblock.halign-bottom, td.tableblock.halign-bottom { vertical-align: bottom; }
+
+th.tableblock.halign-middle, td.tableblock.halign-middle { vertical-align: middle; }
+
+p.tableblock.header { color: #222222; font-weight: bold; }
+
+td > div.verse { white-space: pre; }
+
+ol { margin-left: 0.96667em; }
+
+ul li ol { margin-left: 0.7em; }
+
+dl dd { margin-left: 1.125em; }
+
+dl dd:last-child, dl dd:last-child > :last-child { margin-bottom: 0; }
+
+.unstyled dl dt { font-weight: normal; font-style: normal; }
+
+ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .olist, .olist .ulist { margin-bottom: 0.5em; }
+
+ul.unstyled, ol.unnumbered, ul.checklist { list-style-type: none; margin-left: 0.66667em; }
+
+ol.arabic { list-style-type: decimal; }
+
+ol.decimal { list-style-type: decimal-leading-zero; }
+
+ol.loweralpha { list-style-type: lower-alpha; }
+
+ol.upperalpha { list-style-type: upper-alpha; }
+
+ol.lowerroman { list-style-type: lower-roman; }
+
+ol.upperroman { list-style-type: upper-roman; }
+
+ol.lowergreek { list-style-type: lower-greek; }
+
+.hdlist > table, .colist > table { border: 0; background: none; }
+
+.hdlist > table > tbody > tr, .colist > table > tbody > tr { background: none; }
+
+.literalblock + .colist, .listingblock + .colist { margin-top: -0.5em; }
+
+.colist > table tr > td:first-of-type { padding: 0 .8em; line-height: 1; }
+
+.colist > table tr > td:last-of-type { padding: 0.26667em 0; }
+
+td.hdlist1 { vertical-align: top; padding-right: .8em; font-weight: bold; }
+
+.qanda > ol > li > p:first-child { color: #3876b4; }
+
+.thumb, .th { line-height: 0; display: inline-block; border: solid 4px white; -webkit-box-shadow: 0 0 0 1px #dddddd; box-shadow: 0 0 0 1px #dddddd; }
+
+.imageblock { margin-bottom: 1.33333em; }
+
+.imageblock.left, .imageblock[style*="float: left"] { margin: 0.26667em 0.66667em 1.33333em 0; }
+
+.imageblock.right, .imageblock[style*="float: right"] { margin: 0.26667em 0 1.33333em 0.66667em; }
+
+.imageblock > .title { margin-bottom: 0; }
+
+.imageblock.thumb, .imageblock.th { border-width: 6px; }
+
+.imageblock.thumb > .title, .imageblock.th > .title { padding: 0 0.13333em; }
+
+.image.left, .image.right { margin-top: 0.26667em; margin-bottom: 0.26667em; display: inline-block; line-height: 0; }
+
+.image.left { margin-right: 0.66667em; }
+
+.image.right { margin-left: 0.66667em; }
+
+span.footnote, span.footnoteref { vertical-align: super; font-size: 0.93333em; }
+
+span.footnote a, span.footnoteref a { text-decoration: none; }
+
+#footnotes { padding: 0.8em 0.4em; margin-bottom: 1em; }
+
+#footnotes hr { width: 20%; min-width: 6.66667em; margin: -.25em 0 .75em 0; border-width: 1px 0 0 0; }
+
+#footnotes .footnote { line-height: 1.3; font-size: 0.93333em; margin-left: 1.2em; text-indent: -1.2em; margin-bottom: .2em; }
+
+#footnotes .footnote a:first-of-type { font-weight: bold; text-decoration: none; }
+
+#footnotes .footnote:last-of-type { margin-bottom: 0; }
+
+#content #footnotes { margin-top: -0.66667em; }
+
+.gist .file-data > table { border: none; background: #fff; width: 100%; margin-bottom: 0; }
+
+.gist .file-data > table td.line-data { width: 99%; }
+
+.admonitionblock td.icon [class^="icon-"]:before { font-size: 2.5em; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); cursor: default; }
+
+.admonitionblock td.icon .icon-note:before { content: "\f05a"; color: #4183c4; color: #2e6295; }
+
+.admonitionblock td.icon .icon-tip:before { content: "\f0eb"; text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8); color: #111; }
+
+.admonitionblock td.icon .icon-warning:before { content: "\f071"; color: #bf6900; }
+
+.admonitionblock td.icon .icon-caution:before { content: "\f06d"; color: #bf3400; }
+
+.admonitionblock td.icon .icon-important:before { content: "\f06a"; color: #bf0000; }
+
+.conum { display: inline-block; color: white !important; background-color: #333333; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 20px; height: 20px; font-size: 12px; font-weight: bold; line-height: 20px; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -2px; letter-spacing: -1px; }
+
+.conum * { color: white !important; }
+
+.conum + b { display: none; }
+
+.conum:after { content: attr(data-value); }
+
+.conum:not([data-value]):empty { display: none; }
+
+p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type p { font-size: 1em; color: #666666; }
+
+/*h2 { color: #325D72; border-bottom: 1px solid #dddddd; }*/
+
+#content { margin-top: 15px; }
+
+#content h1 > a.anchor, h3 > a.anchor, #toctitle > a.anchor, .sidebarblock > .content > .title > a.anchor, h4 > a.anchor, h5 > a.anchor, h6 > a.anchor { color: #333333; }
+
+#header, #content, #footnotes { /*max-width: 660px;*/ padding-left: 0; padding-right: 0; }
+
+#content ul li { padding-left: .7em; }
+
+.olist.procedure > ol { counter-reset: li; list-style: none; position: relative; }
+
+.olist.procedure > ol > li { position: relative; padding: 5px 0 5px 55px; margin-bottom: 5px; }
+
+.olist.procedure > ol > li:before { content: counter(li); counter-increment: li; position: absolute; top: 0; left: 0; height: 100%; width: 30px; padding: 0 10px 0 0; color: #999; font-size: 1.46667em; font-weight: bold; line-height: 1.6; text-align: right; border-right: 1px solid #ddd; }
+
+.quoteblock blockquote { padding-left: 1em; }
+
+.sidebarblock > .content > .title { margin-top: -20px; margin-right: -20px; margin-left: -20px; margin-bottom: 20px; padding: 1em; font-size: 0.8em; background: #eaeaea; }
+
+#header { margin-bottom: 0; padding-top: 5px; min-height: 91px; border-top: 1px solid #000; background: #000; }
+
+/* Code for container left justified */
+
+.container { margin:0 100px 0 40px; padding: 0; max-width:1230px;}
+
+.container:after { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+
+.columns { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+
+.branding {background-image: url(https://web.archive.org/web/20200209202032im_/http://www.cascading.org/wp-content/uploads/2012/05/logo1.png); width:256px; height:46px; background-repeat:no-repeat;float: left; cursor: pointer; margin:24.120px 0;}
+
+.header-top {float: right; position: relative; left: 15px;}
+
+.menu-top-header-container { float:left; }
+
+#menu-top-header { margin: 0; }
+
+.header-top li {float:left; display:inline; padding: 0 0 0 10px; }
+
+.header-top li a { color: #298cc3 !important; text-transform: uppercase; }
+
+#menu-item-516 {background: none repeat scroll 0 0 #ED1C24; border-radius: 2px; color: #FFFFFF; display: inline-block;font-size: 10px; font-weight: 600; height: 21px; line-height: 21px; min-width: 85px; text-align: center; margin-left:10px; margin-top:3px; padding:0px 5px 0px 5px;
+}
+#menu-item-516 a { color:#fff !important; }
+
+#nav { float: right; margin: 20px 0 0 0; text-align: right; text-transform: uppercase; font-size: 17px ; line-height: 19px ; font-weight: 600; min-width:660px; }
+
+#nav ul { margin: 0; padding: 0; list-style: none; }
+#nav > .menu-home-container > ul > li { display: inline-block; vertical-align: top; margin: 0 0 0 4%; position: relative; }
+#nav ul li a { color: #fff; }
+#nav ul li a:hover { color: #999; text-decoration: none; }
+#nav .current_page_item a,
+#nav .current-page-ancestor a,
+#nav .current-menu-item a,
+#nav .current-menu-ancestor a { color: #298cc3;  }
+#nav > .menu-home-container > ul > li ul { display: none; position: absolute;  }
+#nav > .menu-home-container > ul > li:hover ul { display: block; }
+#nav ul.sub-menu {    background-color: #ccc; border-radius: 0 0 5px 5px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); text-align: left; min-width:200px; white-space: normal; display:block; padding-top: 10px; margin-top:2px; z-index:99; }
+#nav ul ul.sub-menu li { display: block; }
+#nav ul ul.sub-menu li { border: medium none; }
+#nav ul ul.sub-menu li a { }
+#nav ul ul.sub-menu li a { color: #003977; font-size: 12px; line-height:14px; margin-bottom: 5px; float: none; display: block; line-height: 16px; padding: 2px 0 2px 8px; position: relative; white-space: normal; width: 210px; }
+#nav ul ul.sub-menu li a:hover { color:#fff; }
+
+.header-google{float: left; height: 20px!important; width: 190px; margin-left:10px;position:relative; top:4px; left: 2px;}
+
+input.gsc-input { width: 116px !important; height: 12px !important; font-size:12px !important; border: 1px solid #BBB; padding: 3px 6px; float: left;}
+
+input.gsc-search-button { background: url('https://web.archive.org/web/20200209202032im_/http://cascading.org/wp-content/themes/element/images/gogo.png') no-repeat !important; text-indent: -9999em; border: none !important; width: 40px; margin-left: 4px; border-color: #000000; float: left; }
+
+a, a:link, a:visited, a:active { color: #298EC5; text-decoration:none; }
+
+a:hover { color: #0060B8; text-decoration:underline; }
+
+.note { margin-bottom: 20px; }
+      </style>
+      <link rel="stylesheet" href="https://web.archive.org/web/20200209202032cs_/http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://web.archive.org/web/20200209202032cs_/http://yandex.st/highlightjs/7.3/styles/github.min.css">
+    <script src="https://web.archive.org/web/20200209202032js_/http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-188528-5']);
+    _gaq.push(['_setDomainName', 'cascading.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://web.archive.org/web/20200209202032/https://ssl' : 'https://web.archive.org/web/20200209202032/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>
+<body class="book toc2">
+<div id="header">
+  <div class="container">
+    <div class="branding" onclick="location.href='https://web.archive.org/web/20200209202032/http://www.cascading.org';"></div>
+    <div class="header-top">
+      <div class="menu-top-header-container">
+        <ul id="menu-top-header" class="menu">
+          <li id="menu-item-267" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-267"><a href="https://web.archive.org/web/20200209202032/http://forums.cascading.io/">Forums</a></li>
+          <li id="menu-item-265" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-265"><a href="https://web.archive.org/web/20200209202032/http://cascading.io/">Products</a></li>
+          <li id="menu-item-475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/downloads/">Downloads</a></li>
+          <li id="menu-item-266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/sdk/">SDK</a></li>
+          <li id="menu-item-516" class="menu-item-last menu-item menu-item-type-custom menu-item-object-custom menu-item-516"><a target="_blank" href="https://web.archive.org/web/20200209202032/http://driven.cascading.io/">Driven Login</a></li>
+        </ul>
+      </div>
+
+      <div class="header-google">
+        <script>
+          jQuery("gsc-i-id1").keyup(function(e){
+            if(event.keyCode == 13){
+              alert("pressed enter");
+              $("#gsc-b-id1").click();
+            }
+          });
+
+          function OpenInNewTab(url) {
+            var win = window.open(url, '_blank');
+            win.focus();
+          }
+        </script>
+        <div class="gsc-bar">
+          <input onkeydown="if (event.keyCode == 13) OpenInNewTab('http://www.cascading.org/search_gcse-2/?search=' + this.value)" autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" spellcheck="false" style="outline: none;"></div>
+        <div class="gsc-bar">
+          <input type="button" value="Search" class="gsc-search-button" title="search" onclick="OpenInNewTab('https://web.archive.org/web/20200209202032/http://www.cascading.org/search_gcse-2/?search=' + document.getElementById('gsc-i-id1').value)">
+        </div>
+      </div>
+    </div>
+    <nav id="nav">
+      <div class="menu-home-container">
+        <ul id="menu-home" class="nav-menu">
+          <li id="menu-item-430" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-430"><a href="ch10-hadoop-common.html#">Projects</a>
+            <ul class="sub-menu">
+              <li id="menu-item-339" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-339"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/projects/cascading/">Cascading</a></li>
+              <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-362"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/projects/lingual/">Lingual</a></li>
+              <li id="menu-item-381" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-381"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/projects/pattern/">Pattern</a></li>
+              <li id="menu-item-640" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-640"><a href="https://web.archive.org/web/20200209202032/http://docs.cascading.org/projects/scalding">Scalding</a></li>
+              <li id="menu-item-641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-641"><a href="https://web.archive.org/web/20200209202032/http://docs.cascading.org/projects/cascalog">Cascalog</a></li>
+              <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-144"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/load/">Load</a></li>
+              <li id="menu-item-145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-145"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/multitool/">Multitool</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/extensions/">Extensions</a></li>
+          <li id="menu-item-571" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-571"><a href="ch10-hadoop-common.html#">Resources</a>
+            <ul class="sub-menu">
+              <li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-92 current_page_item menu-item-95"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/documentation/">Documentation</a></li>
+              <li id="menu-item-334" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-334"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/documentation/tutorials/">Tutorials</a></li>
+              <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514"><a target="_blank" href="https://web.archive.org/web/20200209202032/http://cascading.io/driven">Driven</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-572"><a href="ch10-hadoop-common.html#">Support</a>
+            <ul class="sub-menu">
+              <li id="menu-item-427" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/support/">Overview</a></li>
+              <li id="menu-item-590" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-590"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/support/compatibility/">Compatibility</a></li>
+            </ul>
+          </li>
+          <li id="menu-item-97" class="menu-item-last menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="https://web.archive.org/web/20200209202032/http://www.cascading.org/news/">News</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+          <span id="revnumber">version 3.0-20160112</span>
+        <div id="toc" class="toc2">
+          <div id="toctitle">Table of Contents</div>
+          <ul class="sectlevel1">
+<li><a href="ch10-hadoop-common.html#apache-hadoop">The Apache Hadoop Platforms</a>
+<ul class="sectlevel2">
+<li><a href="ch10-hadoop-common.html#_what_is_apache_hadoop">What is Apache Hadoop?</a></li>
+<li><a href="ch10-hadoop-common.html#_hadoop_1_mapreduce_vs_hadoop_2_mapreduce">Hadoop 1 MapReduce vs. Hadoop 2 MapReduce</a></li>
+<li><a href="ch10-hadoop-common.html#mr-tez">Hadoop 2 MapReduce vs Hadoop 2 Tez</a></li>
+<li><a href="ch10-hadoop-common.html#configuring">Configuring Applications</a></li>
+<li><a href="ch10-hadoop-common.html#building">Building an Application</a></li>
+<li><a href="ch10-hadoop-common.html#executing">Executing an Application</a></li>
+<li><a href="ch10-hadoop-common.html#debugging">Troubleshooting and Debugging</a></li>
+<li><a href="ch10-hadoop-common.html#source-sink">Source and Sink Taps</a></li>
+<li><a href="ch10-hadoop-common.html#_custom_taps_and_schemes">Custom Taps and Schemes</a></li>
+<li><a href="ch10-hadoop-common.html#_partial_aggregation_instead_of_combiners">Partial Aggregation instead of Combiners</a></li>
+<li><a href="ch10-hadoop-common.html#custom-types">Custom Types and Serialization</a></li>
+</ul>
+</li>
+</ul>
+        </div>
+</div>
+<div id="content">
+  <h1>Cascading 3.0 User Guide - The Apache Hadoop Platform</h1>
+  <div class="sect1">
+<h2 id="apache-hadoop"><a class="anchor" href="ch10-hadoop-common.html#apache-hadoop"></a>The Apache Hadoop Platforms</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This chapter covers some of the operational mechanics of running an application
+that uses Cascading with the Hadoop platform, including building the application
+JAR file and configuring the operating mode.</p>
+</div>
+<div class="paragraph">
+<p>Cascading requires that Apache Hadoop be installed and correctly configured.
+Hadoop is an open-source Apache project, which is freely available for download
+from the <a href="https://web.archive.org/web/20200209202032/http://hadoop.apache.org/core/">Hadoop website</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_is_apache_hadoop"><a class="anchor" href="ch10-hadoop-common.html#_what_is_apache_hadoop"></a>What is Apache Hadoop?</h3>
+<div class="paragraph">
+<p>The Hadoop website describes the technology as "a software platform that lets
+one easily write and run applications that process vast amounts of data." Hadoop
+does this by providing a storage layer that holds vast amounts of data and an
+execution layer that runs an application in parallel across the cluster. The
+platform  distributes the application load as subsets of the stored data across
+the cluster and coordinates the distributed processing tasks to optimize the
+compute resources of the environment.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Hadoop Distributed File System (HDFS)</em> is the storage layer,  which serves
+as a single storage volume that is optimized for many concurrent serialized
+reads of large data files&#8201;&#8212;&#8201;where "large" might be measured in gigabytes or
+petabytes. However, HDFS does have limitations. For example, random access to
+the data is  not really possible in an efficient manner. Also, Hadoop only
+supports a single  writer for output. But this limit helps make Hadoop
+high-performance and  reliable, in part because it allows for the data to be
+replicated across the  cluster. The replication reduces the chance of data loss.</p>
+</div>
+<div class="paragraph">
+<p><em>MapReduce</em> is the default execution layer, which relies on a
+"divide-and-conquer" strategy to manage massive data sets and computing
+processes. Fully explaining MapReduce is beyond the scope of this document.
+However, the difficulty of developing real-world applications for the complex
+MapReduce framework is the original driving force behind the creation of
+Cascading.</p>
+</div>
+<div class="paragraph">
+<p>As of Cascading 3.0, <a href="https://web.archive.org/web/20200209202032/http://tez.apache.org/">Apache Tez</a> has become a third
+execution layer, or platform, option replacing <em>MapReduce</em>. See
+<a href="ch10-hadoop-common.html#mr-tez">Hadoop 2 MapReduce vs Hadoop 2 Tez</a> below.</p>
+</div>
+<div class="paragraph">
+<p>Hadoop, according to its documentation, can be configured to run in three modes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Stand-alone mode (i.e., on the local computer, useful for testing and
+debugging in an IDE)</p>
+</li>
+<li>
+<p>Pseudo-distributed mode (i.e., on an emulated "cluster" of one computer, which
+generally is not useful)</p>
+</li>
+<li>
+<p>Fully-distributed mode (on a full cluster, for staging or production purposes)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The pseudo-distributed mode does not add value for most purposes. This
+documentation does not explore this mode further.</p>
+</div>
+<div class="paragraph">
+<p>Cascading itself can run in <a href="ch09-local.html#local-platform">local mode</a> or on
+the Hadoop platform, where Hadoop itself may be in stand-alone or distributed
+mode.</p>
+</div>
+<div class="paragraph">
+<p>The primary difference between these two platforms, local or Hadoop, is that
+local-mode Cascading does not use Hadoop APIs and processes data in memory.
+In-memory processing quickens the runtime of applications, but consequently
+running on local mode is not as robust or scalable as running on the Hadoop
+platform.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hadoop_1_mapreduce_vs_hadoop_2_mapreduce"><a class="anchor" href="ch10-hadoop-common.html#_hadoop_1_mapreduce_vs_hadoop_2_mapreduce"></a>Hadoop 1 MapReduce vs. Hadoop 2 MapReduce</h3>
+<div class="paragraph">
+<p>Cascading supports both Hadoop 1.x and 2.x by providing two Java dependencies:
+<span class="code">cascading-hadoop.jar</span> and <span class="code">cascading-hadoop2-mr1.jar</span>. These
+dependencies can be interchanged but the <span class="code">hadoop2-mr1.jar</span> introduces new
+APIs and deprecates older API calls where appropriate. It should be pointed out
+<span class="code">hadoop2-mr1.jar</span> only supports MapReduce 1 API conventions. With this
+naming scheme new API conventions can be introduced without risk of naming
+collisions on dependencies.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is extremely important to use the correct Cascading Hadoop dependencies
+that correspond with the cluster version to which the Cascading application
+is deployed. There are a number of subtle API and configuration property
+differences that can be difficult to diagnose.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="mr-tez"><a class="anchor" href="ch10-hadoop-common.html#mr-tez"></a>Hadoop 2 MapReduce vs Hadoop 2 Tez</h3>
+<div class="paragraph">
+<p>Apache Hadoop 2 introduces YARN as the resource manager for the cluster. In
+short, this allows a single physical cluster to contain and execute different
+computing foundations simultaneously. By default a Hadoop 2 installation
+includes an implementation of MapReduce that is API-compatible with Apache
+Hadoop 1.</p>
+</div>
+<div class="paragraph">
+<p>But YARN also allows other technologies to co-exist and share the same HDFS
+deployment. Apache Tez is one such technology. A single Hadoop YARN cluster can
+now execute some applications on MapReduce and others on Tez, where both
+frameworks could share or pass data via HDFS. The two resource managers can
+run concurrently without cluster-wide reconfiguration.</p>
+</div>
+<div class="paragraph">
+<p>Apache Tez has yet to reach a 1.0 status, but is now currently supported by
+Cascading via the <span class="code">cascading-hadoop2-tez.jar</span> dependency.</p>
+</div>
+<div class="paragraph">
+<p>Since both MapReduce and Tez share HDFS, both implementations share much of the
+same APIs provided by Cascading. This greatly simplifies porting applications
+from MapReduce to Tez, in most cases the changes are to the build and to one
+line of code to switch to the appropriate <span class="code">FlowConnector</span>.</p>
+</div>
+<div class="paragraph">
+<p>The following sections describe the common features of each supported
+Hadoop-based platform.</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="ch12-hadoop-tez.html#tez-platform">Apache Tez Platform</a>
+documentation of this <em>Cascading User Guide</em> for more information on running
+Apache Tez.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuring"><a class="anchor" href="ch10-hadoop-common.html#configuring"></a>Configuring Applications</h3>
+<div class="paragraph">
+<p>During runtime, Hadoop must be told which application JAR file to push
+to the cluster. The specific details are described in the platform-specific
+topics of this <em>Cascading User Guide</em>.</p>
+</div>
+<div class="paragraph">
+<p>But to remain platform-independent, the <span class="classname">AppProps</span> class can be used,
+which is a helper fluent API for setting application-level configuration
+settings. Use this class for maximum portability.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Configuring the application JAR</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">Properties properties = AppProps.appProps()
+  .setName( "sample-app" )
+  .setVersion( "1.2.3" )
+  .addTags( "deploy:prod", "team:engineering" )
+
+  .setJarClass( Main.class ) <i class="conum" data-value="1"></i><b>(1)</b>
+
+    // ALTERNATIVELY ...
+
+  .setJarPath( pathToJar ) <i class="conum" data-value="2"></i><b>(2)</b>
+
+  .buildProperties();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Other Hadoop-specific Props classes include:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">cascading.tap.hadoop.HfsProps</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows for setting
+Hadoop-specific filesystem properties, specifically properties around enabling
+the "combined input format" support. Combining inputs minimizes the performance
+penalty around processing large numbers of small files.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="classname">cascading.tuple.hadoop.TupleSerializationProps</span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows for
+setting Hadoop-specific serialization and deserialization properties. See
+<a href="ch10-hadoop-common.html#custom-types">Custom Types</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="building"><a class="anchor" href="ch10-hadoop-common.html#building"></a>Building an Application</h3>
+<div class="paragraph">
+<p>See the platform-specific topics of this <em>Cascading User Guide</em> for information
+about building an application for execution on a particular platform.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="executing"><a class="anchor" href="ch10-hadoop-common.html#executing"></a>Executing an Application</h3>
+<div class="paragraph">
+<p>Running a Cascading application is the same as running any Hadoop application.</p>
+</div>
+<div class="paragraph">
+<p>After packaging your application into a single JAR (see <a href="ch10-hadoop-common.html#building">Building an Application</a>), you must
+use <span class="code">bin/hadoop</span> on Hadoop 1, or <span class="code">bin/yarn</span> on Hadoop 2, to submit
+the application to the cluster.</p>
+</div>
+<div class="paragraph">
+<p>For example, to execute an application stuffed into
+<span class="code">your-application.jar</span>, call the Hadoop 2 shell script:</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. Running a Cascading application</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre>$HADOOP_HOME/bin/yarn jar your-application.jar [your parameters]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If the configuration scripts in <span class="code">$HADOOP_CONF_DIR</span> are configured to use a
+cluster, the JAR is pushed into that cluster for execution.</p>
+</div>
+<div class="paragraph">
+<p>Cascading does not rely on any environment variables like <span class="code">$HADOOP_HOME</span>
+or <span class="code">$HADOOP_CONF_DIR</span>. Only the executable binary files in
+<span class="code">bin/hadoop</span> and <span class="code">bin/yarn</span> rely on those environment variables.</p>
+</div>
+<div class="paragraph">
+<p>It should be noted that even though <span class="code">your-application.jar</span> is passed on
+the command line to <span class="code">bin/hadoop</span> or <span class="code">bin/yarn</span>, this in no way
+configures Hadoop to push the JAR into the cluster. You must still call one of
+the property setters mentioned above to set the proper path to the application
+JAR. If misconfigured, it&#8217;s likely that one of the internal libraries (found in
+the lib folder) will be pushed to the cluster instead, and "Class Not Found"
+exceptions will be thrown on the cluster.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="debugging"><a class="anchor" href="ch10-hadoop-common.html#debugging"></a>Troubleshooting and Debugging</h3>
+<div class="paragraph">
+<p>Read about debugging and troubleshooting Cascading in
+<a href="ch09-local.html#debugging">local-mode troubleshooting</a> before you start
+debugging.</p>
+</div>
+<div class="paragraph">
+<p>For planner-related errors that present during runtime when executing a Flow,
+see <a href="ch21-query-process-planner.html#process-planner">The Cascading
+Process Planner</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-sink"><a class="anchor" href="ch10-hadoop-common.html#source-sink"></a>Source and Sink Taps</h3>
+<div class="paragraph">
+<p>Cascading provides a few HDFS-specific Tap and Scheme implementations.
+Regardless of the build dependencies, the package names remain consistent.</p>
+</div>
+<div class="paragraph">
+<p>It is important to understand how Hadoop deals with directories. By default,
+Hadoop cannot source data from directories with nested subdirectories, and it
+cannot write to directories that already exist.</p>
+</div>
+<div class="paragraph">
+<p>However, the good news is that you can simply point the <span class="classname">Hfs</span> tap
+(described below) to a directory of data files. The data files are all used as
+input. There is no need to enumerate each individual file into a
+<span class="classname">MultiSourceTap</span>. If there are nested directories, use
+<span class="classname">GlobHfs</span>.</p>
+</div>
+<div class="sect3">
+<h4 id="_schemes"><a class="anchor" href="ch10-hadoop-common.html#_schemes"></a>Schemes</h4>
+<div class="paragraph">
+<p>See the section on
+<a href="ch03-basic-concepts.html#common-schemes">Common Schemes</a> for information
+about Hadoop-specific versions of <span class="code">TextLine</span> and
+<span class="classname">TextDelimited</span>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Hadoop version of <span class="code">TextLine</span>, does not provide a line number.
+The <span class="code">offset</span> field is used, instead of the <span class="code">num</span> field that is
+provided in the local-mode version.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">SequenceFile</span></dt>
+<dd>
+<p><span class="classname">cascading.scheme.hadoop.SequenceFile</span> is based on the Hadoop
+Sequence file format, which is a binary format. When written to or read from,
+all Tuple values are saved in a binary form. This is the most efficient file
+format. However, be aware that the resulting files are binary and can only be
+read by applications running on the Hadoop platform.</p>
+</dd>
+<dt class="hdlist1"><span class="classname">WritableSequenceFile</span></dt>
+<dd>
+<p>Like the <span class="classname">SequenceFile</span> Scheme,
+<span class="classname">cascading.scheme.hadoop.WritableSequenceFile</span> is based on the Hadoop
+Sequence file, but it was designed to read and write key and/or value Hadoop
+<span class="classname">Writable</span> objects directly.</p>
+<div class="paragraph">
+<p>This is very useful if you have sequence files created by other applications.
+During writing (sinking), specified key and/or value fields are serialized
+directly into the sequence file. During reading (sourcing), the key and/or value
+objects are deserialized and wrapped in a Cascading Tuple object and passed to
+the downstream pipe assembly.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For best performance when running on the Hadoop platform, enable sequence
+file compression (either block or record-based compression) in the Hadoop
+property settings. Refer to the Hadoop documentation for the available
+properties and compression types.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_taps"><a class="anchor" href="ch10-hadoop-common.html#_taps"></a>Taps</h4>
+<div class="paragraph">
+<p>The following sample code creates a new Hadoop filesystem tap that can read and
+write raw text files. The "offset" field is discarded because only one field
+name is provided. The resulting input tuple stream has only "line" values.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. Creating a new tap</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">Tap tap = new Hfs( new TextLine( new Fields( "line" ) ), path );</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Here are the most commonly-used tap types:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">Hfs</span></dt>
+<dd>
+<p>The <span class="classname">cascading.tap.hadoop.Hfs</span> tap uses the current Hadoop default
+filesystem.</p>
+<div class="paragraph">
+<p>If Hadoop is configured for "Hadoop stand-alone mode," the default filesystem
+is local filesystem (using a URI scheme of <span class="code">file://</span>). If Hadoop is
+configured for distributed mode, the default filesystem is typically the Hadoop
+distributed file system (<span class="code">hdfs://</span>).</p>
+</div>
+<div class="paragraph">
+<p>Note that Hadoop can be forced to use an external filesystem by specifying a
+prefix to the URL passed into a new Hfs tap. For instance, using
+"s3://somebucket/path" tells Hadoop to use the S3 <span class="classname">FileSystem</span>
+implementation to access files in an Amazon S3 bucket. More information on this
+can be found in the Javadoc.</p>
+</div>
+</dd>
+<dt class="hdlist1"><span class="classname">GlobHfs</span></dt>
+<dd>
+<p>The <span class="classname">cascading.tap.hadoop.GlobHfs</span> tap accepts Hadoop-style "file
+globbing" expression patterns. This allows for multiple paths to be used as a
+single source, where all paths match the given pattern.</p>
+</dd>
+<dt class="hdlist1"><span class="classname">DistCacheTap</span></dt>
+<dd>
+<p>The <span class="classname">cascading.tap.hadoop.DistCacheTap</span> is a subclass of the
+<a href="ch03-basic-concepts.html#common-taps"><span class="classname">cascading.tap.DecoratorTap</span></a>,
+which can wrap an <span class="classname">Hfs</span> instance. The tap enables writing to HDFS,
+but directs read operations to the Hadoop Distributed Cache if the  tap is being
+read into the small side of a <span class="classname">cascading.pipe.HashJoin</span>.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+At the time of this writing, the Apache Hadoop project does not have
+documentation for a "Distributed  Cache" implementation for Tez, but Cascading
+leverages YARN&#8217;s ability to distribute files transparently.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><span class="classname">PartitionTap</span></dt>
+<dd>
+<p>See
+<a href="ch03-basic-concepts.html#common-taps"><span class="classname">cascading.tap.hadoop.PartitionTap</span></a>
+for details.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+On Hadoop you can only create subdirectories to partition data into.
+Hadoop must still write "part files" into each partition sub-directory, and
+there is no safe mechanism for manipulating "part file" names.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_custom_taps_and_schemes"><a class="anchor" href="ch10-hadoop-common.html#_custom_taps_and_schemes"></a>Custom Taps and Schemes</h3>
+<div class="paragraph">
+<p>You can integrate Cascading with either remote systems or file types by
+developing code that executes one of the following implementations:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Support of a new <em>file type</em></dt>
+<dd>
+<p>This implementation involves introducing a different file format for a file
+stored on an HDFS filesystem. You only need to create a new Scheme for use
+with the <span class="classname">Hfs</span> tap. See below for details.</p>
+</dd>
+<dt class="hdlist1">Support of a new <em>filesystem</em></dt>
+<dd>
+<p>A new file system, like Amazon S3, can be implemented by creating a new Hadoop
+<span class="classname">FileSystem</span> subclass. This implementation can be referenced by
+registering a new URI scheme (Amazon S3 uses <span class="code">s3://</span>).</p>
+<div class="paragraph">
+<p>Such an implementation allows for the <span class="classname">Hfs</span> tap to be used with
+any pre-existing <span class="classname">Scheme</span> implementations (like
+<span class="classname">TextDelimited</span>).</p>
+</div>
+</dd>
+<dt class="hdlist1">Support of a new <em>data storage system</em></dt>
+<dd>
+<p>By creating a new Tap and possibly a compatible Scheme, your application can
+read or write data on a back-end system, such as a database or key-value
+store.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Tap and Scheme implementations are typically tied together. The purpose of
+the Tap and Scheme interface is to provide a consistent interface
+over the disparate technologies that operate with Cascading. The interface is
+not designed to hide implementation details.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Before beginning, or for inspiration, please see if any integrations for your
+file type or storage system already exist by visiting the
+<a href="https://web.archive.org/web/20200209202032/http://cascading.org/extensions/">Cascading extensions page</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_schemes_2"><a class="anchor" href="ch10-hadoop-common.html#_schemes_2"></a>Schemes</h4>
+<div class="paragraph">
+<p>If the goal is to simply add a new <em>file type</em> to be stored on a
+Hadoop-compatible filesystem, only a new <span class="classname">Scheme</span> needs to be
+implemented.</p>
+</div>
+<div class="paragraph">
+<p>As noted above <span class="classname">Tap</span> and <span class="classname">Scheme</span> implementations are
+coupled. In this case the goal is to create a Scheme that works with the
+<span class="classname">Hfs</span> tap. Hfs is an encapsulation of the Hadoop FileSystem API, in
+part. Creating a new file type involves only finding or implementing an
+appropriate <span class="classname">org.apache.hadoop.mapred.FileInputFormat</span> and
+<span class="classname">org.apache.hadoop.mapred.FileOutputFormat</span> interface.</p>
+</div>
+<div class="paragraph">
+<p>Every <span class="classname">Scheme</span> can set any custom properties that the underlying
+platform requires, via the <span class="methodname">sourceConfInit()</span> and
+<span class="methodname">sinkConfInit()</span> methods. These  methods may be called more than
+once with new configuration objects, and should be idempotent (that is, the
+methods do not initialize resources).</p>
+</div>
+<div class="paragraph">
+<p>Once the proper <span class="classname">FileInputFormat</span> and <span class="classname">FileOutputFormat</span>
+are created, creating the <span class="classname">Scheme</span> implementation is a matter of
+implementing the <span class="methodname">*ConfInit()</span> methods and the
+<span class="methodname">source()</span> and <span class="methodname">sink()</span> methods to perform the key-value
+conversion to a Tuple (when sourcing data), and back again (on the sinking of
+data).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+It is highly recommended that the Cascading source code is checked. In
+many cases simply overriding <span class="classname">SequenceFile</span> or
+<span class="classname">WritableSequenceFile</span> might be suitable.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Cascading only supports the <span class="code">mapred.*</span> APIs, not the
+<span class="code">mapreduce.*</span> APIs.  Unfortunately, Cascading cannot support both APIs
+simultaneously on the MapReduce framework, so the more stable original version
+was chosen. Apache Tez relaxes this restriction, allowing future versions
+to support Input/OutputFormat implementations from both Java package namespaces.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_taps_2"><a class="anchor" href="ch10-hadoop-common.html#_taps_2"></a>Taps</h4>
+<div class="paragraph">
+<p>If the goal is to simply add a new HDFS-compatible file type, see the
+<a href="ch10-hadoop-common.html#source-sink">Source and Sink Taps</a> section above.</p>
+</div>
+<div class="paragraph">
+<p>If the goal is to add a new data store type, the following information explains
+the procedure.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Creating custom taps for HDFS and Hadoop MapReduce requires intermediate
+to advanced knowledge of Hadoop and the Hadoop FileSystem API.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>First the developer must implement Hadoop
+<span class="classname">org.apache.hadoop.mapred.InputFormat</span> and/or
+<span class="classname">org.apache.hadoop.mapred.OutputFormat</span> interfaces so that Hadoop
+knows how to split and handle the incoming and outgoing data. See the note
+above on API compatibility.</p>
+</div>
+<div class="paragraph">
+<p>In order to configure Hadoop to use these implementations*, the custom
+<span class="classname">Scheme</span> is responsible for setting the <span class="classname">InputFormat</span> and
+<span class="classname">OutputFormat</span> on the <span class="classname">Configuration</span> object, using the
+<span class="methodname">sinkConfInit()</span> and <span class="methodname">sourceConfInit()</span> methods.</p>
+</div>
+<div class="paragraph">
+<p>The <span class="classname">Scheme</span> is also responsible for translating the data from the
+data storage native type to a Cascading <span class="classname">Tuple</span>, and the back to the
+data storage native type when writing.</p>
+</div>
+<div class="paragraph">
+<p>The Tap implementation is typically straightforward except for one detail.
+During runtime the <span class="methodname">openForRead()</span> and <span class="methodname">openForWrite()</span>
+methods are <em>always</em> called. Respectively they return a
+<span class="classname">TupleEntryIterator</span> and <span class="classname">TupleEntryCollector</span>, which in
+turn <em>always</em> produce or receive Tuple and TupleEntry instances to  consume or
+store.</p>
+</div>
+<div class="paragraph">
+<p>There are two cases in which these open methods are called: when the
+<span class="code">Input</span> and <span class="code">Output</span> arguments on the <span class="code">abstract</span> methods
+<span class="methodname">openForRead()</span> and <span class="methodname">openForWrite()</span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>are <span class="code">null</span> (case 1)</p>
+</li>
+<li>
+<p>are not <span class="code">null</span> (case 2)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Case 1:</strong> The first case happens when the developer wants to read or write data
+directly to the underlying system (put/retrieve records into/from a database
+table). The following scenarios can produce Case 1:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Client-side code is running in a test.</p>
+</li>
+<li>
+<p>The application loads data into memory and uses the <span class="classname">Tap</span> instance
+as a convenience.</p>
+</li>
+<li>
+<p>A lookup table is loaded from the Hadoop Distributed Cache.</p>
+</li>
+<li>
+<p>Cascading reads or writes data. For example, when Cascading reads a stream to
+populate the accumulated side of a <span class="classname">HashJoin</span> or when a
+<span class="classname">PartitionTap</span> is writing data to bin directories.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Case 2:</strong> The second case, not <span class="code">null</span> argument, happens when Hadoop does
+one of the following actions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Initiates the read, sourcing data specified in an <span class="classname">InputSplit</span></p>
+</li>
+<li>
+<p>Manages the write operation from the output of a Map/Reduce/Vertice task</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the method arguments are <span class="code">null</span>, it is the responsibility of the Tap
+implementation to create the declared input/output types. When they are not,
+they must be used directly and not ignored.</p>
+</div>
+<div class="paragraph">
+<p>On the Hadoop platform, the <span class="code">Input</span> is a <span class="classname">RecordReader</span>, which
+is created by Hadoop and passed to the Tap. This <span class="classname">RecordReader</span> is
+already configured to read data from the current <span class="classname">InputSplit</span>.</p>
+</div>
+<div class="paragraph">
+<p>Also on the Hadoop platform, the <span class="code">Ouput</span> is an
+<span class="classname">OutputCollector</span>, which is created by Hadoop and passed to the Tap.
+This <span class="classname">OutputCollector</span> is already configured to to write data to the
+current resource.</p>
+</div>
+<div class="paragraph">
+<p>To ease the development at this stage, you can reuse the classes
+<span class="classname">cascading.tap.hadoop.io.HadoopTupleEntrySchemeIterator</span> and
+<span class="classname">cascading.tap.hadoop.io.HadoopTupleEntrySchemeCollector</span> if doing so
+is appropriate for your code.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_partial_aggregation_instead_of_combiners"><a class="anchor" href="ch10-hadoop-common.html#_partial_aggregation_instead_of_combiners"></a>Partial Aggregation instead of Combiners</h3>
+<div class="paragraph">
+<p>In Hadoop mode, Cascading does not support MapReduce "Combiners." Combiners are
+a simple optimization allowing some Reduce functions to run on the Map side of
+MapReduce. Combiners are very powerful in that they reduce the I/O between the
+Mappers and Reducers&#8201;&#8212;&#8201;why send all of your Mapper data to Reducers when you can
+compute some values on the Map side and combine them in the Reducer?</p>
+</div>
+<div class="paragraph">
+<p>But Combiners are limited to Associative and Commutative functions only, such as
+"sum" and "max." In addition, the process requires that the values emitted by
+the Map task must be serialized, sorted (which involves deserialization and
+comparison), deserialized again, and operated on&#8201;&#8212;&#8201;after which the results are
+again serialized and sorted. Combiners trade CPU for gains in I/O.</p>
+</div>
+<div class="paragraph">
+<p>Cascading takes a different approach to partial aggregations on the Map side.
+When the results are combined on the Reduce side,  Cascading trades memory
+instead of CPU for I/O gains. The Cascading mechanism functions by caching
+values (up to a threshold limit). This bypasses the redundant serialization,
+deserialization, and sorting. Also, Cascading allows any aggregate function to
+be implemented&#8201;&#8212;&#8201;not just Associative and Commutative functions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-types"><a class="anchor" href="ch10-hadoop-common.html#custom-types"></a>Custom Types and Serialization</h3>
+<div class="paragraph">
+<p>Cascading supports any class type, except for an enum type, as values stored and
+passed in <span class="classname">Tuple</span> instances.</p>
+</div>
+<div class="paragraph">
+<p>But for this to work when using the Cascading Hadoop mode, any Class that isn&#8217;t
+a primitive type or a Hadoop <span class="classname">Writable</span> type requires a corresponding
+Hadoop serialization class registered in the Hadoop configuration files for your
+cluster. Hadoop <span class="classname">Writable</span> types work because there is already a
+generic serialization implementation built into Hadoop. See the Hadoop
+documentation for information on registering a new serialization helper or
+creating <span class="classname">Writable</span> types.</p>
+</div>
+<div class="paragraph">
+<p>Registered serialization implementations are automatically inherited by
+Cascading.</p>
+</div>
+<div class="paragraph">
+<p>During serialization and deserialization of <span class="classname">Tuple</span> instances that
+contain custom types, the Cascading <span class="classname">Tuple</span> serialization framework
+must store the class name (as a <span class="classname">String</span>) before serializing the
+custom object. This can be very space-inefficient. To overcome this, custom
+types can add the <span class="classname">SerializationToken</span> Java annotation to the custom
+type class. The <span class="classname">SerializationToken</span> annotation expects two arrays&#8201;&#8212;&#8201;one of integers that are used as tokens, and one of Class name strings. Both
+arrays must be the same size. The integer tokens must all have values of 128 or
+greater because the first 128 values are reserved for internal use.</p>
+</div>
+<div class="paragraph">
+<p>During serialization and deserialization, token values are used instead of the
+<span class="classname">String</span> Class names in order to reduce storage needs.</p>
+</div>
+<div class="paragraph">
+<p>Serialization tokens may also be stored in the Hadoop configuration files.
+Alternatively, the tokens can be set as a property passed to the
+<span class="classname">FlowConnector</span>, with the property name
+<span class="code">cascading.serialization.tokens</span>. The value of this property is a
+comma-separated list of <span class="code">token=classname</span> values.</p>
+</div>
+<div class="paragraph">
+<p>Note that Cascading natively serializes and deserializes all primitives and byte
+arrays (<span class="code">byte[]</span>) if the developer registers the
+<span class="classname">BytesSerialization</span> class by using
+<span class="code">TupleSerializationProps.addSerialization( properties,
+BytesSerialization.class.getName() )</span>. The token 127 is used for the Hadoop
+<span class="classname">BytesWritable</span> class.</p>
+</div>
+<div class="paragraph">
+<p>By default, Cascading uses lazy deserialization on Tuple elements during
+comparisons when Hadoop sorts keys during the "shuffle" phase.</p>
+</div>
+<div class="paragraph">
+<p>Cascading supports custom serialization for custom types, as well as lazy
+deserialization of custom types during comparisons. This is accomplished by
+implementing the <span class="classname">StreamComparator</span> interface. See the Javadoc for
+detailed instructions on implementation, and the unit tests for examples.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+  <hr>
+<div class="footer">
+  <div class="footer-text">
+      <a href="index.html">Back to Top</a> - Last updated 2016-01-12 05:12:33 UTC
+      <p>© 2007-2015 Concurrent, Inc. All rights reserved.</p>
+  </div>
+</div>
+</body>
+</html><!--
+     FILE ARCHIVED ON 20:20:32 Feb 09, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 15:22:45 Aug 15, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.907
+  exclusion.robots: 0.037
+  exclusion.robots.policy: 0.023
+  esindex: 0.016
+  cdx.remote: 37.902
+  LoadShardBlock: 31608.98 (3)
+  PetaboxLoader3.datanode: 436.936 (4)
+  PetaboxLoader3.resolve: 31731.393 (3)
+  load_resource: 711.27
+-->
