@@ -24,7 +24,7 @@ function injectHeader() {
   <div class="container">
     <div class="branding" onclick="window.location.href='index.html'" style="cursor:pointer;">
       <h1 class="header-title">🚀 Cascading 3.0 Documentation</h1>
-      <p class="header-subtitle">✨ Rehosted because the original site vanished!</p>
+      <p class="header-subtitle">✨ Original docs offline, Wayback tricky and slow 😅 — here’s Cascading 3.0 Docs, fully searchable! 🔍</p>
     </div>
     <div id="search" style="margin-top:10px;"></div>
   </div>
