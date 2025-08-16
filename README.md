@@ -3,7 +3,7 @@
 ## What is this?
 This project is a rehosted version of the **Cascading 3.0 Documentation**.  
 The original site went offline, and navigating the Wayback Machine was tricky and slow 😅.  
-So, I rehosted it on **GitHub Pages** to make it easy to browse — and now it’s fully searchable!
+So, I rehosted it on **cascading.sumantapaudel.com.np** to make it easy to browse — and now it’s fully searchable!
 
 ## Why I created it
 - The original docs were hard to access and search through.  
@@ -12,7 +12,7 @@ So, I rehosted it on **GitHub Pages** to make it easy to browse — and now it�
 - Provides **offline-friendly, searchable docs** that anyone can explore.
 
 ## Features
-- Fully static HTML pages, hosted on **GitHub Pages**.  
+- Fully static HTML pages, hosted on **cascading.sumantapaudel.com.np**.  
 - Search functionality powered by **Pagefind**.  
 - Clean, responsive header and layout.
 

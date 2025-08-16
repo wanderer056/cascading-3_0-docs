@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://cascading.sumantapaudel.com.np/sitemap.xml
+
+# Crawl delay (optional - be respectful to servers)
+Crawl-delay: 1
+
+# Allow all content to be indexed
+Allow: /css/
+Allow: /js/
+Allow: /pagefind/
+Allow: /*.html
+
+# Disallow temporary or system files
+Disallow: /.git/
+Disallow: /.venv/
+Disallow: /node_modules/
+Disallow: /*.log
+Disallow: /*.tmp
