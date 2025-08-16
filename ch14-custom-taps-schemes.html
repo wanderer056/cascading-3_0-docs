@@ -683,78 +683,12 @@ a:hover { color: #0060B8; text-decoration:underline; }
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
+
+  <script src="js/common-header.js"></script>
+  <script src="js/common-footer.js"></script>
 </head>
 <body class="book toc2">
-<div id="header">
-  <div class="container">
-    <div class="branding" onclick="location.href='"></div>
-    <div class="header-top">
-      <div class="menu-top-header-container">
-        <ul id="menu-top-header" class="menu">
-          <li id="menu-item-267" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-267"><a href="">Forums</a></li>
-          <li id="menu-item-265" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-265"><a href="">Products</a></li>
-          <li id="menu-item-475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-475"><a href="">Downloads</a></li>
-          <li id="menu-item-266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="">SDK</a></li>
-          <li id="menu-item-516" class="menu-item-last menu-item menu-item-type-custom menu-item-object-custom menu-item-516"><a target="_blank" href="">Driven Login</a></li>
-        </ul>
-      </div>
 
-      <div class="header-google">
-        <script>
-          jQuery("gsc-i-id1").keyup(function(e){
-            if(event.keyCode == 13){
-              alert("pressed enter");
-              $("#gsc-b-id1").click();
-            }
-          });
-
-          function OpenInNewTab(url) {
-            var win = window.open(url, '_blank');
-            win.focus();
-          }
-        </script>
-        <div class="gsc-bar">
-          <input onkeydown="if (event.keyCode == 13) OpenInNewTab('http://www.cascading.org/search_gcse-2/?search=' + this.value)" autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" spellcheck="false" style="outline: none;"></div>
-        <div class="gsc-bar">
-          <input type="button" value="Search" class="gsc-search-button" title="search" onclick="OpenInNewTab(' + document.getElementById('gsc-i-id1').value)">
-        </div>
-      </div>
-    </div>
-    <nav id="nav">
-      <div class="menu-home-container">
-        <ul id="menu-home" class="nav-menu">
-          <li id="menu-item-430" class="menu-item-first menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-430"><a href="ch14-custom-taps-schemes.html#">Projects</a>
-            <ul class="sub-menu">
-              <li id="menu-item-339" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-339"><a href="">Cascading</a></li>
-              <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-362"><a href="">Lingual</a></li>
-              <li id="menu-item-381" class="menu-item menu-item-type-post_type menu-item-object-extension menu-item-381"><a href="">Pattern</a></li>
-              <li id="menu-item-640" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-640"><a href="">Scalding</a></li>
-              <li id="menu-item-641" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-641"><a href="">Cascalog</a></li>
-              <li id="menu-item-144" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-144"><a href="">Load</a></li>
-              <li id="menu-item-145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-145"><a href="">Multitool</a></li>
-            </ul>
-          </li>
-          <li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="">Extensions</a></li>
-          <li id="menu-item-571" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-parent menu-item-has-children menu-item-571"><a href="ch14-custom-taps-schemes.html#">Resources</a>
-            <ul class="sub-menu">
-              <li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-92 current_page_item menu-item-95"><a href="">Documentation</a></li>
-              <li id="menu-item-334" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-334"><a href="">Tutorials</a></li>
-              <li id="menu-item-514" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-514"><a target="_blank" href="">Driven</a></li>
-            </ul>
-          </li>
-          <li id="menu-item-572" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-572"><a href="ch14-custom-taps-schemes.html#">Support</a>
-            <ul class="sub-menu">
-              <li id="menu-item-427" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427"><a href="">Overview</a></li>
-              <li id="menu-item-590" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-590"><a href="">Compatibility</a></li>
-            </ul>
-          </li>
-          <li id="menu-item-97" class="menu-item-last menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="">News</a></li>
-        </ul>
-      </div>
-    </nav>
-
-  </div>
-          <span id="revnumber">version 3.0-20160112</span>
         <div id="toc" class="toc2">
           <div id="toctitle">Table of Contents</div>
           <ul class="sectlevel1">
@@ -1073,31 +1007,6 @@ resource</p>
 </div>
 </div>
 </div>
-  <hr>
-<div class="footer">
-  <div class="footer-text">
-      <a href="index.html">Back to Top</a> - Last updated 2016-01-12 05:12:33 UTC
-      <p>© 2007-2015 Concurrent, Inc. All rights reserved.</p>
-  </div>
-</div>
-</body>
-</html><!--
-     FILE ARCHIVED ON 22:30:41 Feb 08, 2020 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 15:22:58 Aug 15, 2025.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
 
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
--->
-<!--
-playback timings (ms):
-  captures_list: 0.982
-  exclusion.robots: 0.042
-  exclusion.robots.policy: 0.026
-  esindex: 0.014
-  cdx.remote: 32.885
-  LoadShardBlock: 492.388 (3)
-  PetaboxLoader3.datanode: 1050.273 (4)
-  PetaboxLoader3.resolve: 695.217 (2)
-  load_resource: 1299.884
--->
+</body>
+</html>

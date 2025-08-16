@@ -1,0 +1,189 @@
+/* Common Layout Styling for Cascading 3.0 Documentation */
+
+/* Header Styling */
+#header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    padding: 20px 0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    margin-bottom: 30px !important;
+    border: none !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+#header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#header .branding {
+    text-align: center;
+}
+
+#header .branding h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #fff, #f0f8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#header .branding p {
+    margin: 0 !important;
+    font-size: 1.1em !important;
+    opacity: 0.95 !important;
+    font-style: italic !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    color: white !important;
+    line-height: 1.4 !important;
+}
+
+/* Footer Styling */
+.footer {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 25px 0;
+    margin-top: 50px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+}
+
+.footer .footer-text {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer .footer-text a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.footer .footer-text a:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.footer .footer-text p {
+    margin: 8px 0;
+    font-size: 1em;
+    opacity: 0.95;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #header .branding h1 {
+        font-size: 2em;
+    }
+    
+    #header .branding p {
+        font-size: 1em;
+    }
+    
+    .footer .footer-text {
+        padding: 0 15px;
+    }
+}
+
+/* Fun animations */
+#header .branding h1 {
+    animation: fadeInDown 0.8s ease-out;
+}
+
+/* Override any existing conflicting styles */
+body > div[id*="header"],
+body > div[class*="header"] {
+    display: none !important;
+}
+
+/* Override the old .branding styles that are conflicting */
+.branding {
+    background-image: none !important;
+    width: auto !important;
+    height: auto !important;
+    background-repeat: no-repeat !important;
+    float: none !important;
+    cursor: default !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure our header is visible and styled correctly */
+#header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Hide any old header elements that might still be in the HTML */
+div[class*="header"],
+div[id*="header"]:not(#header) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Override any existing text styling */
+#header * {
+    color: white !important;
+    text-shadow: none !important;
+    background: none !important;
+}
+
+#header .branding h1 {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3) !important;
+    background: linear-gradient(45deg, #fff, #f0f8ff) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-size: 2.5em !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+    line-height: 1.2 !important;
+}
+
+#header .branding p {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.footer {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
