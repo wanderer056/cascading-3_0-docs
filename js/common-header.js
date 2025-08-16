@@ -1,73 +1,67 @@
-// Common Header for Cascading 3.0 Documentation
-// This script injects the header into all pages
-
 function injectHeader() {
-    // First, ensure the CSS is loaded
+    // --- Ensure CSS files are loaded ---
     if (!document.querySelector('link[href="css/common-layout.css"]')) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = 'css/common-layout.css';
         document.head.appendChild(link);
     }
-    
-    // Remove any existing headers first
-    const existingHeaders = document.querySelectorAll('div[id*="header"], div[class*="header"]');
-    existingHeaders.forEach(header => {
-        if (header.id !== 'header') { // Don't remove our new header
-            header.remove();
-        }
-    });
-    
-    // Remove any existing header with our ID to avoid duplicates
-    const ourHeader = document.getElementById('header');
-    if (ourHeader) {
-        ourHeader.remove();
+
+    if (!document.querySelector('link[href="/pagefind/pagefind-ui.css"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/pagefind/pagefind-ui.css';
+        document.head.appendChild(link);
     }
-    
-    // Then inject the header with sticky positioning
-    const header = `
-<div id="header" style="position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; z-index: 9999 !important; transition: all 0.3s ease !important;">
+
+    // --- Remove existing headers ---
+    const existingHeaders = document.querySelectorAll('div[id*="header"], div[class*="header"]');
+    existingHeaders.forEach(h => h.remove());
+
+    // --- Inject header HTML ---
+    const headerHTML = `
+<div id="header" style="position: fixed; top:0; left:0; right:0; width:100%; z-index:9999; transition: all 0.3s ease;">
   <div class="container">
-    <div class="branding" onclick="window.location.href='index.html'" style="cursor: pointer; transition: all 0.3s ease;">
+    <div class="branding" onclick="window.location.href='index.html'" style="cursor:pointer;">
       <h1 class="header-title">🚀 Cascading 3.0 Documentation</h1>
-      <p class="header-subtitle">✨ Rehosted because the original site vanished and the Wayback Machine was driving me nuts! 🔍</p>
+      <p class="header-subtitle">✨ Rehosted because the original site vanished!</p>
     </div>
+    <div id="search" style="margin-top:10px;"></div>
   </div>
 </div>`;
-    
-    // Find the body tag and insert header after it
-    const body = document.querySelector('body');
-    if (body) {
-        body.insertAdjacentHTML('afterbegin', header);
+    document.body.insertAdjacentHTML('afterbegin', headerHTML);
+
+    // --- Load Pagefind JS dynamically ---
+    if (!document.querySelector('script[src="/pagefind/pagefind-ui.js"]')) {
+        const script = document.createElement('script');
+        script.src = '/pagefind/pagefind-ui.js';
+        script.onload = () => {
+            if (window.PagefindUI) {
+                new PagefindUI({ element: "#search", showSubResults: true });
+            }
+        };
+        document.head.appendChild(script);
+    } else {
+        if (window.PagefindUI) {
+            new PagefindUI({ element: "#search", showSubResults: true });
+        }
     }
-    
-    // Initialize header scroll behavior
+
+    // --- Initialize header scroll behavior ---
     initHeaderScroll();
 }
 
-// Initialize header scroll behavior
+// --- Scroll shrink behavior ---
 function initHeaderScroll() {
-    console.log('Initializing header scroll behavior...');
-    let lastScrollTop = 0;
     const header = document.getElementById('header');
     const title = header?.querySelector('.header-title');
     const subtitle = header?.querySelector('.header-subtitle');
-    
-    console.log('Header elements found:', { header, title, subtitle });
-    
-    if (!header || !title || !subtitle) {
-        console.error('Header elements not found, cannot initialize scroll behavior');
-        return;
-    }
-    
-    // Add scroll event listener
+    if (!header || !title || !subtitle) return;
+
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        console.log('Scroll detected:', scrollTop);
-        
+
         if (scrollTop > 50) {
-            // Scrolled down - shrink header slightly
-            console.log('Shrinking header...');
             header.style.setProperty('padding', '10px 0', 'important');
             title.style.setProperty('font-size', '1.8em', 'important');
             title.style.setProperty('margin', '0 0 5px 0', 'important');
@@ -75,8 +69,6 @@ function initHeaderScroll() {
             subtitle.style.setProperty('margin', '0', 'important');
             header.style.setProperty('box-shadow', '0 2px 10px rgba(0,0,0,0.15)', 'important');
         } else {
-            // At top - keep header at consistent compact size
-            console.log('Compact header size...');
             header.style.setProperty('padding', '12px 0', 'important');
             title.style.setProperty('font-size', '2em', 'important');
             title.style.setProperty('margin', '0 0 6px 0', 'important');
@@ -84,29 +76,16 @@ function initHeaderScroll() {
             subtitle.style.setProperty('margin', '0', 'important');
             header.style.setProperty('box-shadow', '0 4px 15px rgba(0,0,0,0.1)', 'important');
         }
-        
-        lastScrollTop = scrollTop;
     });
-    
-    console.log('Scroll event listener attached successfully');
-    
-    // Test the scroll behavior immediately
-    setTimeout(() => {
-        console.log('Testing scroll behavior...');
-        const testScroll = window.pageYOffset || document.documentElement.scrollTop;
-        console.log('Current scroll position:', testScroll);
-    }, 1000);
 }
 
-// Inject header when DOM is loaded
+// --- Initialize on DOM ready ---
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', injectHeader);
 } else {
     injectHeader();
 }
 
-// Also try to inject after a short delay to ensure all styles are loaded
-setTimeout(injectHeader, 100);
-
-// Debug: log when header is injected
+// Debug
 console.log('Common header script loaded');
+
