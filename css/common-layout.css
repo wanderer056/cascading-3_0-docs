@@ -2,7 +2,7 @@
 
 /* Body padding to account for sticky header */
 body {
-    padding-top: 110px !important;
+    padding-top: 140px !important;
     scroll-behavior: smooth !important;
 }
 
@@ -21,7 +21,13 @@ body {
 
 /* Add extra spacing after header */
 #content {
+    margin-top: 30px !important;
+}
+
+/* Ensure main content has proper spacing */
+main, .main, .content, .chapter {
     margin-top: 20px !important;
+    padding-top: 10px !important;
 }
 
 /* Smooth header transitions and force sticky behavior */
@@ -103,6 +109,50 @@ html body #header {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
     color: white !important;
     line-height: 1.4 !important;
+}
+
+/* Search container styling */
+.search-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    min-width: 300px;
+}
+
+/* Override Pagefind CSS variables for better visibility */
+.pagefind-ui {
+    --pagefind-ui-text: #007bff !important;
+    --pagefind-ui-background: #ffffff !important;
+    --pagefind-ui-border: #e1e5e9 !important;
+    --pagefind-ui-primary: #007bff !important;
+    --pagefind-ui-scale: 0.8 !important;
+}
+
+/* Ensure search results are visible and scrollable */
+.pagefind-ui__results-area {
+    max-height: 400px !important;
+    overflow-y: auto !important;
+}
+
+/* Mobile responsiveness for search */
+@media (max-width: 768px) {
+    .search-container {
+        position: static;
+        margin-top: 15px;
+        margin-right: 0;
+        text-align: center;
+        min-width: auto;
+    }
+    
+    .pagefind-ui {
+        position: fixed !important;
+        top: 80px !important;
+        left: 10px !important;
+        right: 10px !important;
+        min-width: auto !important;
+        max-width: none !important;
+    }
 }
 
 /* Footer Styling */

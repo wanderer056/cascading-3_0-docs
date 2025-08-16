@@ -38,17 +38,37 @@ function injectHeader() {
         script.onload = () => {
             if (window.PagefindUI) {
                 new PagefindUI({ element: "#search", showSubResults: true });
+                addSearchCloseHandler();
             }
         };
         document.head.appendChild(script);
     } else {
         if (window.PagefindUI) {
             new PagefindUI({ element: "#search", showSubResults: true });
+            addSearchCloseHandler();
         }
     }
 
     // --- Initialize header scroll behavior ---
     initHeaderScroll();
+}
+
+// Function to add click handler for closing search results
+function addSearchCloseHandler() {
+    setTimeout(() => {
+        document.addEventListener('click', function(event) {
+            const searchResults = document.querySelector('.pagefind-ui__results-area');
+            if (searchResults && !searchResults.contains(event.target) && !event.target.closest('#search')) {
+                // Click is outside search area, close results
+                const searchInput = document.querySelector('.pagefind-ui__search-input');
+                if (searchInput) {
+                    searchInput.value = '';
+                    // Trigger input event to clear results
+                    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            }
+        });
+    }, 500);
 }
 
 // --- Scroll shrink behavior ---
