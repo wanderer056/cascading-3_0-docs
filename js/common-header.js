@@ -23,8 +23,11 @@ function injectHeader() {
 <div id="header" style="position: fixed; top:0; left:0; right:0; width:100%; z-index:9999; transition: all 0.3s ease;">
   <div class="container">
     <div class="branding" onclick="window.location.href='index.html'" style="cursor:pointer;">
-      <h1 class="header-title">🚀 Cascading 3.0 Documentation</h1>
-      <p class="header-subtitle">✨ Original docs offline, Wayback tricky and slow 😅 — here’s Cascading 3.0 Docs, fully searchable! 🔍</p>
+      <h1 class="header-title">🚀 Cascading 3.0 Userguide</h1>
+      <p class="header-subtitle">
+  ✨    Original docs offline, Wayback tricky and slow 😅 — here’s the Cascading 3.0 Userguide, fully searchable! 🔍<br>
+  📖    Cascading 3.0 API documentation coming soon…
+      </p>
     </div>
     <div id="search" style="margin-top:10px;"></div>
   </div>
