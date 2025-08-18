@@ -38,7 +38,7 @@ function injectSEOHeader() {
     <div class="branding" onclick="window.location.href='index.html'" style="cursor:pointer;">
       <h1 class="header-title">🚀 Cascading 3.0 UserGuide</h1>
       <p class="header-subtitle">
-  ✨    Original docs offline, Wayback tricky and slow 😅 — here’s the Cascading 3.0 Userguide, fully searchable! 🔍<br>
+  ✨    Here’s the Cascading 3.0 Userguide, fully searchable! 🔍<br>
   📖    Cascading 3.0 API documentation coming soon…
       </p>
 
